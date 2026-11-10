@@ -56,6 +56,26 @@ sendImageContent, sendStyle, sendCustomPuzzle, sendMultipleWatchBitmapNum), `Nor
    (implemented as `ScreenTable`).
 7. The watch draws the time itself on top of the picture, so only the background is sent.
 
+## 2b. Compiled face files (live data, animation) — HiSilicon platform
+
+Evidence: `com/compress/utils/DialConvertTool.java`, `ImageConvertTool.java`, `WatchFaceImageUtil.java`,
+`com/compress/view/Dial*.java`, `com/compress/nativelib/NativeLib.java`, sample `assets/watchFace/watchFace.xml`,
+`common/storage/DeviceDao.isSupportHs`, `module/device/trans/FtpTransferMgr.startPushHsFile`.
+
+- A face is described in XML (`<dial size=… version="3.0" watch_type=…>` with layers of `static_img`,
+  `sequence_img` (animation frames), `rotate_img` (hands), `option_img`, `digital_img` (digit images
+  bound to watch data via `bind_data`, e.g. 1 = time, 70/80 = date parts, 83 = weekday), `label`,
+  `arc_label`, `box_progress`, `arc_progress`, `video`, `click`, `kaleidoscope`).
+- `DialConvertTool.writeDataToBin` writes a header + one record per element + an image section
+  (`BinHeader`, `SeekInfo` table, image data).
+- Images are compressed with **HFBC** (`ImageHeader.compressMode = 4`, `cmpMode "HFBC"/"HFBC_ABYPASS"`)
+  by a **native** library (`NativeLib.CompressInJNI`, `libnativelib.so`) — not in Java.
+- Used for watches with platform type **11** and the own-file-transfer flag (`isSupportHs`); sent with
+  `FtpTransferMgr.startPushHsFile` (types: photo_album, clock_diy_bg, setting, …).
+- Status: **not implemented**. Needs (1) the user's platform byte to know if this applies at all,
+  (2) a reimplementation of the native HFBC encoder (or proof that the watch accepts uncompressed
+  images), (3) the Hs/FTP transfer protocol.
+
 ## 3. Market faces and other files
 
 - Download: vendor API `api/v1/dials`, `api/v1/dial/compatible`, `api/v1/dial/download`,
