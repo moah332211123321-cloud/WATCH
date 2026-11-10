@@ -90,7 +90,14 @@ were not all traced (U).
   `device_mtu`) and sends them with a delay `mIntervalBetweenTwoPackage`; it warns above 20 chunks.
 - `getMtu` = `AB 00 04 FF A7 80 ??`; speed switch `switchSpeed` = `AB 00 04 FF 87 80 ??`
   (labels "BLE高速传输/低速传输" = high/low-speed transfer).
-- Values of the write interval and whether writes are with/without response: U.
+- Write type (source): the reference app calls `BluetoothGatt.writeCharacteristic` without setting a write
+  type (`BleConnector.writeCharacteristic`), so Android uses its default — write-without-response when the
+  characteristic offers it. Sawar does the same, with iOS flow control (`canSendWriteWithoutResponse`).
+- High-speed mode (source: `DialUtil.enterHighSpeedMode`, `AlbumDialActivity.install/onDestroy`):
+  `AB 00 04 FF 87 80 01` before picture transfers, `… 00` afterwards.
+- First real-device observation (user's iPhone + urjwanplus fw 1.02, 2026-11-10): during a photo-face
+  install the watch showed its "receiving" icon and the progress advanced, i.e. the watch accepted the
+  `AD`/`AE` transfer and answered with acks. The transfer was very slow with write-with-response.
 
 ### 3.5 File-transfer frames ("A0"/"A1") and CRC — D
 

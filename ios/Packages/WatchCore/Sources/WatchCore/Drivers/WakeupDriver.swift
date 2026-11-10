@@ -172,6 +172,21 @@ public actor WakeupDriver: WatchDriver {
             throw WatchError.protocolUnconfirmed("Bluetooth packet size too small for picture transfer")
         }
         let packages = PhotoFace.packages(pixels)
+        try await perform(.highSpeed(true)) // as the reference app's album screen does
+        do {
+            try await sendPhotoPackages(packages, fileSize: pixels.count, progress: progress)
+        } catch {
+            try? await perform(.highSpeed(false))
+            throw error
+        }
+        let c = timeColor + [255, 255, 255]
+        try await write(PhotoFace.style(red: c[0], green: c[1], blue: c[2]))
+        try await write(PhotoFace.puzzleFlag(false))
+        try? await perform(.highSpeed(false))
+    }
+
+    private func sendPhotoPackages(_ packages: [[UInt8]], fileSize: Int,
+                                   progress: @escaping @Sendable (Double) -> Void) async throws {
         try await write(PhotoFace.backgroundCount(1))
         var index = 0
         var sends = 0
@@ -180,7 +195,7 @@ public actor WakeupDriver: WatchDriver {
             guard sends <= packages.count * 3 else { throw WatchError.timeout } // the watch keeps asking for resends
             let package = packages[index]
             let info = PhotoFace.infoPacket(package: package, index: index, isLast: index == packages.count - 1,
-                                            fileSize: pixels.count)
+                                            fileSize: fileSize)
             let content = PhotoFace.contentStream(package: package, index: index)
             let ack = try await sendAndWait(timeout: .seconds(10), matching: { e in
                 if case .faceAck = e { return true }
@@ -193,9 +208,6 @@ public actor WakeupDriver: WatchDriver {
             index = next
             progress(min(1, Double(index) / Double(packages.count)))
         }
-        let c = timeColor + [255, 255, 255]
-        try await write(PhotoFace.style(red: c[0], green: c[1], blue: c[2]))
-        try await write(PhotoFace.puzzleFlag(false))
     }
 
     public func updateFirmware(file: URL, consent: UserConsent) async throws {

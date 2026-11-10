@@ -3,47 +3,48 @@ import SwiftUI
 import WatchCore
 
 /// 100 original watch-face backgrounds: 10 drawn styles × 10 palettes, all generated in code.
-/// Style directions (AMOLED minimal, neon arcs, gradients, glass, geometry, nature) follow common trends
-/// seen on Dribbble/Behance; no artwork from those sites is used. The watch draws the time on top.
+/// Direction: flat bold colour, Bauhaus geometry, dot matrix, pie dials, bento tiles — modern
+/// trends seen on Dribbble/Behance and in the user's references. No artwork is copied.
+/// The watch draws the time on top of a still picture; the animation is for the in-app preview only.
 enum FaceStyle: Int, CaseIterable, Identifiable {
-    case aurora, neonArcs, ticks, glassOrbs, waves, geometric, dunes, dotGrid, arabesque, rings
+    case bauhaus, dotMatrix, pies, bento, arrows, ruler, pixels, burst, blobs, squircles
     var id: Int { rawValue }
     var title: String {
         switch self {
-        case .aurora: return S("Aurora")
-        case .neonArcs: return S("Neon arcs")
-        case .ticks: return S("Minimal ticks")
-        case .glassOrbs: return S("Glass orbs")
-        case .waves: return S("Waves")
-        case .geometric: return S("Geometric")
-        case .dunes: return S("Dunes")
-        case .dotGrid: return S("Dot grid")
-        case .arabesque: return S("Arabesque")
-        case .rings: return S("Rings")
+        case .bauhaus: return S("Bauhaus")
+        case .dotMatrix: return S("Dot matrix")
+        case .pies: return S("Pie dials")
+        case .bento: return S("Bento tiles")
+        case .arrows: return S("Arrows")
+        case .ruler: return S("Ruler")
+        case .pixels: return S("Pixels")
+        case .burst: return S("Sunburst")
+        case .blobs: return S("Soft blobs")
+        case .squircles: return S("Squircles")
         }
     }
 }
 
 struct FacePalette {
     let name: String
-    let top: UInt32, bottom: UInt32, accent: UInt32, second: UInt32, time: UInt32
-    var topColor: Color { Color(UIColor(rgb: top)) }
-    var bottomColor: Color { Color(UIColor(rgb: bottom)) }
-    var a: Color { Color(UIColor(rgb: accent)) }
-    var b: Color { Color(UIColor(rgb: second)) }
+    let bg: UInt32, ink: UInt32, accent: UInt32, soft: UInt32, time: UInt32
+    var bgColor: Color { Color(UIColor(rgb: bg)) }
+    var inkColor: Color { Color(UIColor(rgb: ink)) }
+    var accentColor: Color { Color(UIColor(rgb: accent)) }
+    var softColor: Color { Color(UIColor(rgb: soft)) }
     var timeColor: Color { Color(UIColor(rgb: time)) }
 
     static let all: [FacePalette] = [
-        FacePalette(name: S("Midnight"), top: 0x05060A, bottom: 0x141A2E, accent: 0x3FD2C7, second: 0x7C5CFF, time: 0xFFFFFF),
-        FacePalette(name: S("Sunset"), top: 0x1A0B12, bottom: 0x3D1426, accent: 0xFF7A59, second: 0xFFC15E, time: 0xFFF4E6),
-        FacePalette(name: S("Forest"), top: 0x07130E, bottom: 0x10291D, accent: 0x4ADE80, second: 0xB6F09C, time: 0xEFFFF3),
-        FacePalette(name: S("Ocean"), top: 0x03111F, bottom: 0x08304F, accent: 0x38BDF8, second: 0x22D3EE, time: 0xFFFFFF),
-        FacePalette(name: S("Rose"), top: 0x1A0A14, bottom: 0x2E1022, accent: 0xFF6B9A, second: 0xFFB3C7, time: 0xFFF0F5),
-        FacePalette(name: S("Gold"), top: 0x0B0906, bottom: 0x1F1A10, accent: 0xE6B455, second: 0xFFE3A3, time: 0xFFF7E0),
-        FacePalette(name: S("Ice"), top: 0xE8F1F8, bottom: 0xC9DCEB, accent: 0x2563EB, second: 0x0EA5E9, time: 0x0B1A2A),
-        FacePalette(name: S("Lava"), top: 0x120404, bottom: 0x2A0A06, accent: 0xFF3D2E, second: 0xFF9F1C, time: 0xFFFFFF),
-        FacePalette(name: S("Lavender"), top: 0x120F1F, bottom: 0x221B3A, accent: 0xA48BFF, second: 0xF0ABFC, time: 0xF5F0FF),
-        FacePalette(name: S("Mono"), top: 0x000000, bottom: 0x1C1C1F, accent: 0xFFFFFF, second: 0x8E8E98, time: 0xFFFFFF),
+        FacePalette(name: S("Signal"), bg: 0x0B0B0C, ink: 0xEDEDED, accent: 0xFF4F12, soft: 0x3A3A3D, time: 0xFFFFFF),
+        FacePalette(name: S("Paper"), bg: 0xECEAE4, ink: 0x111111, accent: 0xFF4F12, soft: 0xBDBAB2, time: 0x111111),
+        FacePalette(name: S("Electric"), bg: 0x0A0F2C, ink: 0xFFFFFF, accent: 0x2F6BFF, soft: 0x1E2A5A, time: 0xFFFFFF),
+        FacePalette(name: S("Lime"), bg: 0x101010, ink: 0xF2F2F2, accent: 0xC6F432, soft: 0x2E2E2E, time: 0xFFFFFF),
+        FacePalette(name: S("Lilac"), bg: 0xF6D6F0, ink: 0x1A1A1A, accent: 0x9B5CFF, soft: 0xE7A8DC, time: 0x1A1A1A),
+        FacePalette(name: S("Sunflower"), bg: 0xFFD60A, ink: 0x111111, accent: 0xFF4F12, soft: 0xF2B705, time: 0x111111),
+        FacePalette(name: S("Mint"), bg: 0x0E1F19, ink: 0xE8FFF4, accent: 0x3DDC97, soft: 0x1F3D32, time: 0xFFFFFF),
+        FacePalette(name: S("Slate"), bg: 0x3E4550, ink: 0xF1F1F1, accent: 0xFF4F12, soft: 0x5A626E, time: 0xFFFFFF),
+        FacePalette(name: S("Cherry"), bg: 0x1A0507, ink: 0xFFE9E9, accent: 0xFF3B30, soft: 0x4A1418, time: 0xFFFFFF),
+        FacePalette(name: S("Sky"), bg: 0x64C8FF, ink: 0x0B1A2A, accent: 0xFFFFFF, soft: 0x9ADBFF, time: 0x0B1A2A),
     ]
 }
 
@@ -59,190 +60,202 @@ struct DesignFace: Identifiable, Hashable {
     }
 }
 
-/// The background artwork (no clock).
+/// The background artwork (no clock). `t` = seconds for the preview animation; 0 = the still sent to the watch.
 struct DesignFaceView: View {
     let face: DesignFace
-
+    var t: Double = 0
     var body: some View {
-        GeometryReader { geo in
-            let s = min(geo.size.width, geo.size.height)
-            let p = face.palette
-            ZStack {
-                LinearGradient(colors: [p.topColor, p.bottomColor], startPoint: .top, endPoint: .bottom)
-                art(p, s).frame(width: geo.size.width, height: geo.size.height)
-            }
-        }
-        .clipped()
-    }
-
-    @ViewBuilder private func art(_ p: FacePalette, _ s: CGFloat) -> some View {
-        switch face.style {
-        case .aurora:
-            ZStack {
-                Ellipse().fill(p.a).frame(width: s * 0.95, height: s * 0.5).blur(radius: s * 0.14)
-                    .offset(x: -s * 0.18, y: -s * 0.22).opacity(0.75)
-                Ellipse().fill(p.b).frame(width: s * 0.8, height: s * 0.45).blur(radius: s * 0.16)
-                    .offset(x: s * 0.2, y: s * 0.2).opacity(0.65)
-            }
-        case .neonArcs:
-            ZStack {
-                ForEach(0..<3, id: \.self) { i in
-                    Circle()
-                        .trim(from: 0.04 * Double(i), to: 0.55 + 0.12 * Double(i))
-                        .stroke(AngularGradient(colors: [p.a, p.b, p.a], center: .center),
-                                style: StrokeStyle(lineWidth: s * 0.035, lineCap: .round))
-                        .rotationEffect(.degrees(Double(i) * 40 - 90))
-                        .frame(width: s * (0.86 - 0.18 * Double(i)), height: s * (0.86 - 0.18 * Double(i)))
-                        .shadow(color: p.a.opacity(0.8), radius: s * 0.03)
-                }
-            }
-        case .ticks:
-            ZStack {
-                ForEach(0..<60, id: \.self) { i in
-                    let major = i % 5 == 0
-                    Capsule()
-                        .fill(major ? p.a : p.b.opacity(0.55))
-                        .frame(width: s * (major ? 0.014 : 0.006), height: s * (major ? 0.07 : 0.035))
-                        .offset(y: -s * 0.43)
-                        .rotationEffect(.degrees(Double(i) * 6))
-                }
-            }
-        case .glassOrbs:
-            ZStack {
-                orb(p.a, s * 0.55).offset(x: -s * 0.18, y: -s * 0.16)
-                orb(p.b, s * 0.42).offset(x: s * 0.22, y: s * 0.18)
-                orb(p.a.opacity(0.6), s * 0.25).offset(x: s * 0.2, y: -s * 0.3)
-            }
-        case .waves:
-            ZStack {
-                ForEach(0..<6, id: \.self) { i in
-                    Wave(phase: Double(i) * 0.9, amplitude: s * 0.05)
-                        .stroke(i.isMultiple(of: 2) ? p.a : p.b, lineWidth: s * 0.012)
-                        .opacity(1 - Double(i) * 0.12)
-                        .offset(y: s * (-0.25 + 0.1 * Double(i)))
-                }
-            }
-        case .geometric:
-            ZStack {
-                ForEach(0..<6, id: \.self) { i in
-                    RoundedRectangle(cornerRadius: s * 0.05)
-                        .stroke(i.isMultiple(of: 2) ? p.a : p.b, lineWidth: s * 0.01)
-                        .frame(width: s * 0.55, height: s * 0.55)
-                        .rotationEffect(.degrees(Double(i) * 15))
-                        .opacity(0.85)
-                }
-            }
-        case .dunes:
-            ZStack {
-                ForEach(0..<4, id: \.self) { i in
-                    Hill(height: 0.35 + 0.12 * Double(i), shift: Double(i) * 0.23)
-                        .fill(LinearGradient(colors: [p.a.opacity(0.9 - 0.18 * Double(i)), p.b.opacity(0.5)],
-                                             startPoint: .top, endPoint: .bottom))
-                }
-            }
-        case .dotGrid:
-            Canvas { ctx, size in
-                let n = 14
-                let step = min(size.width, size.height) / CGFloat(n)
-                let center = CGPoint(x: size.width / 2, y: size.height / 2)
-                var y = step / 2
-                while y < size.height {
-                    var x = step / 2
-                    while x < size.width {
-                        let d = hypot(x - center.x, y - center.y) / (min(size.width, size.height) / 2)
-                        let r = step * 0.38 * max(0.15, 1 - d)
-                        let color = d < 0.5 ? p.a : p.b
-                        ctx.fill(Path(ellipseIn: CGRect(x: x - r, y: y - r, width: r * 2, height: r * 2)),
-                                 with: .color(color.opacity(0.85)))
-                        x += step
-                    }
-                    y += step
-                }
-            }
-        case .arabesque:
-            Canvas { ctx, size in
-                let cell = min(size.width, size.height) / 4
-                var y: CGFloat = 0
-                var row = 0
-                while y < size.height + cell {
-                    var x: CGFloat = row.isMultiple(of: 2) ? 0 : cell / 2
-                    while x < size.width + cell {
-                        ctx.stroke(eightPointStar(center: CGPoint(x: x, y: y), radius: cell * 0.42),
-                                   with: .color((row.isMultiple(of: 2) ? p.a : p.b).opacity(0.8)), lineWidth: cell * 0.04)
-                        x += cell
-                    }
-                    y += cell * 0.87
-                    row += 1
-                }
-            }
-        case .rings:
-            ZStack {
-                ForEach(0..<7, id: \.self) { i in
-                    Circle().stroke(p.b.opacity(0.22), lineWidth: s * 0.006)
-                        .frame(width: s * (0.92 - 0.12 * Double(i)), height: s * (0.92 - 0.12 * Double(i)))
-                }
-                Circle().trim(from: 0, to: 0.72)
-                    .stroke(p.a, style: StrokeStyle(lineWidth: s * 0.05, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
-                    .frame(width: s * 0.8, height: s * 0.8)
-            }
-        }
-    }
-
-    private func orb(_ color: Color, _ size: CGFloat) -> some View {
-        Circle()
-            .fill(RadialGradient(colors: [color.opacity(0.9), color.opacity(0.15)], center: .topLeading,
-                                 startRadius: 0, endRadius: size))
-            .overlay(Circle().stroke(Color.white.opacity(0.35), lineWidth: max(1, size * 0.02)))
-            .frame(width: size, height: size)
+        Canvas { ctx, size in FaceArt.draw(face, in: &ctx, size: size, t: t) }
     }
 }
 
-/// Two squares rotated 45° against each other.
-private func eightPointStar(center: CGPoint, radius r: CGFloat) -> Path {
-    var path = Path()
-    for rotation in [0.0, Double.pi / 4] {
-        let pts = (0..<4).map { k -> CGPoint in
-            let a = rotation + Double(k) * .pi / 2 + .pi / 4
-            return CGPoint(x: center.x + r * CGFloat(cos(a)), y: center.y + r * CGFloat(sin(a)))
+/// Live, animated preview (in the app only).
+struct AnimatedDesignFace: View {
+    let face: DesignFace
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    var body: some View {
+        if reduceMotion {
+            DesignFaceView(face: face)
+        } else {
+            TimelineView(.animation(minimumInterval: 1 / 30)) { tl in
+                DesignFaceView(face: face, t: tl.date.timeIntervalSinceReferenceDate)
+            }
         }
-        path.addLines(pts)
-        path.closeSubpath()
-    }
-    return path
-}
-
-struct Wave: Shape {
-    var phase: Double
-    var amplitude: CGFloat
-    func path(in rect: CGRect) -> Path {
-        var p = Path()
-        let midY = rect.midY
-        p.move(to: CGPoint(x: rect.minX, y: midY))
-        var x = rect.minX
-        while x <= rect.maxX {
-            let t = Double((x - rect.minX) / max(rect.width, 1)) * 2 * .pi * 1.5 + phase
-            p.addLine(to: CGPoint(x: x, y: midY + amplitude * CGFloat(sin(t))))
-            x += 2
-        }
-        return p
     }
 }
 
-struct Hill: Shape {
-    var height: Double   // fraction of the rect covered from the bottom
-    var shift: Double
-    func path(in rect: CGRect) -> Path {
-        var p = Path()
-        let top = rect.maxY - rect.height * CGFloat(height)
-        p.move(to: CGPoint(x: rect.minX, y: rect.maxY))
-        p.addLine(to: CGPoint(x: rect.minX, y: top + rect.height * 0.08))
-        p.addQuadCurve(to: CGPoint(x: rect.maxX, y: top),
-                       control: CGPoint(x: rect.minX + rect.width * CGFloat(0.3 + shift.truncatingRemainder(dividingBy: 0.5)),
-                                        y: top - rect.height * 0.18))
-        p.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
-        p.closeSubpath()
-        return p
+enum FaceArt {
+    static func draw(_ f: DesignFace, in ctx: inout GraphicsContext, size: CGSize, t: Double) {
+        let p = f.palette
+        let w = size.width, h = size.height, s = min(w, h)
+        let ink = GraphicsContext.Shading.color(p.inkColor)
+        let accent = GraphicsContext.Shading.color(p.accentColor)
+        let soft = GraphicsContext.Shading.color(p.softColor)
+        ctx.fill(Path(CGRect(origin: .zero, size: size)), with: .color(p.bgColor))
+        var rng = Seeded(f.id)
+
+        switch f.style {
+        case .bauhaus:
+            let bob = CGFloat(sin(t * 1.3)) * s * 0.02
+            ctx.fill(circle(CGPoint(x: w * 0.3, y: h * 0.3 + bob), s * 0.2), with: accent)
+            var half = Path()
+            half.addArc(center: CGPoint(x: w * 0.28, y: h * 0.86), radius: s * 0.24,
+                        startAngle: .degrees(180), endAngle: .degrees(360), clockwise: false)
+            half.closeSubpath()
+            ctx.fill(half, with: ink)
+            ctx.fill(Path(roundedRect: CGRect(x: w * 0.58, y: h * 0.1, width: s * 0.3, height: s * 0.3),
+                          cornerRadius: s * 0.04), with: soft)
+            var quarter = Path()
+            quarter.move(to: CGPoint(x: w * 0.92, y: h * 0.62))
+            quarter.addArc(center: CGPoint(x: w * 0.92, y: h * 0.62), radius: s * 0.26,
+                           startAngle: .degrees(180), endAngle: .degrees(270), clockwise: false)
+            quarter.closeSubpath()
+            ctx.fill(quarter, with: accent)
+            for i in 0..<4 { for j in 0..<4 {
+                ctx.fill(circle(CGPoint(x: w * 0.62 + CGFloat(i) * s * 0.07, y: h * 0.74 + CGFloat(j) * s * 0.06), s * 0.012),
+                         with: ink)
+            } }
+
+        case .dotMatrix:
+            let cols = 4, rows = 5
+            let cell = min(w / CGFloat(cols), h / CGFloat(rows))
+            let ox = (w - cell * CGFloat(cols)) / 2, oy = (h - cell * CGFloat(rows)) / 2
+            let lit = (Int(t * 1.5) + f.id) % (cols * rows)
+            for r in 0..<rows { for c in 0..<cols {
+                let k = r * cols + c
+                let center = CGPoint(x: ox + cell * (CGFloat(c) + 0.5), y: oy + cell * (CGFloat(r) + 0.5))
+                let on = k == lit || k == (lit + 7) % (cols * rows)
+                ctx.fill(circle(center, cell * 0.44), with: on ? accent : soft)
+            } }
+
+        case .pies:
+            for k in 0..<4 {
+                let cx = w * (k % 2 == 0 ? 0.28 : 0.72), cy = h * (k < 2 ? 0.3 : 0.7)
+                let r = s * 0.2
+                ctx.fill(circle(CGPoint(x: cx, y: cy), r), with: k == 0 ? soft : ink)
+                let sweep = 60 + Double(k) * 70 + (t * 20).truncatingRemainder(dividingBy: 360)
+                var wedge = Path()
+                wedge.move(to: CGPoint(x: cx, y: cy))
+                wedge.addArc(center: CGPoint(x: cx, y: cy), radius: r, startAngle: .degrees(-90),
+                             endAngle: .degrees(-90 + sweep), clockwise: false)
+                wedge.closeSubpath()
+                ctx.fill(wedge, with: k == 0 ? accent : .color(p.accentColor.opacity(0.85)))
+            }
+
+        case .bento:
+            let g = s * 0.04
+            let tiles: [(CGRect, GraphicsContext.Shading)] = [
+                (CGRect(x: g, y: g, width: w - 2 * g, height: h * 0.42), accent),
+                (CGRect(x: g, y: h * 0.42 + 2 * g, width: (w - 3 * g) / 2, height: h * 0.25), soft),
+                (CGRect(x: w / 2 + g / 2, y: h * 0.42 + 2 * g, width: (w - 3 * g) / 2, height: h * 0.25), ink),
+                (CGRect(x: g, y: h * 0.67 + 3 * g, width: w - 2 * g, height: h * 0.33 - 4 * g), soft),
+            ]
+            for (i, tile) in tiles.enumerated() {
+                var c = ctx
+                c.opacity = 0.85 + 0.15 * sin(t * 1.2 + Double(i))
+                c.fill(Path(roundedRect: tile.0, cornerRadius: s * 0.07), with: tile.1)
+            }
+            ctx.fill(circle(CGPoint(x: w * 0.25, y: h * 0.545), s * 0.06), with: accent)
+            ctx.stroke(circle(CGPoint(x: w * 0.75, y: h * 0.545), s * 0.06), with: accent, lineWidth: s * 0.02)
+
+        case .arrows:
+            for k in 0..<3 {
+                let center = CGPoint(x: w * [0.3, 0.72, 0.4][k], y: h * [0.28, 0.5, 0.78][k])
+                let r = s * [0.17, 0.14, 0.13][k]
+                ctx.fill(circle(center, r), with: k == 1 ? accent : soft)
+                var c = ctx
+                c.translateBy(x: center.x, y: center.y)
+                c.rotate(by: .degrees(Double(k) * 90 + sin(t + Double(k)) * 20 - 45))
+                var arrow = Path()
+                arrow.move(to: CGPoint(x: -r * 0.45, y: 0)); arrow.addLine(to: CGPoint(x: r * 0.45, y: 0))
+                arrow.move(to: CGPoint(x: r * 0.15, y: -r * 0.3)); arrow.addLine(to: CGPoint(x: r * 0.45, y: 0))
+                arrow.addLine(to: CGPoint(x: r * 0.15, y: r * 0.3))
+                c.stroke(arrow, with: k == 1 ? ink : accent, style: StrokeStyle(lineWidth: r * 0.14, lineCap: .round, lineJoin: .round))
+            }
+
+        case .ruler:
+            let band = CGRect(x: s * 0.06, y: h * 0.6, width: w - s * 0.12, height: h * 0.22)
+            ctx.fill(Path(roundedRect: band, cornerRadius: s * 0.05), with: accent)
+            let step = s * 0.025
+            let shift = CGFloat((t * 12).truncatingRemainder(dividingBy: Double(step * 10)))
+            var x = band.minX + s * 0.03 - shift
+            var i = 0
+            while x < band.maxX - s * 0.03 {
+                if x > band.minX + s * 0.03 {
+                    let tall = i % 10 == 0
+                    let rect = CGRect(x: x, y: band.midY - (tall ? s * 0.05 : s * 0.025), width: s * 0.006,
+                                      height: tall ? s * 0.1 : s * 0.05)
+                    ctx.fill(Path(rect), with: ink)
+                }
+                x += step; i += 1
+            }
+            ctx.fill(Path(roundedRect: CGRect(x: band.minX + band.width * 0.18, y: band.midY - s * 0.01,
+                                              width: band.width * 0.3, height: s * 0.02), cornerRadius: s * 0.01), with: ink)
+
+        case .pixels:
+            let n = 10
+            let cell = s / CGFloat(n)
+            let ox = (w - cell * CGFloat(n)) / 2, oy = (h - cell * CGFloat(n)) / 2
+            for r in 0..<n { for c in 0..<n {
+                let v = rng.next()
+                guard v > 0.45 else { continue }
+                let twinkle = sin(t * 2 + Double(r * n + c)) > 0.6
+                let shade: GraphicsContext.Shading = v > 0.9 || twinkle ? accent : (v > 0.7 ? ink : soft)
+                ctx.fill(Path(CGRect(x: ox + CGFloat(c) * cell + 1, y: oy + CGFloat(r) * cell + 1,
+                                     width: cell - 2, height: cell - 2)), with: shade)
+            } }
+
+        case .burst:
+            let c = CGPoint(x: w / 2, y: h / 2)
+            let sweep = (t * 40).truncatingRemainder(dividingBy: 360)
+            for k in 0..<60 {
+                let a = Double(k) * 6
+                let near = abs(((a - sweep + 540).truncatingRemainder(dividingBy: 360)) - 180) > 165
+                let major = k % 5 == 0
+                let r0 = s * (major ? 0.32 : 0.38), r1 = s * 0.46
+                var line = Path()
+                let rad = (a - 90) * .pi / 180
+                line.move(to: CGPoint(x: c.x + r0 * CGFloat(cos(rad)), y: c.y + r0 * CGFloat(sin(rad))))
+                line.addLine(to: CGPoint(x: c.x + r1 * CGFloat(cos(rad)), y: c.y + r1 * CGFloat(sin(rad))))
+                ctx.stroke(line, with: near || major ? accent : soft, style: StrokeStyle(lineWidth: s * (major ? 0.02 : 0.008), lineCap: .round))
+            }
+
+        case .blobs:
+            var c = ctx
+            c.addFilter(.blur(radius: s * 0.12))
+            for k in 0..<3 {
+                let dx = CGFloat(sin(t * 0.5 + Double(k) * 2)) * s * 0.08
+                let dy = CGFloat(cos(t * 0.4 + Double(k))) * s * 0.06
+                let center = CGPoint(x: w * [0.3, 0.7, 0.5][k] + dx, y: h * [0.3, 0.45, 0.75][k] + dy)
+                c.fill(circle(center, s * [0.3, 0.26, 0.22][k]), with: [accent, soft, ink][k])
+            }
+
+        case .squircles:
+            let c = CGPoint(x: w / 2, y: h / 2)
+            for k in 0..<6 {
+                let side = s * (0.9 - 0.14 * CGFloat(k))
+                var cc = ctx
+                cc.translateBy(x: c.x, y: c.y)
+                cc.rotate(by: .degrees(sin(t * 0.6 + Double(k) * 0.5) * 6 * Double(k)))
+                let rect = CGRect(x: -side / 2, y: -side / 2, width: side, height: side)
+                cc.stroke(Path(roundedRect: rect, cornerRadius: side * 0.28, style: .continuous),
+                          with: k == 2 ? accent : (k.isMultiple(of: 2) ? ink : soft), lineWidth: s * (k == 2 ? 0.03 : 0.012))
+            }
+        }
+    }
+
+    private static func circle(_ c: CGPoint, _ r: CGFloat) -> Path {
+        Path(ellipseIn: CGRect(x: c.x - r, y: c.y - r, width: r * 2, height: r * 2))
+    }
+}
+
+/// Tiny deterministic generator so each face always looks the same.
+struct Seeded {
+    private var state: UInt64
+    init(_ seed: Int) { state = UInt64(truncatingIfNeeded: seed) &* 6364136223846793005 &+ 1442695040888963407 }
+    mutating func next() -> Double {
+        state = state &* 6364136223846793005 &+ 1442695040888963407
+        return Double(state >> 11) / Double(1 << 53)
     }
 }
 
@@ -256,6 +269,8 @@ struct DesignGalleryView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: Tok.Space.m) {
+                Text(L("Animated here in the app. On the watch the picture is still and the watch draws the time on top."))
+                    .font(.footnote).foregroundStyle(Tok.textMuted)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         chip(L("All"), selected: style == nil) { style = nil }
@@ -269,7 +284,7 @@ struct DesignGalleryView: View {
                         NavigationLink { DesignFaceDetailView(face: face) } label: {
                             VStack(spacing: Tok.Space.xs) {
                                 WatchShapeFrame(screen: device.screen) {
-                                    DesignFaceView(face: face)
+                                    AnimatedDesignFace(face: face)
                                         .overlay { SampleTime(color: face.palette.timeColor, showDate: false).scaleEffect(0.6) }
                                 }
                                 Text(verbatim: "#\(face.id)").font(.caption2).foregroundStyle(Tok.textMuted)
@@ -307,7 +322,7 @@ struct DesignFaceDetailView: View {
         Form {
             Section {
                 WatchShapeFrame(screen: device.screen) {
-                    DesignFaceView(face: face).overlay { SampleTime(color: face.palette.timeColor) }
+                    AnimatedDesignFace(face: face).overlay { SampleTime(color: face.palette.timeColor) }
                 }
                 .frame(maxWidth: 260)
                 .frame(maxWidth: .infinity)
@@ -321,12 +336,12 @@ struct DesignFaceDetailView: View {
         .navigationTitle(Text(verbatim: "#\(face.id)"))
     }
 
-    /// Stores a rendered copy so it can be renamed, favourited and edited like a photo face.
+    /// Stores a rendered still so it can be renamed, favourited and edited like a photo face.
     @MainActor private func save() {
         let renderer = ImageRenderer(content: DesignFaceView(face: face).frame(width: 466, height: 466))
         renderer.scale = 1
         guard let data = renderer.uiImage?.pngData() else { return }
-        context.insert(WatchFaceRecord(name: face.name, imageData: data, backgroundHex: Int(face.palette.top),
+        context.insert(WatchFaceRecord(name: face.name, imageData: data, backgroundHex: Int(face.palette.bg),
                                        textHex: Int(face.palette.time)))
         try? context.save()
         saved = true

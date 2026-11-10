@@ -144,6 +144,17 @@
         }
       }
     },
+    "Animated here in the app. On the watch the picture is still and the watch draws the time on top.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الحركة هنا داخل التطبيق فقط. على الساعة الصورة ثابتة والساعة ترسم الوقت فوقها."
+          }
+        }
+      }
+    },
     "Apple Health": {
       "extractionState": "manual",
       "localizations": {
@@ -155,24 +166,13 @@
         }
       }
     },
-    "Arabesque": {
+    "Arrows": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "أرابيسك"
-          }
-        }
-      }
-    },
-    "Aurora": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "شفق"
+            "value": "أسهم"
           }
         }
       }
@@ -206,6 +206,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "البطارية: غير متاحة بعد"
+          }
+        }
+      }
+    },
+    "Bauhaus": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "باوهاوس"
+          }
+        }
+      }
+    },
+    "Bento tiles": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بلاطات بينتو"
           }
         }
       }
@@ -327,6 +349,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "إلغاء"
+          }
+        }
+      }
+    },
+    "Cherry": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كرزي"
           }
         }
       }
@@ -650,13 +683,13 @@
         }
       }
     },
-    "Dot grid": {
+    "Dot matrix": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "شبكة نقاط"
+            "value": "مصفوفة نقاط"
           }
         }
       }
@@ -668,17 +701,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "شرب الماء"
-          }
-        }
-      }
-    },
-    "Dunes": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "كثبان"
           }
         }
       }
@@ -712,6 +734,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "تعديل الواجهة"
+          }
+        }
+      }
+    },
+    "Electric": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كهربائي"
           }
         }
       }
@@ -936,17 +969,6 @@
         }
       }
     },
-    "Forest": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "غابة"
-          }
-        }
-      }
-    },
     "Forget": {
       "extractionState": "manual",
       "localizations": {
@@ -969,17 +991,6 @@
         }
       }
     },
-    "Geometric": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "هندسي"
-          }
-        }
-      }
-    },
     "Get started": {
       "extractionState": "manual",
       "localizations": {
@@ -991,17 +1002,6 @@
         }
       }
     },
-    "Glass orbs": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "كرات زجاجية"
-          }
-        }
-      }
-    },
     "Goals": {
       "extractionState": "manual",
       "localizations": {
@@ -1009,17 +1009,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "الأهداف"
-          }
-        }
-      }
-    },
-    "Gold": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ذهبي"
           }
         }
       }
@@ -1119,17 +1108,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "صريح بشأن ما يعمل"
-          }
-        }
-      }
-    },
-    "Ice": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "جليد"
           }
         }
       }
@@ -1255,24 +1233,24 @@
         }
       }
     },
-    "Lava": {
+    "Lilac": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "حمم"
+            "value": "ليلكي"
           }
         }
       }
     },
-    "Lavender": {
+    "Lime": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "لافندر"
+            "value": "ليموني"
           }
         }
       }
@@ -1376,24 +1354,13 @@
         }
       }
     },
-    "Midnight": {
+    "Mint": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "منتصف الليل"
-          }
-        }
-      }
-    },
-    "Minimal ticks": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "علامات بسيطة"
+            "value": "نعناعي"
           }
         }
       }
@@ -1405,17 +1372,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "الدقائق"
-          }
-        }
-      }
-    },
-    "Mono": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "أحادي"
           }
         }
       }
@@ -1493,17 +1449,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "بالقرب منك"
-          }
-        }
-      }
-    },
-    "Neon arcs": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "أقواس نيون"
           }
         }
       }
@@ -1695,17 +1640,6 @@
         }
       }
     },
-    "Ocean": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "محيط"
-          }
-        }
-      }
-    },
     "On": {
       "extractionState": "manual",
       "localizations": {
@@ -1772,6 +1706,17 @@
         }
       }
     },
+    "Paper": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ورق"
+          }
+        }
+      }
+    },
     "Per-app notification switches on the watch are not confirmed yet.": {
       "extractionState": "manual",
       "localizations": {
@@ -1790,6 +1735,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "الصور والخلفيات"
+          }
+        }
+      }
+    },
+    "Pie dials": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أقراص دائرية"
+          }
+        }
+      }
+    },
+    "Pixels": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بكسلات"
           }
         }
       }
@@ -1926,24 +1893,13 @@
         }
       }
     },
-    "Rings": {
+    "Ruler": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "حلقات"
-          }
-        }
-      }
-    },
-    "Rose": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "وردي"
+            "value": "مسطرة"
           }
         }
       }
@@ -2135,6 +2091,39 @@
         }
       }
     },
+    "Signal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إشارة"
+          }
+        }
+      }
+    },
+    "Sky": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سماوي"
+          }
+        }
+      }
+    },
+    "Slate": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أردوازي"
+          }
+        }
+      }
+    },
     "Sleep": {
       "extractionState": "manual",
       "localizations": {
@@ -2142,6 +2131,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "النوم"
+          }
+        }
+      }
+    },
+    "Soft blobs": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بقع ناعمة"
+          }
+        }
+      }
+    },
+    "Squircles": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مربعات مستديرة"
           }
         }
       }
@@ -2212,13 +2223,24 @@
         }
       }
     },
-    "Sunset": {
+    "Sunburst": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "غروب"
+            "value": "أشعة"
+          }
+        }
+      }
+    },
+    "Sunflower": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عباد الشمس"
           }
         }
       }
@@ -2593,17 +2615,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "إعدادات الساعة"
-          }
-        }
-      }
-    },
-    "Waves": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "أمواج"
           }
         }
       }

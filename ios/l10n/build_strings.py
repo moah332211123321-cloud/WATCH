@@ -48,6 +48,10 @@ def main():
     with open(out, "w", encoding="utf-8") as f:
         json.dump(catalog, f, ensure_ascii=False, indent=2)
     unused = sorted(set(ar) - set(all_keys))
+    if "--prune" in sys.argv and unused:
+        with open(os.path.join(HERE, "ar.json"), "w", encoding="utf-8") as f:
+            json.dump({k: v for k, v in ar.items() if k in all_keys}, f, ensure_ascii=False, indent=2)
+        unused = []
     print(f"{len(all_keys)} keys, {len(missing)} missing Arabic, {len(unused)} unused translations")
     for k in missing:
         print("MISSING:", k)

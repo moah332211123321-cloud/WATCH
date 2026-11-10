@@ -34,6 +34,7 @@ final class EncoderTests: XCTestCase {
         assertBytes(.temperatureUnitFahrenheit(false), "AB 00 04 FF EF 80 00")
         assertBytes(.language(code: 3), "AB 00 04 FF 7B 80 03")
         assertBytes(.measure(.heartRate, on: true), "AB 00 04 FF 31 09 01")
+        assertBytes(.highSpeed(true), "AB 00 04 FF 87 80 01")
     }
 
     func testTimeSync() {

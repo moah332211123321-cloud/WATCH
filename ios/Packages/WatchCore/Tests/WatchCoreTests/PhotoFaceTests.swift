@@ -102,12 +102,13 @@ final class PhotoFaceDriverTests: XCTestCase {
         try await d.installPhotoFace(pixels: pixels, timeColor: [255, 255, 255],
                                      consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
         XCTAssertEqual(acks, 2)
-        XCTAssertEqual(t.writes.first, [0xAB, 0x00, 0x04, 0xFF, 0xAD, 0x80, 0x01])
-        XCTAssertEqual(t.writes[1].first, 0xAD)            // info packet of package 0
-        XCTAssertEqual(t.writes[1].count, 12)
-        XCTAssertTrue(t.writes.dropFirst(2).prefix(9).allSatisfy { $0.first == 0xAE || $0.count <= 128 })
-        XCTAssertEqual(t.writes[t.writes.count - 2], [0xAB, 0x00, 0x07, 0xFF, 0x9C, 0xFF, 0xFF, 0xFF, 0x00, 0x00])
-        XCTAssertEqual(t.writes.last, [0xEA, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00])
+        XCTAssertEqual(t.writes.first, [0xAB, 0x00, 0x04, 0xFF, 0x87, 0x80, 0x01])   // high speed on
+        XCTAssertEqual(t.writes[1], [0xAB, 0x00, 0x04, 0xFF, 0xAD, 0x80, 0x01])
+        XCTAssertEqual(t.writes[2].first, 0xAD)            // info packet of package 0
+        XCTAssertEqual(t.writes[2].count, 12)
+        XCTAssertEqual(t.writes[t.writes.count - 3], [0xAB, 0x00, 0x07, 0xFF, 0x9C, 0xFF, 0xFF, 0xFF, 0x00, 0x00])
+        XCTAssertEqual(t.writes[t.writes.count - 2], [0xEA, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00])
+        XCTAssertEqual(t.writes.last, [0xAB, 0x00, 0x04, 0xFF, 0x87, 0x80, 0x00])     // high speed off
     }
 
     func testRefusesWithoutScreenOrForCompressedPlatform() async {

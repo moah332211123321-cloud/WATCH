@@ -81,6 +81,9 @@ public enum Command: Equatable, Sendable {
     case heartbeatReply
     /// D. `EA 00 03 00 14 01` — ask for screen size.
     case requestScreenInfo
+    /// Source (`BleWatchServiceImpl.switchSpeed`, used by AlbumDialActivity around picture transfers):
+    /// `AB 00 04 FF 87 80 01` = high-speed BLE on, `… 00` = off.
+    case highSpeed(Bool)
 
     public var frame: Frame {
         switch self {
@@ -124,6 +127,7 @@ public enum Command: Equatable, Sendable {
         case .factoryReset: return .classic([0xFF, 0x80])
         case .heartbeatReply: return .extended([0x0B, 0x02])
         case .requestScreenInfo: return .extended([0x14, 0x01])
+        case let .highSpeed(on): return .classic([0x87, 0x80, on ? 1 : 0])
         }
     }
 

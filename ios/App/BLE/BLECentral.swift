@@ -80,20 +80,25 @@ final class BLECentral: NSObject, WatchTransport, @unchecked Sendable {
     private var queue: [(Data, Channel, CheckedContinuation<Void, Error>)] = []
 
     private func pump() {
-        guard pendingWrite == nil, !queue.isEmpty else { return }
-        let (data, channel, cont) = queue.removeFirst()
-        guard let p = peripheral, p.state == .connected, let char = writeChars[channel] else {
-            cont.resume(throwing: WatchError.notConnected)
-            pump(); return
-        }
-        // Write type used by the watch is unconfirmed (protocol.md §7): prefer with-response when offered.
-        if char.properties.contains(.write) {
-            pendingWrite = cont
-            p.writeValue(data, for: char, type: .withResponse)
-        } else {
-            p.writeValue(data, for: char, type: .withoutResponse)
-            cont.resume()
-            pump()
+        while pendingWrite == nil, let item = queue.first {
+            let (data, channel, cont) = item
+            guard let p = peripheral, p.state == .connected, let char = writeChars[channel] else {
+                queue.removeFirst()
+                cont.resume(throwing: WatchError.notConnected)
+                continue
+            }
+            // Like Android's default (used by the reference app): write-without-response when the
+            // characteristic offers it — far faster for picture transfers.
+            if char.properties.contains(.writeWithoutResponse) {
+                guard p.canSendWriteWithoutResponse else { return } // resumes in peripheralIsReady(...)
+                queue.removeFirst()
+                p.writeValue(data, for: char, type: .withoutResponse)
+                cont.resume()
+            } else {
+                queue.removeFirst()
+                pendingWrite = cont
+                p.writeValue(data, for: char, type: .withResponse)
+            }
         }
     }
 
@@ -168,6 +173,10 @@ extension BLECentral: CBPeripheralDelegate {
         guard let value = characteristic.value else { return }
         let channel: Channel = characteristic.uuid.uuidString.uppercased() == GATT.fileNotify ? .file : .command
         emit(.data(value, channel))
+    }
+
+    func peripheralIsReady(toSendWriteWithoutResponse peripheral: CBPeripheral) {
+        pump()
     }
 
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
