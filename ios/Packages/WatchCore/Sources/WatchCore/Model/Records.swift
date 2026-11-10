@@ -23,6 +23,13 @@ public struct DaySummary: Equatable, Sendable {
     public var awakeCount: Int
     public var sportSeconds: Int?
     public var sportCount: Int?
+
+    public init(steps: Int, kilocalories: Int, lightSleepMinutes: Int, deepSleepMinutes: Int, awakeCount: Int,
+                sportSeconds: Int?, sportCount: Int?) {
+        self.steps = steps; self.kilocalories = kilocalories
+        self.lightSleepMinutes = lightSleepMinutes; self.deepSleepMinutes = deepSleepMinutes
+        self.awakeCount = awakeCount; self.sportSeconds = sportSeconds; self.sportCount = sportCount
+    }
 }
 
 public enum SampleKind: String, Codable, CaseIterable, Sendable {
@@ -36,6 +43,10 @@ public struct Sample: Equatable, Sendable {
     public var value: Double
     public var value2: Double?        // diastolic for blood pressure
     public var isLive: Bool
+
+    public init(kind: SampleKind, date: Date, value: Double, value2: Double? = nil, isLive: Bool) {
+        self.kind = kind; self.date = date; self.value = value; self.value2 = value2; self.isLive = isLive
+    }
 }
 
 public struct SleepSegment: Equatable, Sendable {

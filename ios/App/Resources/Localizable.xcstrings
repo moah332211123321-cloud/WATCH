@@ -1,0 +1,2564 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "12-hour clock": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نظام 12 ساعة"
+          }
+        }
+      }
+    },
+    "About": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حول التطبيق"
+          }
+        }
+      }
+    },
+    "Active energy": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الطاقة النشطة"
+          }
+        }
+      }
+    },
+    "Active energy (kcal)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الطاقة النشطة (سعرة)"
+          }
+        }
+      }
+    },
+    "Add a watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إضافة ساعة"
+          }
+        }
+      }
+    },
+    "Add alarm": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إضافة منبّه"
+          }
+        }
+      }
+    },
+    "Add entry": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إضافة قراءة"
+          }
+        }
+      }
+    },
+    "Add face": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إضافة واجهة"
+          }
+        }
+      }
+    },
+    "Add to favourites": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إضافة إلى المفضلة"
+          }
+        }
+      }
+    },
+    "Alarm": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "منبّه"
+          }
+        }
+      }
+    },
+    "Alarms": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المنبّهات"
+          }
+        }
+      }
+    },
+    "All settings and data on the watch will be deleted and it will disconnect.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سيتم حذف كل الإعدادات والبيانات على الساعة وسينقطع الاتصال بها."
+          }
+        }
+      }
+    },
+    "Apple Health": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Health"
+          }
+        }
+      }
+    },
+    "Average heart rate": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "متوسط نبض القلب"
+          }
+        }
+      }
+    },
+    "Background": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الخلفية"
+          }
+        }
+      }
+    },
+    "Battery: not available yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البطارية: غير متاحة بعد"
+          }
+        }
+      }
+    },
+    "Blood glucose": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سكر الدم"
+          }
+        }
+      }
+    },
+    "Blood oxygen": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أكسجين الدم"
+          }
+        }
+      }
+    },
+    "Blood pressure": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ضغط الدم"
+          }
+        }
+      }
+    },
+    "Bluetooth calling is paired in iPhone Settings > Bluetooth, not in this app.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مكالمات البلوتوث تُقرن من إعدادات iPhone ← بلوتوث، وليس من هذا التطبيق."
+          }
+        }
+      }
+    },
+    "Bluetooth is off": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البلوتوث مغلق"
+          }
+        }
+      }
+    },
+    "Bluetooth permission needed in Settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يلزم إذن البلوتوث من الإعدادات"
+          }
+        }
+      }
+    },
+    "Body temperature": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حرارة الجسم"
+          }
+        }
+      }
+    },
+    "Brightness, screen timeout and vibration strength are not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السطوع ومدة إطفاء الشاشة وقوة الاهتزاز لم يتم تأكيدها بعد."
+          }
+        }
+      }
+    },
+    "Camera remote": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التحكم في الكاميرا"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إلغاء"
+          }
+        }
+      }
+    },
+    "Chip family": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عائلة الشريحة"
+          }
+        }
+      }
+    },
+    "Choose photo": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اختيار صورة"
+          }
+        }
+      }
+    },
+    "Close": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إغلاق"
+          }
+        }
+      }
+    },
+    "Confirmation": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التأكيد"
+          }
+        }
+      }
+    },
+    "Connect your watch to install.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وصّل ساعتك لتثبيت الواجهة."
+          }
+        }
+      }
+    },
+    "Connect your watch to measure.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وصّل ساعتك لبدء القياس."
+          }
+        }
+      }
+    },
+    "Connected": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "متصلة"
+          }
+        }
+      }
+    },
+    "Connecting…": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ الاتصال…"
+          }
+        }
+      }
+    },
+    "Contacts": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جهات الاتصال"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "متابعة"
+          }
+        }
+      }
+    },
+    "Could not connect.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعذّر الاتصال."
+          }
+        }
+      }
+    },
+    "Could not prepare the image.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعذّر تجهيز الصورة."
+          }
+        }
+      }
+    },
+    "Create one from a photo or import an image.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أنشئ واجهة من صورة أو استورد ملف صورة."
+          }
+        }
+      }
+    },
+    "Cycling": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ركوب الدراجة"
+          }
+        }
+      }
+    },
+    "Daily goals": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأهداف اليومية"
+          }
+        }
+      }
+    },
+    "Daily steps": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الخطوات اليومية"
+          }
+        }
+      }
+    },
+    "Date": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التاريخ"
+          }
+        }
+      }
+    },
+    "Day": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يوم"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حذف"
+          }
+        }
+      }
+    },
+    "Diastolic": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الانبساطي"
+          }
+        }
+      }
+    },
+    "Disconnect": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قطع الاتصال"
+          }
+        }
+      }
+    },
+    "Display and time": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الشاشة والوقت"
+          }
+        }
+      }
+    },
+    "Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المسافة"
+          }
+        }
+      }
+    },
+    "Distance (km)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المسافة (كم)"
+          }
+        }
+      }
+    },
+    "Do Not Disturb": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عدم الإزعاج"
+          }
+        }
+      }
+    },
+    "Drink water": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شرب الماء"
+          }
+        }
+      }
+    },
+    "Duration": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المدة"
+          }
+        }
+      }
+    },
+    "E-books and audio notes": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الكتب والملاحظات الصوتية"
+          }
+        }
+      }
+    },
+    "Edit face": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعديل الواجهة"
+          }
+        }
+      }
+    },
+    "End workout": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إنهاء التمرين"
+          }
+        }
+      }
+    },
+    "Entered by you": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أدخلتها أنت"
+          }
+        }
+      }
+    },
+    "Erase data on the watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح البيانات على الساعة"
+          }
+        }
+      }
+    },
+    "Estimated": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تقديري"
+          }
+        }
+      }
+    },
+    "Every": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل"
+          }
+        }
+      }
+    },
+    "Every day": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل يوم"
+          }
+        }
+      }
+    },
+    "Every watch command in this version was learned by studying the original Android app and still needs confirming on a real watch.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل أوامر الساعة في هذه النسخة عُرفت من دراسة تطبيق أندرويد الأصلي، وما زالت تحتاج تأكيدًا على ساعة حقيقية."
+          }
+        }
+      }
+    },
+    "Faces": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الواجهات"
+          }
+        }
+      }
+    },
+    "Factory reset the watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعادة ضبط الساعة للمصنع"
+          }
+        }
+      }
+    },
+    "Favourites only": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المفضلة فقط"
+          }
+        }
+      }
+    },
+    "Files and media": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الملفات والوسائط"
+          }
+        }
+      }
+    },
+    "Find my phone": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البحث عن هاتفي"
+          }
+        }
+      }
+    },
+    "Find my watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البحث عن ساعتي"
+          }
+        }
+      }
+    },
+    "Firmware": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البرنامج الثابت"
+          }
+        }
+      }
+    },
+    "Firmware update flag": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إشارة تحديث البرنامج"
+          }
+        }
+      }
+    },
+    "Firmware updates are turned off. A wrong update can break the watch, the update files come from the original maker's private service, and the update steps are not confirmed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تحديثات البرنامج الثابت متوقفة. التحديث الخاطئ قد يعطّل الساعة، وملفات التحديث تأتي من خدمة الشركة المصنّعة الخاصة، وخطوات التحديث غير مؤكدة."
+          }
+        }
+      }
+    },
+    "Firmware version": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إصدار البرنامج الثابت"
+          }
+        }
+      }
+    },
+    "Forget": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نسيان"
+          }
+        }
+      }
+    },
+    "From": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "من"
+          }
+        }
+      }
+    },
+    "Get started": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ابدأ"
+          }
+        }
+      }
+    },
+    "Goals": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأهداف"
+          }
+        }
+      }
+    },
+    "Hardware code": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رمز الجهاز"
+          }
+        }
+      }
+    },
+    "Health data stored on the watch will be deleted.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سيتم حذف البيانات الصحية المخزنة على الساعة."
+          }
+        }
+      }
+    },
+    "Health on the watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الصحة على الساعة"
+          }
+        }
+      }
+    },
+    "Heart rate": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نبض القلب"
+          }
+        }
+      }
+    },
+    "Height (cm)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الطول (سم)"
+          }
+        }
+      }
+    },
+    "High heart rate alerts are not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تنبيهات ارتفاع النبض لم يتم تأكيدها بعد."
+          }
+        }
+      }
+    },
+    "Hiking": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المشي الجبلي"
+          }
+        }
+      }
+    },
+    "History": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السجل"
+          }
+        }
+      }
+    },
+    "Honest about what works": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "صريح بشأن ما يعمل"
+          }
+        }
+      }
+    },
+    "If your watch or iPhone can't do something, Sawar tells you why instead of pretending.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إذا كانت ساعتك أو هاتفك لا يدعم شيئًا، يخبرك سوار بالسبب بدل التظاهر بأنه يعمل."
+          }
+        }
+      }
+    },
+    "Image transfer packets are not confirmed yet. Create faces in the Faces tab; installing them will work once confirmed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "طريقة نقل الصور لم يتم تأكيدها بعد. يمكنك إنشاء الواجهات من تبويب الواجهات، وسيعمل التثبيت بعد التأكيد."
+          }
+        }
+      }
+    },
+    "Import failed": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فشل الاستيراد"
+          }
+        }
+      }
+    },
+    "Import image file": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استيراد ملف صورة"
+          }
+        }
+      }
+    },
+    "Indoor run": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جري داخلي"
+          }
+        }
+      }
+    },
+    "Install on watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تثبيت على الساعة"
+          }
+        }
+      }
+    },
+    "Installing apps on the watch needs packages from the original maker's private store. Listing installed apps is not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تثبيت التطبيقات على الساعة يحتاج حزمًا من متجر الشركة المصنّعة الخاص. وعرض التطبيقات المثبتة لم يتم تأكيده بعد."
+          }
+        }
+      }
+    },
+    "Keep the watch close and awake. If it is paired with another phone, unpair it there first.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اجعل الساعة قريبة وشاشتها مضاءة. إذا كانت مقترنة بهاتف آخر، ألغِ الاقتران منه أولًا."
+          }
+        }
+      }
+    },
+    "Kept on this iPhone. Sending the profile to the watch is not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "محفوظ على هذا الهاتف. إرسال الملف الشخصي إلى الساعة لم يتم تأكيده بعد."
+          }
+        }
+      }
+    },
+    "Label (kept on the phone)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الاسم (يُحفظ على الهاتف)"
+          }
+        }
+      }
+    },
+    "Language": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اللغة"
+          }
+        }
+      }
+    },
+    "Location is off, so distance and route are not recorded.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الموقع مغلق، لذلك لا تُسجَّل المسافة والمسار."
+          }
+        }
+      }
+    },
+    "Maximum heart rate": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أقصى نبض"
+          }
+        }
+      }
+    },
+    "Measure automatically every hour": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قياس تلقائي كل ساعة"
+          }
+        }
+      }
+    },
+    "Measure now": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قِس الآن"
+          }
+        }
+      }
+    },
+    "Measurement": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "القياس"
+          }
+        }
+      }
+    },
+    "Measurements are stored on this iPhone. You choose what goes to Apple Health.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "القياسات تُحفظ على هذا الهاتف، وأنت تختار ما يُرسل إلى Apple Health."
+          }
+        }
+      }
+    },
+    "Measuring… keep the watch on your wrist": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ القياس… أبقِ الساعة على معصمك"
+          }
+        }
+      }
+    },
+    "Media and apps": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوسائط والتطبيقات"
+          }
+        }
+      }
+    },
+    "Medium signal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إشارة متوسطة"
+          }
+        }
+      }
+    },
+    "Minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الدقائق"
+          }
+        }
+      }
+    },
+    "Month": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شهر"
+          }
+        }
+      }
+    },
+    "Move reminder": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تذكير الحركة"
+          }
+        }
+      }
+    },
+    "Music": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الموسيقى"
+          }
+        }
+      }
+    },
+    "Music transfer format is not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "طريقة نقل الموسيقى لم يتم تأكيدها بعد."
+          }
+        }
+      }
+    },
+    "My watches": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعاتي"
+          }
+        }
+      }
+    },
+    "Name": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الاسم"
+          }
+        }
+      }
+    },
+    "Nearby": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بالقرب منك"
+          }
+        }
+      }
+    },
+    "New face": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "واجهة جديدة"
+          }
+        }
+      }
+    },
+    "New from photo": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جديدة من صورة"
+          }
+        }
+      }
+    },
+    "No data yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد بيانات بعد"
+          }
+        }
+      }
+    },
+    "No faces yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد واجهات بعد"
+          }
+        }
+      }
+    },
+    "No heart rate was recorded for this workout.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم يُسجَّل نبض لهذا التمرين."
+          }
+        }
+      }
+    },
+    "No watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد ساعة"
+          }
+        }
+      }
+    },
+    "No watch connected. Data shown is from the last sync.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد ساعة متصلة. البيانات المعروضة من آخر مزامنة."
+          }
+        }
+      }
+    },
+    "No watch connected: heart rate is not recorded.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد ساعة متصلة: لا يُسجَّل النبض."
+          }
+        }
+      }
+    },
+    "No workouts yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد تمارين بعد"
+          }
+        }
+      }
+    },
+    "Not available yet: this needs to be confirmed on a real watch first.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غير متاح بعد: يجب تأكيد ذلك على ساعة حقيقية أولًا."
+          }
+        }
+      }
+    },
+    "Not available: this needs the original maker's private service.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غير متاح: هذا يحتاج خدمة الشركة المصنّعة الخاصة."
+          }
+        }
+      }
+    },
+    "Not connected": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غير متصلة"
+          }
+        }
+      }
+    },
+    "Not on this watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غير موجودة في هذه الساعة"
+          }
+        }
+      }
+    },
+    "Not supported on this watch.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غير مدعوم في هذه الساعة."
+          }
+        }
+      }
+    },
+    "Notifications and calls": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الإشعارات والمكالمات"
+          }
+        }
+      }
+    },
+    "OK": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حسنًا"
+          }
+        }
+      }
+    },
+    "On": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفعّل"
+          }
+        }
+      }
+    },
+    "On iPhone, apps cannot read other apps' notifications, SMS or call history. Once your watch is paired, it may show iPhone notifications by itself through Apple's notification service (ANCS).": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "على iPhone لا تستطيع التطبيقات قراءة إشعارات التطبيقات الأخرى أو الرسائل أو سجل المكالمات. بعد اقتران ساعتك قد تعرض إشعارات iPhone بنفسها عبر خدمة إشعارات Apple (ANCS)."
+          }
+        }
+      }
+    },
+    "Once": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مرة واحدة"
+          }
+        }
+      }
+    },
+    "Only values measured by the watch are saved. Your manual entries stay in Sawar.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تُحفظ القيم التي قاستها الساعة فقط، وقراءاتك اليدوية تبقى في سوار."
+          }
+        }
+      }
+    },
+    "Other": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أخرى"
+          }
+        }
+      }
+    },
+    "Other reminders (medicine, reading, hand washing) are not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التذكيرات الأخرى (الدواء، القراءة، غسل اليدين) لم يتم تأكيدها بعد."
+          }
+        }
+      }
+    },
+    "Packet log": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سجل الحزم"
+          }
+        }
+      }
+    },
+    "Per-app notification switches on the watch are not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفاتيح الإشعارات لكل تطبيق على الساعة لم يتم تأكيدها بعد."
+          }
+        }
+      }
+    },
+    "Photos and wallpapers": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الصور والخلفيات"
+          }
+        }
+      }
+    },
+    "Please confirm first.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يرجى التأكيد أولًا."
+          }
+        }
+      }
+    },
+    "Profile": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الملف الشخصي"
+          }
+        }
+      }
+    },
+    "Profile and settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الملف الشخصي والإعدادات"
+          }
+        }
+      }
+    },
+    "Raise to wake": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رفع المعصم للتنبيه"
+          }
+        }
+      }
+    },
+    "Range": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المدى"
+          }
+        }
+      }
+    },
+    "Remind me to drink": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ذكّرني بشرب الماء"
+          }
+        }
+      }
+    },
+    "Remind me to move": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ذكّرني بالحركة"
+          }
+        }
+      }
+    },
+    "Reminders": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التذكيرات"
+          }
+        }
+      }
+    },
+    "Remove from favourites": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إزالة من المفضلة"
+          }
+        }
+      }
+    },
+    "Repeat": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التكرار"
+          }
+        }
+      }
+    },
+    "Reset and erase": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعادة الضبط والمسح"
+          }
+        }
+      }
+    },
+    "Ringing the phone from the watch is not available yet: the watch's request packet is not confirmed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رنين الهاتف من الساعة غير متاح بعد: حزمة الطلب من الساعة غير مؤكدة."
+          }
+        }
+      }
+    },
+    "Running": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الجري"
+          }
+        }
+      }
+    },
+    "Save": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حفظ"
+          }
+        }
+      }
+    },
+    "Save watch measurements to Apple Health": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حفظ قياسات الساعة في Apple Health"
+          }
+        }
+      }
+    },
+    "Sawar is an independent app. It is not made by or affiliated with the maker of your watch or its original app.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سوار تطبيق مستقل، ليس من صنع الشركة المصنّعة لساعتك أو تطبيقها الأصلي ولا يتبع لها."
+          }
+        }
+      }
+    },
+    "Sawar talks to your watch directly over Bluetooth. No account, no cloud.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يتواصل سوار مع ساعتك مباشرة عبر البلوتوث. بلا حساب وبلا سحابة."
+          }
+        }
+      }
+    },
+    "Search faces": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ابحث في الواجهات"
+          }
+        }
+      }
+    },
+    "Searching…": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ البحث…"
+          }
+        }
+      }
+    },
+    "Sedentary reminder": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تذكير الجلوس الطويل"
+          }
+        }
+      }
+    },
+    "Send all to watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إرسال الكل إلى الساعة"
+          }
+        }
+      }
+    },
+    "Send to watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إرسال إلى الساعة"
+          }
+        }
+      }
+    },
+    "Sending to watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ الإرسال إلى الساعة"
+          }
+        }
+      }
+    },
+    "Sent to watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أُرسل إلى الساعة"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الإعدادات"
+          }
+        }
+      }
+    },
+    "Shake the watch to take a photo": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هزّ الساعة لالتقاط صورة"
+          }
+        }
+      }
+    },
+    "Show date": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إظهار التاريخ"
+          }
+        }
+      }
+    },
+    "Sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النوم"
+          }
+        }
+      }
+    },
+    "Start": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ابدأ"
+          }
+        }
+      }
+    },
+    "Start a workout": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بدء تمرين"
+          }
+        }
+      }
+    },
+    "Start one from your phone to record route and heart rate.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ابدأ تمرينًا من هاتفك لتسجيل المسار والنبض."
+          }
+        }
+      }
+    },
+    "Steps": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الخطوات"
+          }
+        }
+      }
+    },
+    "Stress": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التوتر"
+          }
+        }
+      }
+    },
+    "Strong signal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إشارة قوية"
+          }
+        }
+      }
+    },
+    "Supported": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مدعومة"
+          }
+        }
+      }
+    },
+    "Swimming": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السباحة"
+          }
+        }
+      }
+    },
+    "Sync time now": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مزامنة الوقت الآن"
+          }
+        }
+      }
+    },
+    "Syncing with your watch…": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ المزامنة مع ساعتك…"
+          }
+        }
+      }
+    },
+    "Systolic": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الانقباضي"
+          }
+        }
+      }
+    },
+    "Temperature in °F": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الحرارة بالفهرنهايت"
+          }
+        }
+      }
+    },
+    "The contact packet layout is not confirmed yet, so Sawar does not send contacts to the watch.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "طريقة إرسال جهات الاتصال لم يتم تأكيدها بعد، لذلك لا يرسلها سوار إلى الساعة."
+          }
+        }
+      }
+    },
+    "The order of alarm fields is inferred and not yet confirmed on a real watch.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ترتيب بيانات المنبّه مستنتج ولم يتم تأكيده على ساعة حقيقية بعد."
+          }
+        }
+      }
+    },
+    "The original maker's face store is a private service, so Sawar uses your own photos and files.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "متجر الواجهات الخاص بالشركة المصنّعة خدمة خاصة، لذلك يستخدم سوار صورك وملفاتك أنت."
+          }
+        }
+      }
+    },
+    "The shutter signal from the watch is not confirmed yet, so the in-app camera is not available.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إشارة الالتقاط من الساعة لم يتم تأكيدها بعد، لذلك الكاميرا داخل التطبيق غير متاحة."
+          }
+        }
+      }
+    },
+    "The watch's language codes are not confirmed yet. Change the language on the watch itself for now.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رموز لغات الساعة لم يتم تأكيدها بعد. غيّر اللغة من الساعة نفسها حاليًا."
+          }
+        }
+      }
+    },
+    "The weather packet layout is not confirmed yet, so Sawar does not send weather to the watch.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "طريقة إرسال الطقس لم يتم تأكيدها بعد، لذلك لا يرسل سوار الطقس إلى الساعة."
+          }
+        }
+      }
+    },
+    "These commands are not confirmed on your watch yet. Use them only if you accept the risk.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هذه الأوامر لم يتم تأكيدها على ساعتك بعد. استخدمها فقط إذا كنت تقبل المخاطرة."
+          }
+        }
+      }
+    },
+    "These transfers are not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عمليات النقل هذه لم يتم تأكيدها بعد."
+          }
+        }
+      }
+    },
+    "This file is not an image.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هذا الملف ليس صورة."
+          }
+        }
+      }
+    },
+    "This week": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هذا الأسبوع"
+          }
+        }
+      }
+    },
+    "Time": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوقت"
+          }
+        }
+      }
+    },
+    "Time colour": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لون الوقت"
+          }
+        }
+      }
+    },
+    "To": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إلى"
+          }
+        }
+      }
+    },
+    "Today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اليوم"
+          }
+        }
+      }
+    },
+    "Tools": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أدوات"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حاول مرة أخرى"
+          }
+        }
+      }
+    },
+    "Turn on Bluetooth to find your watch.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شغّل البلوتوث للعثور على ساعتك."
+          }
+        }
+      }
+    },
+    "Type": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النوع"
+          }
+        }
+      }
+    },
+    "Type this word to confirm:": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اكتب هذه الكلمة للتأكيد:"
+          }
+        }
+      }
+    },
+    "Unknown": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غير معروف"
+          }
+        }
+      }
+    },
+    "Value": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "القيمة"
+          }
+        }
+      }
+    },
+    "Values come from your watch's own algorithm. Stage details are not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "القيم من خوارزمية ساعتك نفسها، وتفاصيل المراحل لم يتم تأكيدها بعد."
+          }
+        }
+      }
+    },
+    "Version 0.1.0 — protocol not yet confirmed on a real watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الإصدار 0.1.0 — البروتوكول لم يُؤكَّد على ساعة حقيقية بعد"
+          }
+        }
+      }
+    },
+    "Walking": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المشي"
+          }
+        }
+      }
+    },
+    "Watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الساعة"
+          }
+        }
+      }
+    },
+    "Watch apps": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تطبيقات الساعة"
+          }
+        }
+      }
+    },
+    "Watch settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعدادات الساعة"
+          }
+        }
+      }
+    },
+    "Weak signal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إشارة ضعيفة"
+          }
+        }
+      }
+    },
+    "Weather": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الطقس"
+          }
+        }
+      }
+    },
+    "Week": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أسبوع"
+          }
+        }
+      }
+    },
+    "Weight": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوزن"
+          }
+        }
+      }
+    },
+    "Weight (kg)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوزن (كجم)"
+          }
+        }
+      }
+    },
+    "What this watch supports": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ما تدعمه هذه الساعة"
+          }
+        }
+      }
+    },
+    "Whether your watch supports ANCS is not confirmed yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "دعم ساعتك لخدمة ANCS لم يتم تأكيده بعد."
+          }
+        }
+      }
+    },
+    "Workouts": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التمارين"
+          }
+        }
+      }
+    },
+    "Workouts recorded on the watch itself are not synced yet: their data format is not confirmed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التمارين المسجلة على الساعة نفسها لا تتم مزامنتها بعد: صيغة بياناتها غير مؤكدة."
+          }
+        }
+      }
+    },
+    "Yoga": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اليوغا"
+          }
+        }
+      }
+    },
+    "Your health data stays yours": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بياناتك الصحية ملكك"
+          }
+        }
+      }
+    },
+    "Your watch didn't answer. Try again?": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعتك لم ترد. حاول مرة أخرى؟"
+          }
+        }
+      }
+    },
+    "Your watch is not connected.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعتك غير متصلة."
+          }
+        }
+      }
+    },
+    "Your watch reports that it can't measure this.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعتك تقول إنها لا تستطيع قياس هذا."
+          }
+        }
+      }
+    },
+    "Your watch, your phone": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعتك وهاتفك"
+          }
+        }
+      }
+    },
+    "bpm": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نبضة/دقيقة"
+          }
+        }
+      }
+    },
+    "h": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "س"
+          }
+        }
+      }
+    },
+    "kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سعرة"
+          }
+        }
+      }
+    },
+    "kg": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كجم"
+          }
+        }
+      }
+    },
+    "km": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كم"
+          }
+        }
+      }
+    },
+    "min": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "دقيقة"
+          }
+        }
+      }
+    },
+    "mmHg": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملم زئبق"
+          }
+        }
+      }
+    },
+    "mmol/L": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مليمول/لتر"
+          }
+        }
+      }
+    },
+    "percent": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "٪"
+          }
+        }
+      }
+    },
+    "score": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "درجة"
+          }
+        }
+      }
+    },
+    "steps": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "خطوة"
+          }
+        }
+      }
+    },
+    "°C": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "°م"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

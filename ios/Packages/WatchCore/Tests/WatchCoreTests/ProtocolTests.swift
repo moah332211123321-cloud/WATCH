@@ -61,6 +61,16 @@ final class ReassemblerTests: XCTestCase {
     }
 }
 
+final class RGB565Tests: XCTestCase {
+    func testPrimaryColours() {
+        let rgba: [UInt8] = [255, 0, 0, 255,  0, 255, 0, 255,  0, 0, 255, 255,  255, 255, 255, 255]
+        XCTAssertEqual([UInt8](RGB565.encode(rgba: rgba, width: 4, height: 1)),
+                       [0xF8, 0x00, 0x07, 0xE0, 0x00, 0x1F, 0xFF, 0xFF])
+        XCTAssertEqual([UInt8](RGB565.encode(rgba: Array(rgba[0..<4]), width: 1, height: 1, bigEndian: false)),
+                       [0x00, 0xF8])
+    }
+}
+
 final class CRC16Tests: XCTestCase {
     func testModbusCheckValue() {
         XCTAssertEqual(CRC16.modbus(Array("123456789".utf8)), 0x4B37)

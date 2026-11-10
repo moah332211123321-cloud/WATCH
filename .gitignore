@@ -9,3 +9,10 @@ DerivedData/
 *.xcworkspace/xcuserdata/
 .DS_Store
 __pycache__/
+
+# XcodeGen output (regenerated in CI)
+ios/Sawar.xcodeproj/
+ios/App/Resources/Info.plist
+ios/App/Resources/Sawar.entitlements
+ios/xcodebuild.log
+.build/

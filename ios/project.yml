@@ -1,0 +1,65 @@
+name: Sawar
+options:
+  bundleIdPrefix: app.sawar
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+packages:
+  WatchCore:
+    path: Packages/WatchCore
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""            # the user's Apple team id goes here (or via CI secret)
+targets:
+  Sawar:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+    dependencies:
+      - package: WatchCore
+    info:
+      path: App/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Sawar
+        CFBundleLocalizations: [en, ar]
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIBackgroundModes: [bluetooth-central]
+        NSBluetoothAlwaysUsageDescription: "Sawar uses Bluetooth to connect to your watch."
+        NSHealthShareUsageDescription: "Sawar shows your health data from Apple Health."
+        NSHealthUpdateUsageDescription: "Sawar saves measurements from your watch to Apple Health."
+        NSLocationWhenInUseUsageDescription: "Sawar records the route of workouts you start on the phone."
+    entitlements:
+      path: App/Resources/Sawar.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.sawar.ios
+        TARGETED_DEVICE_FAMILY: "1"
+        SWIFT_STRICT_CONCURRENCY: minimal
+  SawarTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: AppTests
+    dependencies:
+      - target: Sawar
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.sawar.ios.tests
+schemes:
+  Sawar:
+    build:
+      targets:
+        Sawar: all
+        SawarTests: [test]
+    test:
+      targets:
+        - SawarTests
