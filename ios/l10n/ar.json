@@ -264,5 +264,11 @@
   "Slate": "أردوازي",
   "Cherry": "كرزي",
   "Sky": "سماوي",
-  "Animated here in the app. On the watch the picture is still and the watch draws the time on top.": "الحركة هنا داخل التطبيق فقط. على الساعة الصورة ثابتة والساعة ترسم الوقت فوقها."
+  "Animated here in the app. On the watch the picture is still and the watch draws the time on top.": "الحركة هنا داخل التطبيق فقط. على الساعة الصورة ثابتة والساعة ترسم الوقت فوقها.",
+  "Time position": "مكان الوقت",
+  "Font number": "رقم الخط",
+  "Data widget number": "رقم أداة البيانات",
+  "Apply style only (no picture)": "تطبيق الشكل فقط (بدون صورة)",
+  "Style tester": "مختبر الشكل",
+  "Install a face once, then try numbers here and watch what changes: the watch draws the time, and with a data widget number it may draw steps, heart rate or calories itself (real values from the watch). Tell us which number shows what; it is all in the Bluetooth log.": "ركّب واجهة مرة واحدة، وبعدها جرّب الأرقام هنا وشوف إيه اللي بيتغير: الساعة بترسم الوقت، ومع رقم أداة البيانات ممكن ترسم الخطوات أو النبض أو السعرات بنفسها (قيم حقيقية من الساعة). قولنا كل رقم بيعرض إيه؛ كل حاجة متسجلة في سجل البلوتوث."
 }

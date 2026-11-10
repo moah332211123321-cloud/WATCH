@@ -1,6 +1,6 @@
-## Parity: 71.7 / 100
+## Parity: 71.4 / 100
 
-features 71.7  (80 counted, must-haves 33 of 38 done)
+features 71.4  (81 counted, must-haves 33 of 38 done)
 
 Not shippable yet: 5 must-have features are not done.
 
@@ -12,8 +12,8 @@ Not shippable yet: 5 must-have features are not done.
 - sports                        82.1  (5 features)
 - connect                       82.7  (9 features)
 - health                        83.3  (23 features)
+- faces                         87.5  (7 features)
 - app                           92.3  (5 features)
-- faces                         92.9  (6 features)
 
 ## Missing, in build order
 - [must] connect: Battery percentage, no
@@ -33,6 +33,7 @@ Not shippable yet: 5 must-have features are not done.
 - [should] notifications: Notification preferences on watch, no
 - [should] app: Profile and goals, partial  (partial)
 - [should] device: Camera remote, partial  (partial)
+- [should] faces: Watch-drawn data on faces (time position, font, data widget), partial  (partial)
 - [should] files: Generic file transfer (A0/A1 + CRC16), partial  (partial)
 - [should] health: Distance and activity duration, partial  (partial)
 - [should] health: Sleep analysis (stages), partial  (partial)

@@ -166,6 +166,17 @@
         }
       }
     },
+    "Apply style only (no picture)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تطبيق الشكل فقط (بدون صورة)"
+          }
+        }
+      }
+    },
     "Arrows": {
       "extractionState": "manual",
       "localizations": {
@@ -547,6 +558,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "الخطوات اليومية"
+          }
+        }
+      }
+    },
+    "Data widget number": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رقم أداة البيانات"
           }
         }
       }
@@ -969,6 +991,17 @@
         }
       }
     },
+    "Font number": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رقم الخط"
+          }
+        }
+      }
+    },
     "Forget": {
       "extractionState": "manual",
       "localizations": {
@@ -1163,6 +1196,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "جري داخلي"
+          }
+        }
+      }
+    },
+    "Install a face once, then try numbers here and watch what changes: the watch draws the time, and with a data widget number it may draw steps, heart rate or calories itself (real values from the watch). Tell us which number shows what; it is all in the Bluetooth log.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ركّب واجهة مرة واحدة، وبعدها جرّب الأرقام هنا وشوف إيه اللي بيتغير: الساعة بترسم الوقت، ومع رقم أداة البيانات ممكن ترسم الخطوات أو النبض أو السعرات بنفسها (قيم حقيقية من الساعة). قولنا كل رقم بيعرض إيه؛ كل حاجة متسجلة في سجل البلوتوث."
           }
         }
       }
@@ -2223,6 +2267,17 @@
         }
       }
     },
+    "Style tester": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مختبر الشكل"
+          }
+        }
+      }
+    },
     "Sunburst": {
       "extractionState": "manual",
       "localizations": {
@@ -2450,6 +2505,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "لون الوقت"
+          }
+        }
+      }
+    },
+    "Time position": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مكان الوقت"
           }
         }
       }

@@ -39,14 +39,27 @@ struct WatchShapeFrame<Content: View>: View {
     }
 }
 
-/// "Install on watch (experimental)" with an explicit confirmation and real progress.
+/// "Install on watch (experimental)" with an explicit confirmation and real progress, plus the
+/// style tester: position (1–3, from the reference app), font and data-widget numbers (unknown —
+/// found by trying; every try is in the Bluetooth log).
 struct ExperimentalInstallSection<Background: View>: View {
     @Environment(DeviceController.self) private var device
     let background: Background
     let timeColor: Color
+    @AppStorage("faceLocation") private var location = 1
+    @AppStorage("faceFont") private var font = 0
+    @AppStorage("faceFunction") private var function = -1 // -1 = no data widget (classic style command)
     @State private var confirm = false
     @State private var state: SendState = .idle
+    @State private var styleState: SendState = .idle
     @State private var progress: Double = 0
+
+    private var style: PhotoFaceStyle {
+        let c = timeColor.rgbHex
+        return PhotoFaceStyle(red: UInt8(c >> 16 & 0xFF), green: UInt8(c >> 8 & 0xFF), blue: UInt8(c & 0xFF),
+                              font: UInt8(clamping: font), location: UInt8(clamping: location),
+                              function: function < 0 ? nil : UInt8(clamping: function))
+    }
 
     var body: some View {
         Section {
@@ -71,18 +84,42 @@ struct ExperimentalInstallSection<Background: View>: View {
                 Task { await install(consent) }
             }
         }
+
+        Section {
+            Picker(L("Time position"), selection: $location) {
+                ForEach(1...3, id: \.self) { Text(verbatim: "\($0)").tag($0) }
+            }
+            .pickerStyle(.segmented)
+            Stepper(value: $font, in: 0...30) {
+                LabeledContent { Text(verbatim: "\(font)") } label: { Text(L("Font number")) }
+            }
+            Stepper(value: $function, in: -1...30) {
+                LabeledContent { Text(verbatim: function < 0 ? "–" : "\(function)") } label: { Text(L("Data widget number")) }
+            }
+            Button(L("Apply style only (no picture)")) {
+                styleState = .sending
+                Task {
+                    do { try await device.applyPhotoFaceStyle(style); styleState = .sent }
+                    catch { styleState = .failed(describe(error)) }
+                }
+            }
+            .disabled(!device.isConnected || styleState == .sending)
+            SendStatusView(state: styleState)
+        } header: { Text(L("Style tester")) } footer: {
+            Text(L("Install a face once, then try numbers here and watch what changes: the watch draws the time, and with a data widget number it may draw steps, heart rate or calories itself (real values from the watch). Tell us which number shows what; it is all in the Bluetooth log."))
+        }
     }
 
     @MainActor private func install(_ consent: UserConsent) async {
         guard let screen = device.screen, let pixels = renderFacePixels(background, screen: screen) else {
             state = .failed(S("Could not prepare the image.")); return
         }
-        let c = timeColor.rgbHex
         state = .sending
         progress = 0
         do {
-            try await device.installPhotoFace(pixels: pixels, timeColor: [UInt8(c >> 16 & 0xFF), UInt8(c >> 8 & 0xFF), UInt8(c & 0xFF)],
-                                              consent: consent) { p in Task { @MainActor in progress = p } }
+            try await device.installPhotoFace(pixels: pixels, style: style, consent: consent) { p in
+                Task { @MainActor in progress = p }
+            }
             state = .sent
         } catch {
             state = .failed(describe(error))

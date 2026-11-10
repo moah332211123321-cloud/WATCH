@@ -157,7 +157,7 @@ public actor WakeupDriver: WatchDriver {
     /// Experimental photo-face install. Layout from the reference app's source; not yet tried on a watch.
     /// `pixels` = RGB565 big-endian, `screen.width x screen.height`. Returns only after the watch asked
     /// for the package after the last one.
-    public func installPhotoFace(pixels: Data, timeColor: [UInt8], consent: UserConsent,
+    public func installPhotoFace(pixels: Data, style: PhotoFaceStyle, consent: UserConsent,
                                  progress: @escaping @Sendable (Double) -> Void) async throws {
         guard family != .sifli else {
             throw WatchError.protocolUnconfirmed("SiFli watches use a different picture transfer")
@@ -179,10 +179,15 @@ public actor WakeupDriver: WatchDriver {
             try? await perform(.highSpeed(false))
             throw error
         }
-        let c = timeColor + [255, 255, 255]
-        try await write(PhotoFace.style(red: c[0], green: c[1], blue: c[2]))
+        try await write(PhotoFace.frame(for: style))
         try await write(PhotoFace.puzzleFlag(false))
         try? await perform(.highSpeed(false))
+    }
+
+    /// Re-sends only the style (time colour, font, position, data widget) for the installed photo face.
+    /// Used by the in-app style tester; changes appearance only.
+    public func applyPhotoFaceStyle(_ style: PhotoFaceStyle) async throws {
+        try await write(PhotoFace.frame(for: style))
     }
 
     private func sendPhotoPackages(_ packages: [[UInt8]], fileSize: Int,

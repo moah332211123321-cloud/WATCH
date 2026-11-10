@@ -30,7 +30,11 @@ final class PhotoFaceTests: XCTestCase {
 
     func testCommandFrames() {
         XCTAssertEqual(PhotoFace.backgroundCount(1).bytes.hex, "AB 00 04 FF AD 80 01")
-        XCTAssertEqual(PhotoFace.style(red: 255, green: 128, blue: 0).bytes.hex, "AB 00 07 FF 9C FF 80 00 00 00")
+        XCTAssertEqual(PhotoFace.style(red: 255, green: 128, blue: 0).bytes.hex, "AB 00 07 FF 9C FF 80 00 00 01")
+        XCTAssertEqual(PhotoFace.newStyle(red: 1, green: 2, blue: 3, font: 4, location: 2, function: 6).bytes.hex,
+                       "EA 00 09 00 0D 01 01 02 03 04 02 06")
+        XCTAssertEqual(PhotoFace.frame(for: PhotoFaceStyle(red: 9, green: 9, blue: 9, function: 3)).bytes.hex,
+                       "EA 00 09 00 0D 01 09 09 09 00 01 03")
         XCTAssertEqual(PhotoFace.puzzleFlag(false).bytes.hex, "EA 00 04 00 08 00 00")
     }
 
@@ -99,14 +103,14 @@ final class PhotoFaceDriverTests: XCTestCase {
             return [0xAD, 0x00, 0x00, UInt8(acks)]
         }
         let pixels = Data(repeating: 0x11, count: 32 * 32 * 2)
-        try await d.installPhotoFace(pixels: pixels, timeColor: [255, 255, 255],
+        try await d.installPhotoFace(pixels: pixels, style: PhotoFaceStyle(red: 255, green: 255, blue: 255),
                                      consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
         XCTAssertEqual(acks, 2)
         XCTAssertEqual(t.writes.first, [0xAB, 0x00, 0x04, 0xFF, 0x87, 0x80, 0x01])   // high speed on
         XCTAssertEqual(t.writes[1], [0xAB, 0x00, 0x04, 0xFF, 0xAD, 0x80, 0x01])
         XCTAssertEqual(t.writes[2].first, 0xAD)            // info packet of package 0
         XCTAssertEqual(t.writes[2].count, 12)
-        XCTAssertEqual(t.writes[t.writes.count - 3], [0xAB, 0x00, 0x07, 0xFF, 0x9C, 0xFF, 0xFF, 0xFF, 0x00, 0x00])
+        XCTAssertEqual(t.writes[t.writes.count - 3], [0xAB, 0x00, 0x07, 0xFF, 0x9C, 0xFF, 0xFF, 0xFF, 0x00, 0x01])
         XCTAssertEqual(t.writes[t.writes.count - 2], [0xEA, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00])
         XCTAssertEqual(t.writes.last, [0xAB, 0x00, 0x04, 0xFF, 0x87, 0x80, 0x00])     // high speed off
     }
@@ -116,7 +120,7 @@ final class PhotoFaceDriverTests: XCTestCase {
         t.maximumWriteLength = 182
         let d = WakeupDriver(transport: t, family: .generic)
         do {
-            try await d.installPhotoFace(pixels: Data(count: 8), timeColor: [], consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
+            try await d.installPhotoFace(pixels: Data(count: 8), style: PhotoFaceStyle(red: 0, green: 0, blue: 0), consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
             XCTFail("must refuse without screen size")
         } catch {
             guard case .protocolUnconfirmed = error as? WatchError else { return XCTFail("\(error)") }
@@ -124,7 +128,7 @@ final class PhotoFaceDriverTests: XCTestCase {
         await d.receive(Data([0xAB, 0x00, 0x08, 0xFF, 0x20, 0x80, 0x09, 0x00, 0x00, 0x00, 0x00]), channel: .command)
         await d.receive(Data([0xEA, 0x00, 0x08, 0x00, 0x14, 0x01, 0x00, 0x02, 0x00, 0x02, 0x00]), channel: .command)
         do {
-            try await d.installPhotoFace(pixels: Data(count: 8), timeColor: [], consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
+            try await d.installPhotoFace(pixels: Data(count: 8), style: PhotoFaceStyle(red: 0, green: 0, blue: 0), consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
             XCTFail("platform 9 needs the compressed format")
         } catch {
             guard case .protocolUnconfirmed = error as? WatchError else { return XCTFail("\(error)") }
@@ -135,7 +139,7 @@ final class PhotoFaceDriverTests: XCTestCase {
     func testSiFliRefused() async {
         let d = WakeupDriver(transport: FakeTransport(), family: .sifli)
         do {
-            try await d.installPhotoFace(pixels: Data(), timeColor: [], consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
+            try await d.installPhotoFace(pixels: Data(), style: PhotoFaceStyle(red: 0, green: 0, blue: 0), consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
             XCTFail()
         } catch {
             guard case .protocolUnconfirmed = error as? WatchError else { return XCTFail("\(error)") }

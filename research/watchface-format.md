@@ -40,9 +40,17 @@ sendImageContent, sendStyle, sendCustomPuzzle, sendMultipleWatchBitmapNum), `Nor
 4. The watch answers with a raw notification `AD x b2 b3 …`. The reference app takes the next index as
    the **decimal concatenation** of b2 and b3 (`Integer.parseInt("" + b2 + b3)`) and sends that package
    (same index = resend). Non-AB/EA notifications bypass reassembly (`WatchNotify`).
-5. After the index passes the last package: style `AB 00 07 FF 9C R G B font location` (time colour; font
-   and location codes are server-provided style choices — Sawar sends 0, 0) and
-   `EA 00 04 00 08 00 00` (not a puzzle face).
+5. After the index passes the last package: style `AB 00 07 FF 9C R G B font location` and
+   `EA 00 04 00 08 00 00` (not a puzzle face). **Location 1, 2, 3** are built into the app
+   (`AlbumDialActivity.<init>` position list, 1 selected by default). **Font** comes from the server
+   (`GalleryStyleBean.getFont`). New-style watches use `EA 00 09 00 0D 01 R G B font location function`
+   (`TransferOrder.sendStyleNew`; `function` = `GalleryStyleBean.getBottomFirmwareModuleId`, a data
+   widget the watch draws itself) — values unknown without the server; Sawar's style tester tries them.
+   High-speed mode `AB … 87 80 01` is sent before the transfer and `… 00` after (`AlbumDialActivity`).
+8. **DIY faces** (`DiyDialActivity`, EA `3D 01..04`: number colour/font/function, date and data
+   positions, pointer style, state) only run on SiFli watches (`DeviceTransServiceImpl.startPushDiyDial`
+   requires capability 123) or HiSilicon (`startHsFile`). Not implemented: the user's watch took the
+   generic photo path, so it is most likely neither.
 6. Resolution: `DeviceInfoModel.getResolution()` = screen reply `EA … 14 01` (width b6–b7, height b8–b9,
    shape b10, rotate b11) if received, else the `byte18` table in `DeviceInfoModel$Byte18Model`
    (implemented as `ScreenTable`).

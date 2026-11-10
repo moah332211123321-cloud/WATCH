@@ -50,9 +50,24 @@ public enum PhotoFace {
         return out
     }
 
-    /// `AB 00 07 FF 9C R G B font location` — time colour and layout codes (font/location meaning unknown; 0 = first option).
-    public static func style(red: UInt8, green: UInt8, blue: UInt8, font: UInt8 = 0, location: UInt8 = 0) -> Frame {
+    /// `AB 00 07 FF 9C R G B font location` (`TransferOrder.sendStyle`). Location codes 1, 2, 3 are
+    /// built into the reference app (`AlbumDialActivity` position list, 1 selected by default).
+    public static func style(red: UInt8, green: UInt8, blue: UInt8, font: UInt8 = 0, location: UInt8 = 1) -> Frame {
         .classic([0x9C, red, green, blue, font, location])
+    }
+
+    /// `EA 00 09 00 0D 01 R G B font location function` (`TransferOrder.sendStyleNew`): same plus a data
+    /// widget the watch draws itself. Font and function codes come from the maker's server in the
+    /// reference app, so their meaning on a given watch must be found by trying.
+    public static func newStyle(red: UInt8, green: UInt8, blue: UInt8, font: UInt8, location: UInt8, function: UInt8) -> Frame {
+        .extended([0x0D, 0x01, red, green, blue, font, location, function])
+    }
+
+    public static func frame(for s: PhotoFaceStyle) -> Frame {
+        if let f = s.function {
+            return newStyle(red: s.red, green: s.green, blue: s.blue, font: s.font, location: s.location, function: f)
+        }
+        return style(red: s.red, green: s.green, blue: s.blue, font: s.font, location: s.location)
     }
 
     /// `EA 00 04 00 08 00 v` — is this a puzzle face.
@@ -66,6 +81,18 @@ public enum PhotoFace {
     }
 
     private static func be(_ v: Int) -> UInt8 { UInt8(truncatingIfNeeded: v) }
+}
+
+/// Time colour + layout of a photo face. `function == nil` sends the classic style command.
+public struct PhotoFaceStyle: Equatable, Sendable {
+    public var red: UInt8, green: UInt8, blue: UInt8
+    public var font: UInt8
+    public var location: UInt8
+    public var function: UInt8?
+    public init(red: UInt8, green: UInt8, blue: UInt8, font: UInt8 = 0, location: UInt8 = 1, function: UInt8? = nil) {
+        self.red = red; self.green = green; self.blue = blue
+        self.font = font; self.location = location; self.function = function
+    }
 }
 
 /// Screen size by the device-info `byte18` code (`DeviceInfoModel$Byte18Model`). Used only when the

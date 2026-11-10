@@ -217,10 +217,15 @@ final class DeviceController {
     }
 
     /// Experimental: layout from the reference app's source, not yet tried on a watch.
-    func installPhotoFace(pixels: Data, timeColor: [UInt8], consent: UserConsent,
+    func installPhotoFace(pixels: Data, style: PhotoFaceStyle, consent: UserConsent,
                           progress: @escaping @Sendable (Double) -> Void) async throws {
         guard let driver else { throw WatchError.notConnected }
-        try await driver.installPhotoFace(pixels: pixels, timeColor: timeColor, consent: consent, progress: progress)
+        try await driver.installPhotoFace(pixels: pixels, style: style, consent: consent, progress: progress)
+    }
+
+    func applyPhotoFaceStyle(_ style: PhotoFaceStyle) async throws {
+        guard let driver else { throw WatchError.notConnected }
+        try await driver.applyPhotoFaceStyle(style)
     }
 
     func updateFirmware(file: URL, consent: UserConsent) async throws {
