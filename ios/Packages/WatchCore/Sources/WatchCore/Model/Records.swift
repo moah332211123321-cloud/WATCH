@@ -89,8 +89,26 @@ public struct SportRecord: Equatable, Sendable {
     public var averageHeartRate: Int
 }
 
+/// Hourly record (`AB … 51 20`, `DataSyncProxy.hourlyMeasure1`): totals for the hour before `hour`.
+public struct HourlyRecord: Equatable, Sendable {
+    public var hourStart: Date
+    public var steps: Int
+    public var kilocalories: Int
+    public var heartRate: Int
+    public var bloodOxygen: Int
+    public var systolic: Int
+    public var diastolic: Int
+}
+
 /// Everything the decoder can turn a frame into.
 public enum WatchEvent: Equatable, Sendable {
+    /// Battery percent (`AB … 91`, `CommonAnalyzer.getBattery`, byte 7).
+    case battery(Int)
+    /// The watch asks the phone to ring (`AB … 7D`, b6 1 = start, 0 = stop).
+    case findPhone(Bool)
+    /// Shutter pressed on the watch (`AB … 79` from the watch, `CommonAnalyzer.sendTake`).
+    case cameraShutter
+    case hourly(HourlyRecord)
     case platform(PlatformInfo)
     case screen(ScreenInfo)
     case sport(SportRecord)

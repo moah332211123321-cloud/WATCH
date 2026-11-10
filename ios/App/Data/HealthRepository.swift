@@ -44,7 +44,16 @@ struct HealthRepository {
                                              averageHeartRate: r.averageHeartRate > 0 ? Double(r.averageHeartRate) : nil,
                                              maxHeartRate: nil))
             }
-        case .deviceInfo, .heartbeat, .unknown, .platform, .screen, .faceAck, .raw:
+        case let .hourly(h):
+            // Values measured during the hour; 0 means "not measured".
+            let at = h.hourStart.addingTimeInterval(3600)
+            if h.heartRate > 0 { insert(HealthSampleRecord(metric: .heartRate, date: at, value: Double(h.heartRate), source: .device, deviceID: deviceID)) }
+            if h.bloodOxygen > 0 { insert(HealthSampleRecord(metric: .bloodOxygen, date: at, value: Double(h.bloodOxygen), source: .device, deviceID: deviceID)) }
+            if h.systolic > 0, h.diastolic > 0 {
+                insert(HealthSampleRecord(metric: .bloodPressure, date: at, value: Double(h.systolic), value2: Double(h.diastolic),
+                                          source: .device, deviceID: deviceID))
+            }
+        case .deviceInfo, .heartbeat, .unknown, .platform, .screen, .faceAck, .raw, .battery, .findPhone, .cameraShutter:
             break
         }
         try? context.save()

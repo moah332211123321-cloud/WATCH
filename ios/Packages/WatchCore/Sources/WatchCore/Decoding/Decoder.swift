@@ -78,6 +78,24 @@ public struct WatchDecoder: Sendable {
         case (.extended, 0x0B, _) where sub != 0x02:
             return .heartbeat
 
+        case (.classic, 0x91, _): // CommonAnalyzer.getBattery
+            guard let v = at(7) else { break }
+            return .battery(v)
+
+        case (.classic, 0x7D, _): // CommonAnalyzer.findPhone
+            return .findPhone(at(6) == 1)
+
+        case (.classic, 0x79, _): // CommonAnalyzer.sendTake (only the watch sends 79 to the phone)
+            return .cameraShutter
+
+        case (.classic, 0x51, 0x20): // DataSyncProxy.hourlyMeasure1
+            guard b.count >= 20, let hour = deviceDate([b[6], b[7], b[8], b[9], 0], from: 0) else { break }
+            return .hourly(HourlyRecord(
+                hourStart: hour.addingTimeInterval(-3600),
+                steps: Int(b[10]) << 16 | Int(b[11]) << 8 | Int(b[12]),
+                kilocalories: Int(b[13]) << 16 | Int(b[14]) << 8 | Int(b[15]),
+                heartRate: Int(b[16]), bloodOxygen: Int(b[17]), systolic: Int(b[18]), diastolic: Int(b[19])))
+
         case (.classic, 0x20, _): // ConnectAnalyzer.getPairingType
             guard b.count >= 8 else { break }
             return .platform(PlatformInfo(platform: Int(b[6]), flags: at(8).map { UInt8($0) } ?? 0,

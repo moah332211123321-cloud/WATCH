@@ -1,28 +1,26 @@
-## Parity: 71.4 / 100
+## Parity: 74.2 / 100
 
-features 71.4  (81 counted, must-haves 33 of 38 done)
+features 74.2  (81 counted, must-haves 34 of 38 done)
 
-Not shippable yet: 5 must-have features are not done.
+Not shippable yet: 4 must-have features are not done.
 
 ## By area, weakest first
 - apps                           0.0  (1 features)
 - notifications                  0.0  (5 features)
 - files                         16.7  (4 features)
-- device                        65.2  (22 features)
+- device                        69.6  (22 features)
 - sports                        82.1  (5 features)
-- connect                       82.7  (9 features)
 - health                        83.3  (23 features)
 - faces                         87.5  (7 features)
 - app                           92.3  (5 features)
+- connect                       94.2  (9 features)
 
 ## Missing, in build order
-- [must] connect: Battery percentage, no
 - [must] notifications: App notifications to watch, no
 - [must] notifications: Incoming call / caller id, no
 - [must] connect: Capability detection per device, partial  (partial)
 - [must] sports: Sport types (walking, running, cycling, more), partial  (partial)
 - [should] device: Contacts / SOS, no
-- [should] device: Find phone, no
 - [should] device: Firmware update, no
 - [should] device: Language, no
 - [should] device: Screen brightness / timeout / vibration, no

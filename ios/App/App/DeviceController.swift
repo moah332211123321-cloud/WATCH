@@ -1,3 +1,4 @@
+import AudioToolbox
 import CoreBluetooth
 import Foundation
 import Observation
@@ -32,6 +33,10 @@ final class DeviceController {
     var packetLog: [PacketLine] = []
     var screen: ScreenInfo?
     var platform: PlatformInfo?
+    var battery: Int?
+    /// True while the phone rings because the watch asked "find my phone".
+    var isFindingPhone = false
+    @ObservationIgnored private var ringTask: Task<Void, Never>?
 
     @ObservationIgnored private let ble = BLECentral()
     @ObservationIgnored private(set) var driver: WakeupDriver?
@@ -176,11 +181,35 @@ final class DeviceController {
             for await event in driver.events {
                 guard let self else { return }
                 if case let .sample(s) = event, s.kind == .heartRate, s.isLive { self.liveHeartRate = Int(s.value) }
+                if case let .battery(level) = event { self.battery = level }
+                if case let .findPhone(on) = event { on ? self.startRinging() : self.stopRinging() }
                 if let context = self.context {
                     HealthRepository(context: context).store(event, deviceID: self.connectedID)
                 }
             }
         }
+    }
+
+    /// Plays the alert sound and vibrates every second for up to 30 s (only while Sawar is open:
+    /// iOS does not let a background app play sound without an audio session).
+    func startRinging() {
+        ringTask?.cancel()
+        isFindingPhone = true
+        ringTask = Task { [weak self] in
+            for _ in 0..<30 {
+                if Task.isCancelled { break }
+                AudioServicesPlaySystemSound(1005)
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+                try? await Task.sleep(for: .seconds(1))
+            }
+            self?.isFindingPhone = false
+        }
+    }
+
+    func stopRinging() {
+        ringTask?.cancel()
+        ringTask = nil
+        isFindingPhone = false
     }
 
     private func appendLog(_ line: PacketLine) {

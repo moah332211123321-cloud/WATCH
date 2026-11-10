@@ -28,6 +28,7 @@ struct SawarApp: App {
 
 struct RootView: View {
     @AppStorage("onboarded") private var onboarded = false
+    @Environment(DeviceController.self) private var device
 
     var body: some View {
         if onboarded {
@@ -38,6 +39,10 @@ struct RootView: View {
                 DeviceView().tabItem { Label(L("Watch"), systemImage: "gearshape") }
             }
             .tint(Tok.accent)
+            .alert(L("Your watch is looking for this phone"),
+                   isPresented: Binding(get: { device.isFindingPhone }, set: { if !$0 { device.stopRinging() } })) {
+                Button(L("Stop")) { device.stopRinging() }
+            }
         } else {
             OnboardingView { onboarded = true }
         }

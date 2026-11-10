@@ -252,3 +252,23 @@ Record layouts traced in a second pass (D, all unconfirmed until Phase 2):
 6. Bytes of the 35 dynamically built packets (contacts, notifications, weather, file head/block).
 7. How the watch notifies "find phone", camera shutter, music keys (analyzers identified, bytes U).
 8. Which family the user's watch belongs to (decides OTA / watch-face path).
+
+
+## 8. Confirmed with real packets (user's watch "UrjwanPlus", fw 1.02, Sawar Bluetooth log 2026-11-10)
+
+| packet | decoded | matches |
+|---|---|---|
+| `AB 00 11 FF 92 C0 01 02 00 8C … 09 80` | firmware 1.02, byte18 = 9 → 240×288 rectangle | watch About screen, Sawar screen size |
+| `AB 00 05 FF 91 80 00 51` | battery 81 % (`CommonAnalyzer.getBattery`, b7) | plausible |
+| `AB 00 0E FF 51 08 00 06 9C 00 00 33 00 20 00 00 01` | 1692 steps, 51 kcal, 32 min light sleep, 1 wake | sleep record below |
+| `AB … 51 13 1A 0B 0A 0C 00 24 04 13` | 12:00 temperature 36.4 °C | plausible |
+| `AB … 51 11 1A 0B 0A 10 2B 4D …` | 16:43 heart rate 77 | plausible |
+| `AB … 52 80 1A 0B 0A 16 06 01 00 20` | sleep 22:06, type 1, 32 min | = summary light sleep |
+| `AB … 51 20 …` (hourly, `hourlyMeasure1`) | b10–12 steps, b13–15 kcal, b16 HR, b17 SpO2, b18/b19 BP | 52 steps, HR 94, SpO2 97, 131/90 |
+| `AB 00 06 FF A7 80 02 0F 0D` | MTU 527, major version 13 | — |
+| `AD 02 00 20 00` after info packet index 31 | next index 32 (decimal concatenation) | photo face installed |
+| `AB 00 04 FF 87 80 01` | watch echoes high-speed on | — |
+
+Not received: the `AB … 20` platform reply (so platform type defaults to 1 → not HiSilicon 11) and the
+`EA … 14 01` screen reply (screen came from the byte-18 table). GATT family detected: Nordic (FE59).
+Other source-confirmed watch → phone packets: `AB … 7D` find phone (b6 1/0), `AB … 79` camera shutter.

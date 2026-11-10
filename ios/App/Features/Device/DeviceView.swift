@@ -47,7 +47,7 @@ struct DeviceView: View {
                     Button { Task { await find() } } label: { Label(L("Find my watch"), systemImage: "dot.radiowaves.left.and.right") }
                         .disabled(!device.isConnected)
                     SendStatusView(state: findState)
-                    NavigationLink { BlockedFeatureView(title: L("Find my phone"), reason: L("Ringing the phone from the watch is not available yet: the watch's request packet is not confirmed.")) }
+                    NavigationLink { BlockedFeatureView(title: L("Find my phone"), reason: L("When you choose Find phone on the watch, this phone rings and vibrates while Sawar is open. iPhone and iPad do not let apps ring from the background.")) }
                         label: { Label(L("Find my phone"), systemImage: "iphone.radiowaves.left.and.right") }
                     NavigationLink { FirmwareView() } label: { Label(L("Firmware"), systemImage: "cpu") }
                     NavigationLink { AdvancedView() } label: { Label(L("Reset and erase"), systemImage: "exclamationmark.octagon") }
@@ -78,7 +78,15 @@ struct DeviceView: View {
                 if let info = device.info {
                     Text(verbatim: S("Firmware") + " " + info.firmwareVersion).font(.caption).foregroundStyle(Tok.textMuted)
                 }
-                Text(L("Battery: not available yet")).font(.caption).foregroundStyle(Tok.textMuted)
+                if let level = device.battery {
+                    Label { Text(verbatim: "\(level)%") } icon: {
+                        Image(systemName: level > 50 ? "battery.75" : level > 20 ? "battery.25" : "battery.0")
+                    }
+                    .font(.caption).foregroundStyle(level > 20 ? Tok.textMuted : Tok.danger)
+                    .accessibilityLabel(Text(L("Battery")) + Text(verbatim: " \(level)%"))
+                } else {
+                    Text(L("Battery: not available yet")).font(.caption).foregroundStyle(Tok.textMuted)
+                }
             }
             Spacer()
         }

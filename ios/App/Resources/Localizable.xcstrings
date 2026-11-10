@@ -210,6 +210,17 @@
         }
       }
     },
+    "Battery": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البطارية"
+          }
+        }
+      }
+    },
     "Battery: not available yet": {
       "extractionState": "manual",
       "localizations": {
@@ -1926,17 +1937,6 @@
         }
       }
     },
-    "Ringing the phone from the watch is not available yet: the watch's request packet is not confirmed.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "رنين الهاتف من الساعة غير متاح بعد: حزمة الطلب من الساعة غير مؤكدة."
-          }
-        }
-      }
-    },
     "Ruler": {
       "extractionState": "manual",
       "localizations": {
@@ -2241,6 +2241,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "الخطوات"
+          }
+        }
+      }
+    },
+    "Stop": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إيقاف"
           }
         }
       }
@@ -2751,6 +2762,17 @@
         }
       }
     },
+    "When you choose Find phone on the watch, this phone rings and vibrates while Sawar is open. iPhone and iPad do not let apps ring from the background.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لما تختار «البحث عن الهاتف» من الساعة، الجهاز ده بيرن ويهتز طول ما سوار مفتوح. الآيفون والآيباد مش بيسمحوا للتطبيقات ترن وهي في الخلفية."
+          }
+        }
+      }
+    },
     "Whether your watch supports ANCS is not confirmed yet.": {
       "extractionState": "manual",
       "localizations": {
@@ -2824,6 +2846,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "ساعتك لم ترد. حاول مرة أخرى؟"
+          }
+        }
+      }
+    },
+    "Your watch is looking for this phone": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعتك بتدوّر على الجهاز ده"
           }
         }
       }
