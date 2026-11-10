@@ -1,0 +1,160 @@
+uses-permission	name=android.permission.BLUETOOTH
+uses-permission	name=android.permission.BLUETOOTH_ADMIN
+uses-permission	name=android.permission.BLUETOOTH_SCAN
+uses-permission	name=android.permission.BLUETOOTH_ADVERTISE
+uses-permission	name=android.permission.BLUETOOTH_CONNECT
+uses-permission	name=android.permission.CAMERA
+uses-permission	name=android.permission.ACCESS_FINE_LOCATION
+uses-permission	name=android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+uses-permission	name=android.permission.ACCESS_COARSE_LOCATION
+uses-permission	name=android.permission.ACCESS_BACKGROUND_LOCATION
+uses-permission	name=android.permission.ACCESS_WIFI_STATE
+uses-permission	name=android.permission.CHANGE_WIFI_STATE
+uses-permission	name=android.permission.NEARBY_WIFI_DEVICES
+uses-permission	name=android.permission.CHANGE_WIFI_MULTICAST_STATE
+uses-permission	name=android.permission.WAKE_LOCK
+uses-permission	name=com.google.android.wearable.permission.RECEIVE_COMPLICATION_DATA
+uses-permission	name=android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+uses-permission	name=android.permission.READ_MEDIA_VIDEO
+uses-permission	name=android.permission.READ_MEDIA_IMAGES
+uses-permission	name=android.permission.READ_MEDIA_AUDIO
+uses-permission	name=android.permission.READ_EXTERNAL_STORAGE
+uses-permission	name=android.permission.WRITE_EXTERNAL_STORAGE
+uses-permission	name=android.permission.ACCESS_NETWORK_STATE
+uses-permission	name=android.permission.MODIFY_AUDIO_SETTINGS
+uses-permission	name=android.permission.VIBRATE
+uses-permission	name=android.permission.READ_CONTACTS
+uses-permission	name=android.permission.FLASHLIGHT
+uses-permission	name=android.permission.READ_PHONE_STATE
+uses-permission	name=android.permission.READ_CALL_LOG
+uses-permission	name=com.wakeup.howear.permission.JPUSH_MESSAGE
+uses-permission	name=android.permission.RECEIVE_USER_PRESENT
+uses-permission	name=android.permission.INTERNET
+uses-permission	name=android.permission.CHANGE_NETWORK_STATE
+uses-permission	name=android.permission.GET_TASKS
+uses-permission	name=android.permission.FOREGROUND_SERVICE
+uses-permission	name=android.permission.GET_ACCOUNTS
+uses-permission	name=android.permission.SYSTEM_ALERT_WINDOW
+uses-permission	name=android.permission.ACCESS_NOTIFICATION_POLICY
+uses-permission	name=android.permission.RECORD_AUDIO
+uses-permission	name=android.permission.QUERY_ALL_PACKAGES
+uses-permission	name=com.wakeup.howear.permission.KW_SDK_BROADCAST
+uses-permission	name=com.wakeup.howear.openadsdk.permission.TT_PANGOLIN
+uses-permission	name=android.permission.NFC
+uses-permission	name=android.permission.ACTIVITY_RECOGNITION
+uses-permission	name=android.permission.READ_CALENDAR
+uses-permission	name=android.permission.WRITE_CALENDAR
+uses-permission	name=android.permission.POST_NOTIFICATIONS
+uses-permission	name=android.permission.SCHEDULE_EXACT_ALARM
+uses-permission	name=android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK
+uses-permission	name=android.permission.FOREGROUND_SERVICE_DATA_SYNC
+uses-permission	name=android.permission.KILL_BACKGROUND_PROCESSES
+uses-permission	name=android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION
+uses-permission	name=android.permission.IGNORE_BATTERY_OPTIMIZATIONS_REQUEST
+uses-permission	name=android.permission.RECEIVE_BOOT_COMPLETED
+uses-permission	name=com.android.launcher.permission.READ_SETTINGS
+uses-permission	name=android.permission.BAIDU_LOCATION_SERVICE
+uses-permission	name=android.permission.FOREGROUND_SERVICE_LOCATION
+uses-permission	name=android.permission.CAPTURE_AUDIO_OUTPUT
+uses-permission	name=android.permission.FOREGROUND_SERVICE_MICROPHONE
+uses-permission	name=android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE
+uses-permission	name=com.sec.android.provider.badge.permission.READ
+uses-permission	name=com.sec.android.provider.badge.permission.WRITE
+uses-permission	name=com.vivo.notification.permission.BADGE_ICON
+uses-permission	name=com.android.alarm.permission.SET_ALARM
+uses-permission	name=android.permission.CALL_PHONE
+uses-permission	name=android.permission.WRITE_SETTINGS
+uses-permission	name=android.permission.REORDER_TASKS
+uses-permission	name=com.google.android.gms.permission.AD_ID
+uses-permission	name=android.permission.ACCESS_ADSERVICES_AD_ID
+uses-permission	name=android.permission.ACCESS_ADSERVICES_ATTRIBUTION
+uses-permission	name=android.permission.ACCESS_ADSERVICES_TOPICS
+uses-permission	name=com.applovin.array.apphub.permission.BIND_APPHUB_SERVICE
+uses-permission	name=com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+uses-permission	name=com.google.android.c2dm.permission.RECEIVE
+uses-permission	name=com.google.android.providers.gsf.permission.READ_GSERVICES
+uses-permission	name=com.wakeup.howear.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission	name=com.wakeup.howear.permission.MIPUSH_RECEIVE
+uses-permission	name=com.hihonor.push.permission.READ_PUSH_NOTIFICATION_INFO
+uses-permission	name=com.wakeup.howear.permission.PROCESS_PUSH_MSG
+uses-permission	name=com.wakeup.howear.permission.PUSH_PROVIDER
+uses-permission	name=android.permission.EXPAND_STATUS_BAR
+service	name=com.baidu.location.f
+service	name=com.amap.api.location.APSService
+receiver	name=com.wakeup.howear.receiver.PhoneBroadcastReceiver	exported=4294967295
+receiver	name=com.wakeup.howear.receiver.SmsReceiver	exported=4294967295
+service	name=com.wakeup.howear.service.MyNotificationListenerService	exported=0	label=2131952252
+service	name=org.eclipse.paho.android.service.MqttService
+receiver	name=com.wakeup.howear.receiver.ScheduleReceiver	exported=4294967295
+service	name=com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService
+receiver	name=com.wakeup.howear.widget.DailySportWidgetRefreshReceiver	exported=0
+receiver	name=com.wakeup.howear.widget.DailySportWidgetProvider	exported=0	label=2131959355
+service	name=com.wakeup.module.ai.record.CaptureAudioService	exported=0
+service	name=com.wakeup.module.step.SportService	exported=0
+service	name=com.wakeup.module.device.ota.NordicDfuService	exported=0
+service	name=com.wakeup.module.device.work.DeviceService	exported=0
+service	name=com.wakeup.feature.newsdaily.player.NewsDailyPlaybackService	exported=0
+service	name=com.wakeup.feature.aimusic.player.AiMusicPlaybackService	exported=0
+service	name=com.wakeup.module.play.MusicService	exported=0
+service	name=com.wakeup.module.play.AudioPlayService	exported=0
+service	name=com.wakeup.module.play.HeadLinePlayService	exported=0
+receiver	name=com.wakeup.howear.push.receiver.VivoPushMessageReceiver	exported=0
+service	name=com.vivo.push.sdk.service.CommandClientService	exported=4294967295
+receiver	name=com.wakeup.howear.push.receiver.XiaomiPushMessageReceiver	exported=4294967295
+service	name=com.xiaomi.push.service.XMJobService	exported=0
+service	name=com.xiaomi.push.service.XMPushService
+receiver	name=com.xiaomi.push.service.receivers.PingReceiver	exported=0
+service	name=com.heytap.msp.push.service.DataMessageCallbackService	exported=4294967295
+service	name=com.heytap.msp.push.service.CompatibleDataMessageCallbackService	exported=4294967295
+service	name=com.wakeup.howear.push.receiver.HonorMessageReceiver	exported=0
+service	name=com.wakeup.howear.push.service.HuaweiHmsMessageService	exported=0
+service	name=com.wakeup.howear.push.service.GoogleMessageService	exported=4294967295
+receiver	name=com.wakeup.module.record.NotificationReceiver
+service	name=com.wakeup.module.record.ScreenRecordService
+service	name=com.phancy.mini.main.MiniService
+service	name=com.phancy.mini.api.location.LocationChangeService	exported=0
+service	name=com.luck.picture.lib.service.ForegroundService
+service	name=com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService
+service	name=com.google.firebase.components.ComponentDiscoveryService	exported=0
+service	name=com.google.android.gms.ads.AdService	exported=0
+service	name=com.applovin.impl.adview.activity.FullscreenAdService	exported=0
+receiver	name=com.google.android.gms.measurement.AppMeasurementReceiver	exported=0
+service	name=com.google.android.gms.measurement.AppMeasurementService	exported=0
+service	name=com.google.android.gms.measurement.AppMeasurementJobService	exported=0
+service	name=io.appmetrica.analytics.internal.AppMetricaService	exported=0
+receiver	name=com.google.firebase.iid.FirebaseInstanceIdReceiver	exported=4294967295
+service	name=com.google.firebase.messaging.FirebaseMessagingService	exported=0
+service	name=androidx.credentials.playservices.CredentialProviderMetadataHolder	exported=0
+service	name=com.google.android.gms.auth.api.signin.RevocationBoundService	exported=4294967295
+service	name=io.livekit.android.room.track.screencapture.ScreenCaptureService
+service	name=androidx.work.impl.background.systemalarm.SystemAlarmService	exported=0
+service	name=androidx.work.impl.background.systemjob.SystemJobService	exported=4294967295
+service	name=androidx.work.impl.foreground.SystemForegroundService	exported=0
+receiver	name=androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver	exported=0
+receiver	name=androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy	exported=0
+receiver	name=androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy	exported=0
+receiver	name=androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy	exported=0
+receiver	name=androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy	exported=0
+receiver	name=androidx.work.impl.background.systemalarm.RescheduleReceiver	exported=0
+receiver	name=androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver	exported=0
+receiver	name=androidx.work.impl.diagnostics.DiagnosticsReceiver	exported=4294967295
+service	name=androidx.room.MultiInstanceInvalidationService	exported=0
+service	name=androidx.camera.core.impl.MetadataHolderService	exported=0
+service	name=com.blankj.utilcode.util.MessengerUtils$ServerService	exported=0
+receiver	name=androidx.profileinstaller.ProfileInstallReceiver	exported=4294967295
+service	name=com.google.android.datatransport.runtime.backends.TransportBackendDiscovery	exported=0
+service	name=com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService	exported=0
+receiver	name=com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver	exported=0
+service	name=com.sifli.serialtransport.serialTransService	exported=4294967295
+service	name=com.sifli.watchfacelibrary.SifliWFService	exported=4294967295
+service	name=com.sifli.watchfacelibrary.SifliWatchfaceService	exported=0
+service	name=com.sifli.siflidfu.SifliDFUService	exported=0
+service	name=com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService
+service	name=com.efs.sdk.memleaksdk.monitor.UMonitorService	exported=0
+service	name=com.xiaomi.mipush.sdk.PushMessageHandler	exported=4294967295
+service	name=com.xiaomi.mipush.sdk.MessageHandleService
+receiver	name=com.huawei.hms.support.api.push.PushMsgReceiver	exported=4294967295
+receiver	name=com.huawei.hms.support.api.push.PushReceiver	exported=4294967295
+service	name=com.huawei.hms.support.api.push.service.HmsMsgService	exported=4294967295
+receiver	name=com.mbridge.msdk.foundation.same.broadcast.NetWorkChangeReceiver	exported=4294967295
+service	name=com.huawei.agconnect.core.ServiceDiscovery	exported=0

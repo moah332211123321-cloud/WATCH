@@ -1,0 +1,11 @@
+# reference APK and its extraction: untrusted, large, not ours to redistribute
+*.apk
+*.xapk
+research/apk-extract/
+# build output
+build/
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/xcuserdata/
+.DS_Store
+__pycache__/

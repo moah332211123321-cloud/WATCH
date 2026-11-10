@@ -1,0 +1,174 @@
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Byte11Model; extends Ljava/lang/Object; []
+  methods: -$$Nest$fgetisLicense -$$Nest$fgetisOta <init> isLicense isOta setLicense setOta
+  fields: isLicense:Z isOta:Z
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Byte12Model; extends Ljava/lang/Object; []
+  methods: -$$Nest$fgetisAlp -$$Nest$fgetisWxp <init> isAlp isWxp setAlp setWxp
+  fields: isAlp:Z isWxp:Z
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Byte15Model; extends Ljava/lang/Object; []
+  methods: -$$Nest$fgetcanSet12Hours -$$Nest$fgetcanSetSleepTime -$$Nest$fgetcanSetStepLength -$$Nest$fgethasHeartWarn -$$Nest$fgetisOpenWechatSport -$$Nest$fgetmenstruationSwitch -$$Nest$fgetneedPhoneSerialNumber -$$Nest$fgetnordic <init> getNordic isCanSet12Hours isCanSetSleepTime isCanSetStepLength isHasHeartWarn isMenstruationSwitch isNeedPhoneSerialNumber isOpenWechatSport setCanSet12Hours setCanSetSleepTime setCanSetStepLength setHasHeartWarn setMenstruationSwitch setNeedPhoneSerialNumber setNordic setOpenWechatSport
+  fields: canSet12Hours:Z canSetSleepTime:Z canSetStepLength:Z hasHeartWarn:Z isOpenWechatSport:Z menstruationSwitch:Z needPhoneSerialNumber:Z nordic:I this$0:Lcom/wakeup/common/storage/model/DeviceInfoModel;
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Byte16Model; extends Ljava/lang/Object; []
+  methods: -$$Nest$fgethasContinuousHeartRate <init>
+  fields: hasBloodOxygen:Z hasBloodPressure:Z hasContinuousHeartRate:Z hasECG:Z this$0:Lcom/wakeup/common/storage/model/DeviceInfoModel;
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Byte17Model; extends Ljava/lang/Object; []
+  methods: -$$Nest$fgethasConverse -$$Nest$fgethasInstagram -$$Nest$fgethasJiuzuotixing -$$Nest$fgethasPagesManager -$$Nest$fgethasWeather -$$Nest$fgetheartRateHongwai -$$Nest$fgetheartRateSaveBattery -$$Nest$fgetmoreMessage <init> isHasConverse isHasInstagram isHasJiuzuotixing isHasPagesManager isHasWeather isHeartRateHongwai isHeartRateSaveBattery isMoreMessage setHasConverse setHasInstagram setHasJiuzuotixing setHasPagesManager setHasWeather setHeartRateHongwai setHeartRateSaveBattery setMoreMessage
+  fields: hasConverse:Z hasInstagram:Z hasJiuzuotixing:Z hasPagesManager:Z hasWeather:Z heartRateHongwai:Z heartRateSaveBattery:Z moreMessage:Z this$0:Lcom/wakeup/common/storage/model/DeviceInfoModel;
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Byte18Model; extends Ljava/lang/Object; []
+  methods: -$$Nest$fgetresolution -$$Nest$fgetscreenType -$$Nest$fgetsize <init>
+  fields: resolution:[I screenType:I size:F this$0:Lcom/wakeup/common/storage/model/DeviceInfoModel;
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Info2Byte5Model; extends Ljava/lang/Object; []
+  methods: <init>
+  fields: continuousTemperature:Z hasBodyTemperature:Z hasImmunity:Z this$0:Lcom/wakeup/common/storage/model/DeviceInfoModel;
+== Lcom/wakeup/common/storage/model/DeviceInfoModel$Info2Byte7Model; extends Ljava/lang/Object; []
+  methods: <init> getType setType
+  fields: this$0:Lcom/wakeup/common/storage/model/DeviceInfoModel; type:I
+== Lcom/wakeup/common/storage/model/DeviceInfoModel; extends Ljava/lang/Object; ['Ljava/io/Serializable;']
+  methods: <init> analyzeByte11 analyzeByte12 analyzeByte15 analyzeByte16 analyzeByte17 analyzeInfo2Byte5 analyzeInfo2Byte7 getBandVersionCode getBleName getByte11 getByte12 getByte15 getByte16 getByte17 getByte18 getEquipmentCode getInfo2Byte5 getInfo2Byte6 getInfo2Byte7 getLicense getMac getOtaVersionCode getProtocolVersionCode getResolution getRotate getScreenSize getScreenType getWatchfaceBgNum isLicense setBandVersionCode setBleName setByte11 setByte12 setByte15 setByte16 setByte17 setByte18 setEquipmentCode setInfo2Byte5 setInfo2Byte6 setInfo2Byte7 setLicense setMac setOtaVersionCode setProtocolVersionCode setWatchfaceBgNum toString
+  fields: audioMac:Ljava/lang/String; bandVersionCode:I bleName:Ljava/lang/String; byte11:I byte12:I byte15:I byte16:I byte17:I byte18:I equipmentCode:Ljava/lang/String; info2Byte5:I info2Byte6:I info2Byte7:I isAudioDeviceConnected:Z isAudioDeviceOpen:Z license:Ljava/lang/String; mac:Ljava/lang/String; otaVersionCode:Ljava/lang/String; protocolVersionCode:I watchfaceBgNum:I
+== Lcom/wakeup/common/storage/model/DeviceLocal; extends Ljava/lang/Object; []
+  methods: <init> getByte10 getByte6 getByte7 getByte8 getByte9 getDeviceScreen getDeviceType getOtaType getPlatform getRotate setByte10 setByte6 setByte7 setByte8 setByte9 setDeviceScreen setRotate supportDouble supportFileTrans supportNewAliCode supportPressure supportSwitchReceive
+  fields: byte10:I byte6:I byte7:I byte8:I byte9:I deviceScreen:Lcom/wakeup/common/storage/model/DeviceScreen; rotate:I
+== Lcom/wakeup/common/storage/model/DeviceScreen; extends Ljava/lang/Object; []
+  methods: <init> component1 component2 component3 copy copy$default equals getHeight getScreenType getWidth hashCode toString
+  fields: height:I screenType:I width:I
+== Lcom/wakeup/commponent/module/ble/WatchBleOrder; extends Ljava/lang/Object; []
+  methods: 
+  DrinkWater_ORDER = '设置喝水提醒'
+  FIND_BAND_ORDER = '查找手环'
+  GET_CLASSIC_BLE_MAC_ORDER = '获取经典蓝牙MAC'
+  GET_DEVICE_AUDIO_MAC = '手机查询手环音频蓝牙Mac地址'
+  GET_MTU_GET = '获取MTU值'
+  HEART_REMINDER = '心率、远眺提醒'
+  HIGH_SPEED_SWITCH_ORDER = 'BLE高速传输'
+  HIGH_SPEED_SWITCH_ORDER2 = 'BLE高速传输2'
+  LOW_SPEED_SWITCH_ORDER = 'BLE低速传输'
+  LOW_SPEED_SWITCH_ORDER2 = 'BLE低速传输2'
+  MARKET_INSTALL = '安装应用'
+  MEASURE_ORDER = '单次与实时测量'
+  RAISE_YOUR_WRIST_TO_WAKE_UP = '抬腕唤醒'
+  REMINDER_SWITCH = '提醒'
+  REMINDER_SWITCH_ORDER = '设置提醒开关'
+  REMIND_4 = '运动吃药看书出行提醒'
+  SEND_ACTIVITY_HEAT = '发送活动热量目标设置'
+  SEND_AIR_UV = '发送气压紫外线'
+  SEND_AI_GC_CONVERT = '语音转换结果'
+  SEND_ALTITUDE_PRESSURE = '海拔和气压'
+  SEND_BMI = '发送BMI'
+  SEND_BODY_FAT_RATE = '发送体脂率'
+  SEND_BREATHE = '发送呼吸'
+  SEND_BlE_CONNECTION_REQUEST_TYPE = '蓝牙连接请求类型'
+  SEND_BlE_DISCONNECT = '断开连接'
+  SEND_CHECK_SPORT_DISCONNECT_STATUS = '运动互联断连状态'
+  SEND_CITY = '发送城市'
+  SEND_CITY_WEATHER = '发送天气'
+  SEND_CONTACT_NAME_ORDER = '设置联系人姓名'
+  SEND_CONTACT_PHONE_ORDER = '设置联系人电话号码'
+  SEND_DEVICE_AUDIO_COM = 'App发送音频蓝牙命令'
+  SEND_DEVICE_INFO = '获取设备信息'
+  SEND_DIAL_REQ = '发送表盘市场序号'
+  SEND_DIAL_SERIAL_NUM = '发送表盘序号'
+  SEND_EXERCISE_DURATION = '锻炼时长提醒时长设置'
+  SEND_FRIEND_ADDRESS_AND_LOCATION = '发送好友位置数据'
+  SEND_FRIEND_HEALTH_DATA = '发送好友健康数据'
+  SEND_FRIEND_IMAGE = '发送好友头像'
+  SEND_FRIEND_IMAGE_DATA = '发送好友头像数据'
+  SEND_FRIEND_NAME_AND_DATE = '发送好友名称和时间'
+  SEND_GET_DEVICE_SN = '获取设备的SN号'
+  SEND_GLUCOSE = '发送血糖'
+  SEND_GPT_APP_VERSION = 'Chat Gpt获取app版本'
+  SEND_GPT_CLEAR_TODO = 'Chat Gpt清除备忘录'
+  SEND_GPT_CONVERT = '语音转换结果'
+  SEND_GPT_RESULT = 'Chat Gpt回答结果'
+  SEND_GPT_STEAM_RESULT = 'Chat Gpt流式回答结果'
+  SEND_GPT_STEAM_RESULT_QUESTION = 'Chat提问流式回答结果'
+  SEND_GPT_TODO = 'Chat Gpt备忘录'
+  SEND_HR_PY_WARNING = '心脏预警通知'
+  SEND_LICENSE_NUM = '获取license号'
+  SEND_MAP_MODE = '发送地图模式'
+  SEND_MAP_NAVIGATION_DATA = '发送导航数据'
+  SEND_MAP_NAVIGATION_DIRECTION = '发送导航方向'
+  SEND_MAP_NAVIGATION_START_OR_END_STATUS = '发送开始或结束导航指令'
+  SEND_MAP_NAVIGATION_STATUS = '查询设备是否可以导航状态'
+  SEND_MENSTRUAL_CHECK_RESULT = '检查经期结果'
+  SEND_MENSTRUAL_INFO = '发送经期周期信息'
+  SEND_MES_PUSH = '消息推送'
+  SEND_MUSCLE_MASS = '发送肌肉含量'
+  SEND_NOT_DISTURB_MODE = '勿扰设置'
+  SEND_NUCLEIC_ACID_CODE_DATA = '核酸码包'
+  SEND_NUCLEIC_ACID_CODE_HEAD = '核酸码头'
+  SEND_NUM_ACTIVITY = '发送活动次数提醒设置'
+  SEND_PHONE_SYSTEM = '发送手机系统'
+  SEND_PHYSICAL_TRAINING = '体能训练'
+  SEND_PIC_CONTENT_ORDER = '发送图片信息'
+  SEND_PIC_ORDER = '发送图片'
+  SEND_PIC_ORDER_AI = '发送ai表盘图片'
+  SEND_PROJECT_MESSAGE_NOTIFICATION = '站内消息通知'
+  SEND_REPLY_DEVICE_HEART_BEAT = '回复设备心跳包'
+  SEND_RTT_SICHE_AVATAR_IMAGE = '思澈专属好友头像CRC'
+  SEND_RTT_SYN_REQUEST = '思澈手表同步请求'
+  SEND_SLEEP_SET = '睡眠设置'
+  SEND_SPORT_DATA = '发送运动数据'
+  SEND_SPORT_STATUS = '发送运动状态后返回实时心率'
+  SEND_STYLE_ORDER = '发送样式'
+  SEND_STYLE_ORDER_AI = 'Ai表盘样式'
+  SEND_SWITCH_RESPONSE = '响应接收设备返回的运动状态'
+  SEND_TRANSLATE_LANGUAGE = '发送百度翻译支持的语言种类'
+  SEND_TRANSLATE_PLAY_END = '发送播放关闭'
+  SEND_TRANSLATE_STEAM_RESULT_ANSWER = '翻译答案流式回答结果'
+  SEND_TRANSLATE_STEAM_RESULT_QUESTION = '翻译提问流式回答结果'
+  SEND_TRANS_FILE_DATA = '文件传输文件数据'
+  SEND_TRANS_FILE_DATA_RESP = '文件传输文件数据响应'
+  SEND_TRANS_FILE_HEAD = '文件传输文件头'
+  SEND_TRANS_FILE_HEAD_RESP = '文件传输文件头响应'
+  SEND_TRANS_STREAM_CTRL = '流传输控制'
+  SEND_USERINFO_REQUEST = '发送用户头像和昵称'
+  SEND_WEATHER_INFO_ORDER = '设置天气信息'
+  SEND_WEATHER_SWITCH = '发送天气开关'
+  SEND_WEIGHT = '发送体重'
+  SET_12HOUR_SYSTEM_ORDER = '设置时间制切换'
+  SET_ALERT_CLOCK_ORDER = '设置闹钟'
+  SET_ANTI_LOST_ALERT_ORDER = '设置防丢'
+  SET_BAND_LANGUAGE_ORDER = '设置中英文切换'
+  SET_CLEAR_DATA_ORDER = '清除数据'
+  SET_CONTACT_NUM_ORDER = '设置联系人个数和谁是SOS'
+  SET_DISTURBANCE_MODEL_ORDER = '设置勿扰模式'
+  SET_LANGUAGE = '语言更换'
+  SET_ON_TIME_MEASURE_ORDER = '设置整点测量'
+  SET_QR = '设置二维码'
+  SET_RESET_BAND_ORDER = '手环恢复出厂设置'
+  SET_SEDENTARY_WARN_ORDER = '设置久坐提醒'
+  SET_SHARK_TAKE_PHOTO_ORDER = '设置摇摇拍照'
+  SET_SHORT_VIDEO_LIKE_NUM_ORDER = '设置短视频点赞'
+  SET_SLEEP_TIME_RANGE_ORDER = '设置睡眠范围'
+  SET_TIME_SYNC_ORDER = '设置同步时间'
+  SET_UP_HAND_LIGHT_SCREEN_ORDER = '设置抬手亮屏'
+  SET_USERINFO_ORDER2 = '设置用户信息2.0'
+  SET_WEATHER_SYNC_ORDER = '同步天气信息'
+  SMART_WARN_NO_CONTENT_CARRY_CONTENT_ORDER = '设置智能提醒带内容'
+  SMART_WARN_NO_CONTENT_ORDER = '设置智能提醒'
+  SYNC_DATA_ORDER2 = '下拉同步时间数据2.0'
+  SYNC_SLEEP_DATA_ORDER = '下拉同步睡眠数据'
+  UNBIND_ORDER = '解绑3003通话手环'
+  VERIFY_FRIEND_INFO = '校验好友信息'
+  ZK_FOTA_DATA = '中科FOTA数据'
+  ZK_OTA_FIX_1 = '中科OTA修复指令1'
+  ZK_OTA_FIX_2 = '中科OTA修复指令2'
+== Lcom/wakeup/module/device/work/utils/BleUUID; extends Ljava/lang/Object; []
+  methods: 
+  FILE_TRANS_NOTIFY_UUID = '6e400013-b5a3-f393-e0a9-e50e24dcca9e'
+  FILE_TRANS_SERVICE_UUID = '6e400011-b5a3-f393-e0a9-e50e24dcca9e'
+  FILE_TRANS_WRITE_UUID = '6e400012-b5a3-f393-e0a9-e50e24dcca9e'
+  PAY_CODE_NOTIFY_UUID = '00004a03-0000-1000-8000-00805f9b34fb'
+  PAY_CODE_SERVICE_UUID = '00003803-0000-1000-8000-00805f9b34fb'
+  PAY_CODE_WRITE_UUID = '00004a03-0000-1000-8000-00805f9b34fb'
+  SICHE_CHARACTERISTIC_UUID = '00000000-0000-0200-6473-5f696c666973'
+  SICHE_LOG_SERVICE_UUID = '00000000-0000-0000-6473-5f696c666973'
+  WATCH_NOTIFY_CHARACTERISTIC_UUID = '6E400003-B5A3-F393-E0A9-E50E24DCCA9E'
+  WATCH_SERVICE_UUID = '6E400001-B5A3-F393-E0A9-E50E24DCCA9E'
+  WATCH_WRITE_CHARACTERISTIC_UUID = '6E400002-B5A3-F393-E0A9-E50E24DCCA9E'
+  ZK_FOTA_NOTIFY_UUID = '0000ff14-0000-1000-8000-00805f9b34fb'
+  ZK_FOTA_SERVICE_UUID = '0000ff12-0000-1000-8000-00805f9b34fb'
+  ZK_FOTA_WRITE_UUID = '0000ff15-0000-1000-8000-00805f9b34fb'
+  ZK_OTA_FIX_SERVICE_UUID = '0000FE59-0000-1000-8000-00805F9B34FB'
+  ZK_OTA_FIX_WRITE_UUID_1 = '8EC90001-F315-4F60-9FB8-838830DAEA50'
+  ZK_OTA_FIX_WRITE_UUID_2 = '8EC90002-F315-4F60-9FB8-838830DAEA50'

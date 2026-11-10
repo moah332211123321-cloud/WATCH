@@ -1,0 +1,347 @@
+frame_cmd_sub	builder	template(?? = runtime value)	label_in_apk
+ab 20 80	BleWatchServiceImpl.setSendPhoneSystem	ab 00 05 ff 20 80 01 02	发送手机系统
+ab 23 80	BleWatchServiceImpl.setClearData	ab 00 04 ff 23 80 00	清除数据
+ab 31 ??	BleWatchServiceImpl.setOnceOrRealTimeMeasure	ab 00 04 ff 31 ?? ??	单次与实时测量
+ab 51 09	BleWatchServiceImpl.sendMetData	ab 00 ?? ff 51 09 (dyn size)	发送梅脱数据
+ab 52 80	BleWatchServiceImpl.syncSleepData	ab 00 07 ff 52 80 00 ?? ?? ??	下拉同步睡眠数据
+ab 53 80	BleWatchServiceImpl.setDrinkWater	ab 00 09 ff 53 80 ?? ?? ?? ?? ?? ??	设置喝水提醒
+ab 71 80	BleWatchServiceImpl.findBand	ab 00 03 ff 71 80	查找手环
+ab 72 80	BleWatchServiceImpl.smartWarnNoContent	ab 00 05 ff 72 80 ?? ??	设置智能提醒
+ab 73 80	BleWatchServiceImpl.setAlertClock	ab 00 09 ff 73 80 ?? ?? ?? ?? ?? ??	设置闹钟
+ab 74 80	BleWatchServiceImpl.sendUserInfo	ab 00 0c ff 74 80 ?? ?? ?? ?? 00 ?? ?? ?? 00	设置用户信息2.0
+ab 75 80	BleWatchServiceImpl.setSedentaryWarn	ab 00 09 ff 75 80 ?? ?? ?? ?? ?? ??	设置久坐提醒
+ab 76 80	BleWatchServiceImpl.setDisturbanceModel	ab 00 08 ff 76 80 ?? ?? ?? ?? ??	勿扰设置
+ab 77 80	BleWatchServiceImpl.setUpHandLightScreen	ab 00 04 ff 77 80 ??	设置抬手亮屏
+ab 78 80	BleWatchServiceImpl.setOnTimeMeasure	ab 00 04 ff 78 80 ??	设置整点测量
+ab 79 80	BleWatchServiceImpl.setSharkTakePhoto	ab 00 04 ff 79 80 ??	设置摇摇拍照
+ab 7b 80	BleWatchServiceImpl.setBandLanguage	ab 00 04 ff 7b 80 ??	设置中英文切换
+ab 7c 80	BleWatchServiceImpl.set12HourSystem	ab 00 04 ff 7c 80 ??	设置时间制切换
+ab 7e 80	BleWatchServiceImpl.sendWeatherInfo	ab 00 11 ff 7e 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00	同步天气信息
+ab 7f 80	BleWatchServiceImpl.setSleepTimeRange	ab 00 08 ff 7f 80 ?? ?? ?? ?? ??	设置睡眠范围
+ab 86 80	BleWatchServiceImpl.bodyTempMeasure	ab 00 04 ff 86 80 ??	单次与实时测量
+ab 87 80	BleWatchServiceImpl.switchSpeed	ab 00 04 ff 87 80 ??	BLE高速传输|BLE低速传输
+ab 87 80	BleWatchServiceImpl.switchSpeed2	ab 00 04 ff 87 80 ?? ??	BLE高速传输2|BLE低速传输2
+ab 88 80	BleWatchServiceImpl.sendWeatherInfo2	ab 00 11 ff 88 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00	设置天气信息
+ab 8a 80	BleWatchServiceImpl.sendAirPressureAndUV	ab 00 07 ff 8a 80 ?? ?? ?? 00	发送气压紫外线
+ab 8b 00	CourseBle.sendTrainPlanInfo	ab 00 34 ff 8b 00 ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ??	
+ab 8b 01	CourseBle.sendTrainDetail	ab 00 0c ff 8b 01 ?? ?? ?? ?? ?? ?? ?? ?? ??	
+ab 8b 02	CourseBle.sendTrainPlanStatus	ab 00 04 ff 8b 02 ??	
+ab 8b 03	CourseBle.sendTrainResponseStatus	ab 00 04 ff 8b 03 00	
+ab 8b 04	CourseBle.getCourseDeviceData	ab 00 04 ff 8b 04 01	
+ab 8b 05	CourseBle.sendCourseAppStatus	ab 00 05 ff 8b 05 ?? 03	
+ab 8b 05	CourseServiceImpl.handCourseStart	ab 00 05 ff 8b 05 ?? 01	
+ab 8b 06	CourseBle.requestCourseDeviceVersion	ab 00 04 ff 8b 06 ff	
+ab 8c 01	BleWatchServiceImpl.getShortVideoLikeNumOrder	ab 00 05 ff 8c 01 ?? ??	设置短视频点赞
+ab 92 80	BleWatchServiceImpl.getDeviceInfoData	ab 00 04 ff 92 80 01	获取设备信息
+ab 93 80	BleWatchServiceImpl.setTimeSync	ab 00 0b ff 93 80 00 ?? ?? ?? ?? ?? ?? ??	设置同步时间
+ab 9c ??	TransferOrder.sendStyle	ab 00 07 ff 9c ?? ?? ?? ?? ??	发送样式
+ab 9c ??	TransferOrder.sendStyleAi	ab 00 08 ff 9c ?? ?? ?? ?? ?? 01	Ai表盘样式
+ab 9e ??	BleWatchServiceImpl.setRemind	ab 00 08 ff 9e ?? ?? ?? ?? ?? ??	运动吃药看书出行提醒
+ab 9f 03	BleWatchServiceImpl.exerciseDuration	ab 00 04 ff 9f 03 ??	锻炼时长提醒时长设置
+ab 9f 04	BleWatchServiceImpl.numberOfActivities	ab 00 04 ff 9f 04 ??	发送活动次数提醒设置
+ab 9f 06	BleWatchServiceImpl.syncMetGoal	ab 00 05 ff 9f 06 ?? ??	同步梅脱目标值
+ab 9f 07	BleWatchServiceImpl.activityHeat	ab 00 05 ff 9f 07 ?? ??	发送活动热量目标设置
+ab 9f ??	BleWatchServiceImpl.heartReminder	ab 00 04 ff 9f ?? ??	心率、远眺提醒
+ab a0 80	BleWatchServiceImpl.reminderSwitch	ab 00 05 ff a0 80 ?? ??	设置提醒开关
+ab a2 fe	BleWatchServiceImpl.sendContactName	ab 00 00 ff a2 fe	设置联系人姓名
+ab a3 fe	BleWatchServiceImpl.sendContactPhone	ab ?? ?? ff a3 fe ??	设置联系人电话号码
+ab a5 80	BleWatchServiceImpl.setContactNum	ab 00 05 ff a5 80 ?? ??	设置联系人个数和谁是SOS
+ab a6 80	BleWatchServiceImpl.getAudioBleMac	ab 00 03 ff a6 80	手机查询手环音频蓝牙Mac地址
+ab a7 80	BleWatchServiceImpl.getMtu	ab 00 04 ff a7 80 ??	获取MTU值
+ab a8 ??	BleWatchServiceImpl.setQr	ab 00 03 ff a8 ??	设置二维码
+ab aa 80	BleWatchServiceImpl.getDeviceSN	ab 00 03 ff aa 80	获取设备的SN号
+ab ad 80	TransferOrder.sendMultipleWatchBitmapNum	ab 00 04 ff ad 80 ??	自定义表盘-背景图片个数
+ab c1 02	BleWatchServiceImpl.verifyFriendInfo	ab 00 05 ff c1 02 ?? ??	校验好友信息
+ab c2 80	BleWatchServiceImpl.sendFriendNameAndDate	ab 00 ?? ff c2 80 ?? ?? ?? ?? ?? ??	发送好友名称和时间
+ab c3 80	BleWatchServiceImpl.sendRTTAvatarImgWithIndex	ab 00 06 ff c3 80 ?? ?? ??	思澈专属好友头像CRC
+ab c5 ??	BleWatchServiceImpl.sendFriendAddressAndLocation	ab ?? ?? ff c5 ?? ??	发送好友位置数据
+ab c6 ??	FriendsAnalyzer$FriendRunnable.sendData	ab 00 1d ff c6 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??	
+ab c8 01	RequestHealthAnalyzer$GlucoseRunnable$1.callback	ab 00 20 ff c8 01 ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00	发送血糖信息 = 
+ab c8 01	RequestHealthAnalyzer$newGlucose$1.callback	ab 00 20 ff c8 01 ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00	发送血糖信息 = 
+ab c8 02	RequestHealthAnalyzer$BreatheRunnable$1.callback	ab 00 1e ff c8 02 ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00	发送呼吸信息 = 
+ab c8 03	RequestHealthAnalyzer$WeightRunnable$1.callback	ab 00 15 ff c8 03 ?? ?? 01 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00	没数据 拜拜|发送体重信息---最近一次 :
+ab c8 04	BleWatchServiceImpl.setSendBodyFatRate	ab 00 1e ff c8 04 ?? ?? ?? 00	发送体脂率
+ab c8 05	BleWatchServiceImpl.setSendMuscleMass	ab 00 1e ff c8 05 ?? ?? ?? 00	发送肌肉含量
+ab c8 06	RequestHealthAnalyzer$BmiRunnable$1.callback	ab 00 0d ff c8 06 ?? 00 02 00 00 00 00 00 00 00	没数据 拜拜|发送BMI信息
+ab c9 ??	BleWatchServiceImpl.marketInstall	ab 00 05 ff c9 ?? ?? ??	安装应用
+ab cb 	BleWatchServiceImpl.setSendLicenseNum	ab 00 02 ff cb	获取license号
+ab e0 80	BleWatchServiceImpl.sendConnectRequestType	ab 00 00 ff e0 80 ??	断开连接|蓝牙连接请求类型
+ab e1 80	BleWatchServiceImpl.sendSportStatus	ab 00 06 ff e1 80 ?? ?? ??	发送运动状态后返回实时心率
+ab e3 80	BleWatchServiceImpl.sendAudioBle	ab 00 04 ff e3 80 ??	App发送音频蓝牙命令
+ab e4 80	BleWatchServiceImpl.sendAltitudeAndPressure	ab 00 38 ff e4 80 ?? ?? 00 ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00	
+ab e7 00	BleWatchServiceImpl.sendMenstrualCheckData	ab 00 05 ff e7 00 ?? ??	检查经期结果
+ab e7 01	BleWatchServiceImpl$sendMenstrualInfo$1.invokeSuspend	ab ?? ?? ff e7 01 ?? ?? (dyn size)	时间戳 | 年 ; 
+ab e9 ??	BleWatchServiceImpl.sendSwitchResponse	ab 00 03 ff e9 ??	响应接收设备返回的运动状态
+ab ea 80	BleWatchServiceImpl.sendSportData	ab 00 10 ff ea 80 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??	发送运动数据
+ab eb 80	BleWatchServiceImpl.checkSportDisConnectStatus	ab 00 04 ff eb 80 01	运动互联断连状态
+ab ef 80	BleWatchServiceImpl.sendTemperatureUnit	ab 00 04 ff ef 80 ??	设置温度单位
+ab ff 80	BleWatchServiceImpl.setResetBand	ab 00 03 ff ff 80	手环恢复出厂设置
+dynamic  	BleOrderModel.<init>	dynamic (built with helpers/streams)	
+dynamic  	BleOrderModel.copy	dynamic (built with helpers/streams)	
+dynamic  	BleWatchServiceImpl.getSicheLog	dynamic (built with helpers/streams)	获取思澈Log
+dynamic  	BleWatchServiceImpl.sendBreathe	dynamic (built with helpers/streams)	发送呼吸
+dynamic  	BleWatchServiceImpl.sendDialData	dynamic (built with helpers/streams)	发送表盘序号
+dynamic  	BleWatchServiceImpl.sendDialReq	dynamic (built with helpers/streams)	发送表盘市场序号
+dynamic  	BleWatchServiceImpl.sendFileReceiveDataResp	dynamic (built with helpers/streams)	文件传输文件数据响应
+dynamic  	BleWatchServiceImpl.sendFileReceiveHeadResp	dynamic (built with helpers/streams)	文件传输文件头响应
+dynamic  	BleWatchServiceImpl.sendFileTransData	dynamic (built with helpers/streams)	文件传输文件数据
+dynamic  	BleWatchServiceImpl.sendFileTransHead	dynamic (built with helpers/streams)	文件传输文件头
+dynamic  	BleWatchServiceImpl.sendFriendHealthData	dynamic (built with helpers/streams)	发送好友健康数据
+dynamic  	BleWatchServiceImpl.sendFriendImage	dynamic (built with helpers/streams)	发送好友头像
+dynamic  	BleWatchServiceImpl.sendFriendImageData	dynamic (built with helpers/streams)	发送好友头像数据
+dynamic  	BleWatchServiceImpl.sendGlucose	dynamic (built with helpers/streams)	发送血糖
+dynamic  	BleWatchServiceImpl.sendNucleicAcidCodeData	dynamic (built with helpers/streams)	核酸码包
+dynamic  	BleWatchServiceImpl.sendNucleicAcidCodeHead	dynamic (built with helpers/streams)	核酸码头
+dynamic  	BleWatchServiceImpl.sendProjectMessageNotification	dynamic (built with helpers/streams)	站内消息通知
+dynamic  	BleWatchServiceImpl.sendStreamCtrl	dynamic (built with helpers/streams)	流传输控制
+dynamic  	BleWatchServiceImpl.sendWeatherSwitch	dynamic (built with helpers/streams)	发送天气开关
+dynamic  	BleWatchServiceImpl.sendWeight	dynamic (built with helpers/streams)	发送体重
+dynamic  	BleWatchServiceImpl.sendZkOtaFix1	dynamic (built with helpers/streams)	中科OTA修复指令1
+dynamic  	BleWatchServiceImpl.sendZkOtaFix2	dynamic (built with helpers/streams)	中科OTA修复指令2
+dynamic  	BleWatchServiceImpl.setSendBmi	dynamic (built with helpers/streams)	发送BMI
+dynamic  	BleWatchServiceImpl.setSendWeight	dynamic (built with helpers/streams)	发送体重
+dynamic  	BleWatchServiceImpl.setSmartWarnCarryContent	dynamic (built with helpers/streams)	设置智能提醒带内容
+dynamic  	BleWatchServiceImpl.setSyncDataHr	dynamic (built with helpers/streams)	下拉同步时间数据2.0|下拉同步时间数据2.0
+dynamic  	FOtaMgr.sendCallback$lambda$0	dynamic (built with helpers/streams)	中科FOTA数据
+dynamic  	FileTransferOrder.genFileBlock	dynamic (built with helpers/streams)	文件传输文件数据
+dynamic  	FileTransferOrder.genFileHead	dynamic (built with helpers/streams)	文件传输文件头
+dynamic  	TransferOrder.sendBarrageData	dynamic (built with helpers/streams)	中科弹幕图片
+dynamic  	TransferOrder.sendBarragePackage	dynamic (built with helpers/streams)	发送弹幕图片传输包信息
+dynamic  	TransferOrder.sendImageContent	dynamic (built with helpers/streams)	发送图片信息
+dynamic  	TransferOrder.sendImageContentAi	dynamic (built with helpers/streams)	中科AIGC图片
+dynamic  	TransferOrder.startSendPic	dynamic (built with helpers/streams)	发送图片
+dynamic  	TransferOrder.startSendPicAi	dynamic (built with helpers/streams)	发送ai表盘图片
+ea 00 00	BleWatchServiceImpl.sendDelPoint	ea 00 04 fe 00 00 ??	删除相关埋点数据
+ea 00 01	BleWatchServiceImpl.requestDeviceCollapseData	ea 00 03 fe 00 01	获取设备崩溃数据
+ea 00 02	BleWatchServiceImpl.requestDevicePowerConsumption	ea 00 03 fe 00 02	获取设备功耗使用情况
+ea 00 03	BleWatchServiceImpl.requestDeviceCpuUsed	ea 00 03 fe 00 03	获取设备CPU/内存使用统计
+ea 00 04	BleWatchServiceImpl.requestDeviceOtaResult	ea 00 03 fe 00 04	获取设备OTA结果统计
+ea 00 30	BleWatchServiceImpl.requestDeviceLicense	ea 00 03 fe 00 30	获取设备License使用情况
+ea 01 01	BleWatchServiceImpl.setPhysicalTraining	ea 00 07 00 01 01 ?? ?? ?? ??	体能训练
+ea 02 01	BleWatchServiceImpl.synchronousRequest	ea 00 07 00 02 01 ?? ?? ?? ??	思澈手表同步请求
+ea 02 02	BleWatchServiceImpl.startZkOta	ea 00 04 00 02 02 00	开始中科定制OTA
+ea 02 03	BleWatchServiceImpl.getAvailableMemory	ea 00 05 00 02 03 ?? ??	查询可用内存
+ea 05 01	GptOrder.sendSyncRestFreeNumber	ea 00 04 00 05 01 ??	GPT同步剩余免费次数
+ea 05 03	GptOrder.sendSpeechConversionResult	ea 00 00 00 05 03 ??	语音转换结果
+ea 05 04	GptOrder.sendChatGptResult	ea 00 00 00 05 04 ??	Chat Gpt回答结果
+ea 05 05	GptOrder.sendGptTodo	ea 00 00 00 05 05 ?? ?? ?? ?? ?? ?? ??	Chat Gpt备忘录
+ea 05 06	GptOrder.clearGptTodo	ea 00 04 00 05 06 00	Chat Gpt清除备忘录
+ea 05 07	GptOrder.sendQuestionSteamResult	ea 00 00 00 05 07 ?? ?? 01	Chat提问流式回答结果
+ea 05 08	GptOrder.sendChatGptSteamResult	ea 00 00 00 05 08 ?? ?? 01	Chat Gpt流式回答结果
+ea 05 0c	GptOrder.sendHealthTemplate	ea 00 00 00 05 0c 01 ?? 00	ChatGpt 发送模板问题
+ea 05 0f	AiAudioOrder.sendSongList	ea 00 04 00 05 0f ??	ai曲库本地音频列表生成结果|ai曲库本地音频列表生成结果
+ea 05 10	AiAudioOrder.sendPlayAudioState	ea 00 00 00 05 10 ?? ?? ?? ?? ??	
+ea 05 11	AiAudioOrder.sendPlayAiAudioState	ea 00 00 00 05 11 ?? ?? 00	
+ea 05 12	AiAudioOrder.sendAudioResult	ea 00 00 00 05 12 ?? 00	Ai 曲库音频转换结果
+ea 05 13	AiAudioOrder.sendAudioSearchSwitch	ea 00 04 00 05 13 ??	Ai曲库 搜索开关
+ea 05 13	BleWatchServiceImpl.sendAudioSearchSwitch	ea 00 04 00 05 13 ??	Ai曲库 搜索开关
+ea 06 01	MuslimBle.sendPrayTime	ea 00 0f 00 06 01 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00	同步礼拜时间
+ea 06 03	MuslimBle.sendKaaba	ea 00 09 00 06 03 ?? ?? ?? ?? ?? ??	同步克尔白
+ea 06 04	MuslimBle.getTasbih	ea 00 03 00 06 04	获取Subid
+ea 06 07	MuslimBle.sendKoran	ea 00 00 00 06 07 ?? ?? ?? ?? ?? ?? ?? ??	发送古兰经
+ea 06 08	MuslimBle.sendKoranTitle	ea 00 00 00 06 08 ?? ??	发送古兰经名称
+ea 06 0a	MuslimBle.sendScene	ea 00 00 00 06 0a ?? ??	发送祈祷场景页
+ea 06 0c	MuslimBle.sendSceneContent	ea 00 00 00 06 0c ?? ?? ?? ?? ?? ?? ?? ?? ??	发送祈祷场景页内容
+ea 06 0d	MuslimBle.sendSceneTitle	ea 00 00 00 06 0d ?? ??	发送祈祷章节名
+ea 06 0f	MuslimBle.sendKoranPlayState	ea 00 04 00 06 0f ??	有声播放state
+ea 08 00	TransferOrder.sendCustomPuzzle	ea 00 04 00 08 00 ??	发送是拼图表盘
+ea 09 01	BleWatchServiceImpl.checkDeviceNaviStatus	ea 00 03 00 09 01	查询设备是否可以导航状态
+ea 09 02	BleWatchServiceImpl.sendMapNaviStatus	ea 00 ?? 00 09 02 ?? ?? 01 ?? (dyn size)	发送开始或结束导航指令
+ea 09 03	BleWatchServiceImpl.sendMapNaviData	ea 00 ?? 00 09 03 ?? 01 ?? (dyn size)	发送导航数据
+ea 09 04	BleWatchServiceImpl.sendMapNaviDirection	ea 00 04 00 09 04 ??	发送导航方向
+ea 09 05	BleWatchServiceImpl.sendMapMode	ea 00 04 00 09 05 ??	发送地图模式
+ea 0a 01	CustomDialOrder.sendModuleDial	ea 00 07 00 0a 01 ?? ?? ?? ??	
+ea 0a 01	TransferOrder.sendModuleDial	ea 00 07 00 0a 01 ?? ?? ?? ??	发送模块表盘
+ea 0b 02	BleWatchServiceImpl.replyDeviceHeartBeat	ea 00 03 00 0b 02	回复设备心跳包
+ea 0d 01	TransferOrder.sendStyleNew	ea 00 09 00 0d 01 ?? ?? ?? ?? ?? ??	自定义表盘 新样式
+ea 0d 01	TransferOrder.sendStyleVideo	ea 00 09 00 0d 01 ?? ?? ?? ?? ?? ??	视频表盘样式
+ea 0d 02	TransferOrder.sendTransferState	ea 00 06 00 0d 02 ?? ?? ??	发送菜单背景状态
+ea 0d 03	BleWatchServiceImpl.getDevVideoInfo	ea 00 03 00 0d 03	获取设备视频表盘的像素信息
+ea 0e 01	BleWatchServiceImpl.sendNfcState	ea 00 05 00 0e 01 ?? ??	发送nfc传输状态
+ea 0f 01	CustomDialOrder.sendMenuBgState	ea 00 06 00 0f 01 00 ?? ??	
+ea 0f 01	TransferOrder.sendMenuBgState	ea 00 06 00 0f 01 00 ?? ??	发送菜单背景状态
+ea 10 01	LocalMusicOrder$Companion.sendLocalMusicList	ea 00 03 00 10 01	
+ea 10 02	LocalMusicOrder$Companion.sendLocalMusicState	ea 00 05 00 10 02 ?? ??	
+ea 11 02	AigcDialOrder.sendSpeakResult	ea 00 00 00 11 02 ?? ?? 01	
+ea 11 03	BleWatchServiceImpl.sendIsForeground	ea 00 04 00 11 03 ??	同步app是否在前台
+ea 11 04	AigcDialOrder.sendStyleResult	ea 00 00 00 11 04 ??	
+ea 11 05	AigcDialOrder.sendCreateResult	ea 00 04 00 11 05 ??	
+ea 11 06	AigcDialOrder.sendResult	ea 00 05 00 11 06 ?? ??	
+ea 11 07	AigcAlbumOrder.sendGetMaxSize	ea 00 03 00 11 07	
+ea 13 01	AppMarketOrder$Companion.getInstallApp	ea 00 03 00 13 01	
+ea 13 02	AppMarketOrder$Companion.uninstallApp	ea 00 03 00 13 02	
+ea 14 01	BleWatchServiceImpl.getScreen	ea 00 03 00 14 01	获取屏幕尺寸
+ea 15 03	BleWatchServiceImpl.sendCameraPhotoState	ea 00 06 00 15 03 ?? ?? ??	实时预览图片传输
+ea 15 04	BleWatchServiceImpl.sendCameraPreviewState	ea 00 04 00 15 04 ??	拍照实时预览模式状态
+ea 17 01	AiAudioOrder.sendQuestionSteamResult	ea 00 00 00 17 01 ?? ?? 01	ai 曲库录音无权限返回
+ea 17 04	BleWatchServiceImpl.sendNaviTransferOverState	ea 00 05 00 17 04 00 ??	发送导航传输总状态
+ea 17 05	BleWatchServiceImpl.sendNaviState	ea 00 07 00 17 05 ?? ?? 00 ??	发送导航传输状态
+ea 17 06	BleWatchServiceImpl.getDeviceThumbInfo	ea 00 03 00 17 06	获取支持预览图的业务信息
+ea 17 07	BleWatchServiceImpl.getDeviceThumbResolution	ea 00 04 00 17 07 ??	获取支持预览图的分辨率
+ea 17 08	BleWatchServiceImpl.sendQuestionSteamResult	ea 00 00 00 17 08 ?? ?? ?? ??	App流式传输文字
+ea 18 01	BleWatchServiceImpl.sendHeartSetting	ea 00 05 00 18 01 ?? ??	戒指心率设置数据
+ea 18 01	RingOrder.sendRingList	ea 00 00 00 18 01 ?? ??	
+ea 18 02	RingOrder.sendRingPlayStatus	ea 00 09 00 18 02 ?? ?? ?? ?? ?? ??	
+ea 18 03	RingOrder.sendRingPayStatus	ea 00 04 00 18 03 ??	
+ea 18 04	RingOrder.sendRingState	ea 00 0a 00 18 04 ?? ?? ?? ?? ?? ?? ??	
+ea 18 05	RingOrder.sendCurrentRing	ea 00 03 00 18 05	
+ea 19 01	EBookOrder.sendEBookState	ea 00 05 00 19 01 ?? ??	
+ea 1a 01	GalleryOrder$Companion.sendDeviceGallery	ea 00 03 00 1a 01	
+ea 1a 02	GalleryOrder$Companion.sendResult	ea 00 05 00 1a 02 ?? ??	
+ea 1b 01	BleWatchServiceImpl.sendEphemerisState	ea 00 05 00 1b 01 ?? ??	发送星历传输状态
+ea 1b 02	BleWatchServiceImpl.sendLocation	ea 00 00 00 1b 02 00	发送手机定位
+ea 1b 04	BleWatchServiceImpl.syncGpsLog	ea 00 03 00 1b 04	同步gps log
+ea 1c 01	BleWatchServiceImpl.syncGpsData	ea 00 07 00 1c 01 ?? ?? ?? ??	同步gps运动数据
+ea 1d 01	BleWatchServiceImpl.sendUserToken	ea 00 00 00 1d 01	发送用户Token
+ea 1f 01	EQOrder.setEQMode	ea 00 04 00 1f 01 ??	
+ea 1f 02	EQOrder.setCustomEQ	ea 00 03 00 1f 02	
+ea 1f 03	EQOrder.requestDeviceEQMode	ea 00 03 00 1f 03	
+ea 20 01	BleWatchServiceImpl.sendCallStatus	ea 00 04 00 20 01 ??	发送电话接听状态
+ea 21 01	BarrageOrder.sendBarrageInfo	ea ?? ?? 00 21 01 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??	
+ea 21 02	BleWatchServiceImpl.sendBulletState	ea 00 05 00 21 02 ?? ??	发送弹幕传输状态
+ea 22 01	BleWatchServiceImpl.getDeviceLog	ea 00 03 00 22 01	获取设备Log
+ea 23 01	BleWatchServiceImpl.sendRecordState	ea 00 04 00 23 01 ??	发送录音状态
+ea 23 02	BleWatchServiceImpl.sendRecordTimeOut	ea 00 04 00 23 02 01	发送录音超时
+ea 24 02	AiRobotOrder.sendAnswerSteamResult	ea 00 00 00 24 02 ?? ?? ??	AI机器人回答结果结束|AI机器人回答结果
+ea 24 04	AiRobotOrder.sendTtsPlayState	ea 00 03 00 24 04 ??	Ai机器人回答语音状态
+ea 25 01	AiMusicOrder.sendMusicListEnd	ea 00 04 00 25 01 01	已发送完歌曲列表指令
+ea 25 01	BleWatchServiceImpl.ftpOTAStart	ea 00 09 ff 25 01 ?? ?? ?? ?? ?? ??	网络FTP OTA请求开始
+ea 25 02	AiMusicOrder.createMusicCount	ea 00 04 00 25 02 ??	发送正在创作的歌曲数量
+ea 25 02	BleWatchServiceImpl.ftpOTAProgress	ea 00 18 ff 25 02 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??	网络FTP OTA进度
+ea 25 03	AiMusicOrder.createMusicInfo	ea 00 00 00 25 03 ??	歌名|歌手名
+ea 25 03	BleWatchServiceImpl.ftpOTAEnd	ea 00 04 ff 25 03 ??	网络FTP OTA结束
+ea 25 04	AiMusicOrder.createMusicState	ea 00 04 00 25 04 ??	发送创作音乐指令
+ea 25 04	BleWatchServiceImpl.ftpOTAFileList	ea 00 00 ff 25 04 ?? ?? ?? ??	网络FTP OTA 发送文件名列表
+ea 25 05	AiMusicOrder.sendPlayMusicOrder	ea 00 05 00 25 05 ?? ??	在播放的歌曲，在列表中的序号
+ea 25 07	AiMusicOrder.playMusicInfo	ea 00 04 00 25 07 ??	发送播放歌曲的信息
+ea 25 08	AiMusicOrder.musicControl	ea 00 04 00 25 08 ??	发送音乐控制
+ea 25 09	AiMusicOrder.playingProgress	ea 00 07 00 25 09 ?? ?? ?? ??	发送歌曲进度
+ea 26 02	AiTransOrder.sendSourceLan	ea 00 03 00 26 02	一键翻译的原文语种
+ea 26 03	AiTransOrder.sendTransLan	ea 00 03 00 26 03	一键翻译的译文语种
+ea 26 04	AiTransOrder.sendTransState	ea 00 04 00 26 04 ??	录音完发送翻译状态
+ea 26 05	AiTransOrder.sendTransErrorState	ea 00 04 00 26 05 ??	发送异常状态
+ea 26 06	AiTransOrder.sendSourceData	ea 00 03 00 26 06	发送原文内容
+ea 26 07	AiTransOrder.sendTransData	ea 00 03 00 26 07	发送译文内容
+ea 27 01	BleWatchServiceImpl.sendRecordPermission	ea 00 05 00 27 01 ?? ??	发送权限状态指令
+ea 27 02	AiEnergyOrderKt.sendEnergyCheckResult	ea 00 05 00 27 02 ?? ??	发送能量检查结果
+ea 28 01	SimIntOrder.sendRecordState	ea 00 04 00 28 01 ??	发送录音状态
+ea 28 02	SimIntOrder.sendRecordTimeOut	ea 00 04 00 28 02 01	发送录音超时
+ea 29 02	BleWatchServiceImpl.sendContentPaste	ea 00 04 00 29 02 01	蓝牙助手粘贴
+ea 2a 01	BleWatchServiceImpl.syncSleepApnea	ea 00 06 00 2a 01 ?? ?? ??	同步睡眠呼吸暂停数据
+ea 2c 02	BleWatchServiceImpl.sendXmlyResult	ea 00 04 00 2c 02 ??	发送喜马拉雅同步结果
+ea 2d 02	BleWatchServiceImpl.getNetworkShareState	ea 00 04 00 2d 02 ??	查询蓝牙共享开关
+ea 2e 02	WriteNoiseOrder$Companion.sendFail	ea 00 04 00 2e 02 00	
+ea 2e 02	WriteNoiseOrder$Companion.sendName	ea 00 00 00 2e 02 01	
+ea 2e 03	WriteNoiseOrder$Companion.sendPlayState	ea 00 04 00 2e 03 ??	
+ea 2e 04	WriteNoiseOrder$Companion.sendPlayModel	ea 00 04 00 2e 04 ??	
+ea 2f 01	BleWatchServiceImpl.sendSleepKey	ea 00 00 00 2f 01 ??	发送睡眠算法密钥
+ea 2f 02	BleWatchServiceImpl.sendYouJieKey	ea 00 00 00 2f 02 ?? ??	发送友杰算法密钥
+ea 32 01	BleWatchServiceImpl.sendTransLangId	ea 00 07 00 32 01 ?? ?? ?? ??	发送翻译的语种ID
+ea 32 02	BleWatchServiceImpl.sendTransIdState	ea 00 06 00 32 02 ?? ?? ??	发送翻译语种异常状态
+ea 32 03	AiTransOrder.sendTtsPlayState	ea 00 06 00 32 03 ?? ?? ??	功能语音播放状态
+ea 33 01	BleWatchServiceImpl.setWiFi	ea 00 00 00 33 01	设置wifi
+ea 33 02	BleWatchServiceImpl.deleteWiFi	ea 00 00 00 33 02	删除wifi
+ea 33 03	BleWatchServiceImpl.getWifiState	ea 00 03 00 33 03	获取wifi连接状态
+ea 33 03	GlassesOrder.sendWifiConnectQuery	ea 00 03 00 33 03	发送设备wifi 查询连接
+ea 33 05	BleWatchServiceImpl.switchWifiAP	ea 00 03 00 33 05	开启|关闭
+ea 33 08	BleWatchServiceImpl.switchWifiUdp	ea 00 04 00 33 08 ??	开启|关闭
+ea 33 09	GlassesOrder.switchWifiScan	ea 00 04 00 33 09 00	开启|关闭
+ea 33 0b	GlassesOrder.sendWifiReconnect	ea 00 03 00 33 0b	发送设备wifi 回连
+ea 33 10	BleWatchServiceImpl.switchWifiP2P	ea 00 03 00 33 10	开启|关闭
+ea 34 01	GlassesOrder.sendAudioMaxTime	ea 00 06 00 34 01 01 ?? ??	发送录音最大时长
+ea 34 01	GlassesOrder.sendVideoMaxTime	ea 00 06 00 34 01 00 ?? ??	发送录屏最大时长
+ea 34 02	GlassesOrder.sendKeyDefine	ea 00 0c 00 34 02 ?? ?? ?? ?? ?? ?? ?? ?? ??	设置按键定义
+ea 34 03	GlassesOrder.sendVolume	ea 00 04 00 34 03 ??	音量设置
+ea 34 04	GlassesOrder.switchWakeup	ea 00 04 00 34 04 ??	开启语音唤醒|关闭语音唤醒
+ea 34 05	GlassesOrder.syncFileCount	ea 00 04 00 34 05 ??	同步文件数量 
+ea 34 06	GlassesOrder.sendNavResult	ea 00 04 00 34 06 ??	发送导航结果
+ea 34 08	GlassesOrder.sendMusic	ea 00 05 00 34 08 ?? ??	下载|删除
+ea 34 09	GlassesOrder.switchDirection	ea 00 04 00 34 09 ??	设置眼镜录像图像方向
+ea 34 0a	GlassesOrder.queryWearSwitch	ea 00 04 00 34 0a 00	请求佩戴状态开关
+ea 34 0a	GlassesOrder.setWearSwitch	ea 00 05 00 34 0a 01 ??	发送佩戴状态开关
+ea 34 0f	GlassesOrder.setHallSwitch	ea 00 04 00 34 0f ??	设置霍尔开关工作模式
+ea 34 10	GlassesOrder.setAutoShutdown	ea 00 05 00 34 10 ?? ??	获取|设置
+ea 35 01	WechatMsgOrder.sendMessage	ea 00 00 00 35 01 ?? ?? ?? ?? ??	App端微信消息
+ea 35 02	WechatMsgOrder.deviceReplyState	ea 00 04 00 35 02 ??	设备端微信消息，回复状态
+ea 35 03	WechatMsgOrder.sendState	ea 00 04 00 35 03 ??	App端微信消息功能可用状态 + wxId|App端微信消息功能可用状态
+ea 35 04	WechatMsgOrder.sendQrImage	ea 00 00 00 35 04	微信二维码发送
+ea 35 05	WechatMsgOrder.sendUserName	ea 00 00 00 35 05	微信用户名发送
+ea 35 06	WechatMsgOrder.sendUserHead	ea 00 04 00 35 06 ??	微信用户头像发送
+ea 35 07	WechatMsgOrder.sendLoginState	ea 00 04 00 35 07 ??	失败|提交验证码
+ea 35 08	WechatMsgOrder.sendLogoutState	ea 00 04 00 35 08 ??	退出微信状态
+ea 35 09	WechatMsgOrder.handlerTextTip	ea 00 00 00 35 09 ??	微信发送Tip消息
+ea 35 0a	WechatMsgOrder.verificationCodeState	ea 00 04 00 35 0a ??	提交验证码状态
+ea 35 0c	WechatMsgOrder.sendWsMsg	ea 00 00 00 35 0c	微信发送ws消息
+ea 35 0d	WechatMsgOrder.handlerWsMsgResult	ea 00 0d 00 35 0d ?? ?? ?? ?? ?? ?? ?? ?? ?? ??	发送 设备发送微信消息结果|发送 设备发送微信消息结果+附带消息
+ea 35 0e	WechatMsgOrder.sendSupportOpus	ea 00 03 00 35 0e	App端支持opus
+ea 35 0f	WechatMsgOrder.sendImgEmoInfo	ea 00 03 00 35 0f	查询设备图片表情相关信息
+ea 35 10	WechatMsgOrder.sendVoicePlayState	ea 00 04 00 35 10 ??	微信语音消息播放状态
+ea 35 11	WechatMsgOrder.sendVersion	ea 00 05 00 35 11 03 01	微信回复双方确认版本
+ea 35 12	WechatMsgOrder.sendZKEmoImg	ea 00 04 00 35 12 ?? ?? ?? ??	微信用户ZK图像表情发送
+ea 36 01	ScheduleOrder.scheduleOp	ea 00 00 00 36 01 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??	App新日程 
+ea 36 02	BleWatchServiceImpl.syncSchedule	ea 00 03 00 36 02	发送同步日程
+ea 37 01	GlassesOrder.sendGuideMode	ea 00 04 00 37 01 ??	开启|关闭
+ea 38 01	BleWatchServiceImpl.sendLicense	ea 00 00 00 38 01 ?? ??	发送 Licence
+ea 39 02	XmlyOrder.sendStyleResult	ea 00 05 00 39 02 ?? ??	
+ea 3a 01	BleWatchServiceImpl.getBtStatus	ea 00 04 00 3a 01 01	获取设备BT连接状态
+ea 3a 02	BleWatchServiceImpl.sendBtReconnect	ea 00 04 00 3a 02 01	发送设备BT回连
+ea 3c 01	AppLLMOrderKt.sendWakeUPResult	ea 00 04 00 3c 01 ??	App大模型 发送唤醒结果
+ea 3c 02	AppLLMOrderKt.sendRecordStatus	ea 00 04 00 3c 02 ??	开启|关闭
+ea 3c 03	AppLLMOrderKt.sendReminderFileStatus	ea 00 0d 00 3c 03 ?? ?? ?? ?? ?? ?? ?? ?? ?? ??	提醒音频文件发送状态
+ea 3c 04	AppLLMOrderKt.sendDevCtrl	ea 00 06 00 3c 04 ?? ?? ??	设备操作意图
+ea 3c 05	AppLLMOrderKt.sendVad	ea 00 04 00 3c 05 01	触发vad
+ea 3c 06	AppLLMOrderKt.sendLLMText	ea 00 00 00 3c 06 ?? ??	发送 LLM 文本
+ea 3c 06	AppLLMOrderKt.sendLLMTextEnd	ea 00 05 00 3c 06 ?? 01	发送 LLM 文本结束
+ea 3c 07	AppLLMOrderKt.sendLLMError	ea 00 04 00 3c 07 ??	占用|异常
+ea 3c 08	AppLLMOrderKt.sendTtsStatus	ea 00 04 00 3c 08 02	发送 TTS 状态
+ea 3c 09	AppLLMOrderKt.sendSearchStatus	ea 00 04 00 3c 09 ??	发送深度思考开启状态
+ea 3d 01	CustomDialOrder.sendDiyNum	ea 00 08 00 3d 01 ?? ?? ?? ?? ??	
+ea 3d 02	CustomDialOrder.sendDiyPointer	ea 00 04 00 3d 02 ??	
+ea 3d 03	CustomDialOrder.sendDiyLocation	ea 00 0c 00 3d 03 0e ?? ?? ?? ?? ?? ?? ?? ??	
+ea 3d 04	CustomDialOrder.sendDiyState	ea 00 05 00 3d 04 ?? ??	
+ea 3e 01	BleWatchServiceImpl.sendLocationStr	ea 00 00 00 3e 01 ??	发送手机定位字符串
+ea 43 01	GlassesOrder.fileStartCheck	ea 00 03 00 43 01	文件传输前的状态指令
+ea 43 02	LNMusicOrder.deviceWhileNoise	ea 00 03 00 43 02	
+ea 43 03	LNMusicOrder.delWhileNoise	ea 00 04 00 43 03	
+ea 43 04	LNMusicOrder.delAllWhileNoise	ea 00 03 00 43 04	
+ea 43 05	LNMusicOrder.playMusicByName	ea 00 04 00 43 05	
+ea 43 06	LNMusicOrder.playMusic	ea 00 03 00 43 06	
+ea 43 07	LNMusicOrder.stopMusic	ea 00 03 00 43 07	
+ea 43 08	BleWatchServiceImpl.requestLicenseEncryption	ea 00 03 00 43 08	获取定制License加密
+ea 46 03	DeviceSimInterOrder.sendDeviceSimInterContent	ea 00 00 00 46 03 02	流式ASR|翻译
+ea 46 05	DeviceSimInterOrder.sendDeviceSimInterTtsState	ea 00 04 00 46 05 01	发送同传TTS播报状态
+ea 46 06	DeviceSimInterOrder.sendDeviceSimInterState	ea 00 04 00 46 06 ??	发送同传状态
+ea 47 03	WhatsAppOrder.sendState	ea 00 04 00 47 03 ??	WhatsApp端消息功能可用状态
+ea 47 04	WhatsAppOrder.sendQrImage	ea 00 00 00 47 04	WhatsApp二维码发送
+ea 47 05	WhatsAppOrder.sendUserName	ea 00 00 00 47 05	WhatsApp用户名发送
+ea 47 06	WhatsAppOrder.sendUserHead	ea 00 04 00 47 06 ??	WhatsApp用户头像发送
+ea 47 07	WhatsAppOrder.sendLoginState	ea 00 04 00 47 07 ??	失败|提交验证码
+ea 47 08	WhatsAppOrder.sendLogoutState	ea 00 04 00 47 08 ??	退出WhatsApp状态
+ea 47 09	WhatsAppOrder.handlerTextTip	ea 00 00 00 47 09 ??	Whatsapp发送Tip消息
+ea 47 0c	WhatsAppOrder.sendWsMsg	ea 00 00 00 47 0c	whatsapp发送ws消息
+ea 47 0d	WhatsAppOrder.handlerWsMsgResult	ea 00 0d 00 47 0d	发送 设备发送whatsapp消息结果|发送 设备发送whatsapp消息结果+附带消息
+ea 49 01	NoteAudioOrder.sendNoteAudio	ea 00 04 00 49 01 01	
+ea 49 02	NoteAudioOrder.sendNoteAudioList	ea 00 04 00 49 02 00	
+ea 49 03	NoteAudioOrder.noteAudioControl	ea 00 05 00 49 03 ?? ??	
+ea 49 04	NoteAudioOrder.noteAudioUpdate	ea 00 04 00 49 04 ??	
+ea 49 05	NoteAudioOrder.noteAudioDel	ea 00 04 00 49 05 ??	
+ea 4b 03	DeviceOneTransOrder.sendDeviceErr	ea 00 00 00 4b 03 ??	发送一键翻译异常情况
+ea 4b 04	DeviceOneTransOrder.sendDeviceContent	ea 00 00 00 4b 04 ??	发送原文文本
+ea 4b 05	DeviceOneTransOrder.sendDeviceTransContent	ea 00 00 00 4b 05 ??	发送译文文本
+ea 4b 07	DeviceOneTransOrder.sendDeviceTtsState	ea 00 04 00 4b 07 01	发送一键翻译TTS播报状态
+ea 4c 01	MeetingOrder.start	ea 00 08 00 4c 01 ?? ?? ?? ?? ??	
+ea 4c 02	MeetingOrder.option	ea 00 09 00 4c 02 ?? ?? ?? ?? ?? ??	
+ea 72 01	BleWatchServiceImpl.mesNotifyPush	ea 00 06 ff 72 01 ?? ?? ??	消息推送
+ea 74 01	BleWatchServiceImpl.setSendUserinfoRequest	ea 00 ?? ff 74 01 00 ?? ?? ??	发送用户头像和昵称
+ea 76 01	BleWatchServiceImpl.notDisturbMode	ea 00 05 ff 76 01 ?? ??	设置勿扰模式
+ea 77 01	BleWatchServiceImpl.setWakeUpScreenSettings	ea 00 05 ff 77 01 ?? ??	抬腕唤醒
+ea 7b 01	BleWatchServiceImpl.setBandLanguage2	ea 00 04 ff 7b 01 ??	手环语言切换V2
+ea 7b 80	BleWatchServiceImpl.setSetLanguageSettings	ea 00 04 ff 7b 80 ??	语言更换
+ea 7e 01	BleWatchServiceImpl.sendCityName	ea 00 ?? ff 7e 01 ??	发送城市
+ea 7e 02	BleWatchServiceImpl.sendCityAllWeather	ea 00 ?? ff 7e 02 ?? ??	发送天气
+ea 7e 02	BleWatchServiceImpl.sendCityWeather	ea 00 ?? ff 7e 02 ?? ??	发送天气
+ea 7f 01	BleWatchServiceImpl.setSleepMode	ea 00 07 ff 7f 01 ?? ?? ?? ??	睡眠设置
+ea 93 01	BleWatchServiceImpl.setTimeZoneSync	ea 00 07 ff 93 01 01 ?? ?? ??	同步时区
+ea a0 01	BleWatchServiceImpl.setHrEarlyWarning	ea 00 0b ff a0 01 ?? ?? ?? ?? ?? ?? ?? ??	心脏预警通知
+ea aa 01	BleWatchServiceImpl.getDeviceFN	ea 00 03 ff aa 01	获取设备的FN
+ea e3 01	BleWatchServiceImpl.sendBtStatus	ea 00 04 ff e3 01 ??	一键双连Bt链接状态
