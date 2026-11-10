@@ -22,3 +22,5 @@ research/capture/
 *.btsnoop
 btsnoop_hci.log*
 bugreport*.zip
+ios/Payload/
+*.ipa

@@ -48,6 +48,24 @@ jobs:
             -destination "platform=iOS Simulator,name=${{ steps.sim.outputs.name }}" \
             CODE_SIGNING_ALLOWED=NO | tee xcodebuild.log
 
+      # Unsigned: the user signs it on Windows (e.g. Sideloadly with their Apple ID) to install it.
+      - name: Build unsigned IPA (iPhone, Release)
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project Sawar.xcodeproj -scheme Sawar -configuration Release \
+            -destination "generic/platform=iOS" -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" | tee -a xcodebuild.log
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/Sawar.app Payload/
+          zip -qry Sawar-unsigned.ipa Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sawar-unsigned-ipa
+          path: ios/Sawar-unsigned.ipa
+
       - name: Upload build log
         if: always()
         uses: actions/upload-artifact@v4
