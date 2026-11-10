@@ -16,3 +16,9 @@ ios/App/Resources/Info.plist
 ios/App/Resources/Sawar.entitlements
 ios/xcodebuild.log
 .build/
+
+# Bluetooth captures and bug reports: contain personal data (contacts, notifications). Never push.
+research/capture/
+*.btsnoop
+btsnoop_hci.log*
+bugreport*.zip
