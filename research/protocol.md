@@ -187,8 +187,24 @@ Other analyzers (all D, dispatch values in [E2]): `ConnectAnalyzer` (`20`,`21`,`
 `14` screen size, `17`, `1A`, `1D`, `22`…), `MenstrualAnalyzer`, `NetFtpOtaAnalyzer` (EA `25`),
 `FriendsAnalyzer`, `SettingsAnalyzer`, `SicheSettingAnalyzer`, `CallRecordAnalyzer` (EA `40`).
 
-Field layouts for sleep, sport, HR history, device info: **U** (parsers are long coroutine
-lambdas; to be traced next, then confirmed with Phase-2 bytes).
+Record layouts traced in a second pass (D, all unconfirmed until Phase 2):
+
+- **Device info reply** `AB .. FF 92 ..` (`ConnectAnalyzer.getBandVersionInfo`): firmware version
+  string = `b6` and `b7` formatted `"%.2f"` (I: `b6 + b7/100`); `b8` read (meaning U);
+  `bandVersionCode = b9*256 + b10`; capability bytes `byte11 = b11`, `byte12 = b12`,
+  `byte15 = b15`, `byte16 = b16`, `byte17 = b17`, `byte18 = b18` (screen-type table). If `byte11`
+  says "license", the app then sends `setSendLicenseNum` (`AB 00 02 FF CB`).
+- **Capability bits** (`DeviceInfoModel$Byte*Model.<init>`): `byte11` bit1 = license, bit2 = OTA;
+  `byte12` bit0 = Alipay, bit4 = WeChat pay; `byte15` bits 0..7 and `byte17` bits 0..7 are read one
+  bit each — mapping to field names is **I** (follows field declaration order, see devices.md);
+  `byte16` is a value table (e.g. `0x30`) → BP/SpO2/ECG/continuous-HR combos (values U);
+  `byte18` is a screen table (240, 320, 360, 410, 412, 466, 480 px …); `info2Byte5` bit0 = immunity,
+  bit1 = body temperature, bit2 = continuous temperature.
+- **Sleep record** `AB .. 52 ..` (`DataSyncProxy.saveSleep`): `b6` = year-2000, `b7` month, `b8` day,
+  `b9` hour, `b10` minute, `b11` sleep type, `b12..b13` duration (minutes, I).
+- **History HR** `AB .. 51 11 ..` (`saveMeasureHR`): `b6` year-2000, `b7` month, `b8` day, `b9` hour,
+  `b10` minute, `b11` bpm. SpO2 / temperature / BP history use the same time header (I).
+- Sport record (`B7`) layout: still U.
 
 ## 6. Authentication, encryption, server dependence
 

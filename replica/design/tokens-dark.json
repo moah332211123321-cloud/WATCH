@@ -1,0 +1,161 @@
+{
+  "_about": "Original palette for the new app (not the vendor's). Light/dark share roles.",
+  "color": {
+    "bg": "#000000",
+    "surface": "#1c1c1f",
+    "border": "#2e2e33",
+    "border-input": "#8e8e98",
+    "text": "#f5f5f7",
+    "text-muted": "#a1a1aa",
+    "accent": "#3fd2c7",
+    "on-accent": "#00201e",
+    "danger": "#ff6b6b",
+    "success": "#4ade80",
+    "warning": "#fbbf24",
+    "metric-heart": "#ff5a6e",
+    "metric-oxygen": "#5aa2ff",
+    "metric-steps": "#ff9a3c",
+    "metric-sleep": "#a48bff",
+    "metric-energy": "#ff6b9a",
+    "metric-stress": "#40d6e0",
+    "metric-temp": "#ffa05a"
+  },
+  "pairs": [
+    [
+      "text",
+      "bg"
+    ],
+    [
+      "text",
+      "surface"
+    ],
+    [
+      "text-muted",
+      "bg"
+    ],
+    [
+      "text-muted",
+      "surface"
+    ],
+    [
+      "on-accent",
+      "accent"
+    ],
+    [
+      "accent",
+      "surface"
+    ],
+    [
+      "accent",
+      "bg"
+    ],
+    [
+      "danger",
+      "surface"
+    ],
+    [
+      "success",
+      "surface"
+    ],
+    [
+      "warning",
+      "surface"
+    ],
+    [
+      "border-input",
+      "surface",
+      "ui"
+    ],
+    [
+      "metric-heart",
+      "surface"
+    ],
+    [
+      "metric-oxygen",
+      "surface"
+    ],
+    [
+      "metric-steps",
+      "surface"
+    ],
+    [
+      "metric-sleep",
+      "surface"
+    ],
+    [
+      "metric-energy",
+      "surface"
+    ],
+    [
+      "metric-stress",
+      "surface"
+    ],
+    [
+      "metric-temp",
+      "surface"
+    ]
+  ],
+  "font": {
+    "sans": "system (SF Pro via .system design; Arabic: system Arabic font)",
+    "mono": "system monospaced"
+  },
+  "type": {
+    "caption": {
+      "size": 12,
+      "line": 16,
+      "weight": 500
+    },
+    "footnote": {
+      "size": 13,
+      "line": 18,
+      "weight": 400
+    },
+    "body": {
+      "size": 17,
+      "line": 22,
+      "weight": 400
+    },
+    "headline": {
+      "size": 17,
+      "line": 22,
+      "weight": 600
+    },
+    "title": {
+      "size": 22,
+      "line": 28,
+      "weight": 700
+    },
+    "largeTitle": {
+      "size": 34,
+      "line": 41,
+      "weight": 700
+    },
+    "metric": {
+      "size": 44,
+      "line": 48,
+      "weight": 600
+    }
+  },
+  "space": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    48
+  ],
+  "radius": {
+    "sm": 8,
+    "md": 14,
+    "lg": 22,
+    "pill": 999
+  },
+  "motion": {
+    "fast": "0.15s easeOut",
+    "standard": "0.3s spring(response 0.35, damping 0.8)",
+    "ring": "0.8s easeInOut"
+  }
+}

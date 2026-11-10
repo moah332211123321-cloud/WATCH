@@ -1,0 +1,6 @@
+{
+  "name": "Sawar",
+  "avoid": ["WearFit", "Wearfit", "wearfit", "howear", "Howear", "iwhop", "iwhopro", "iwhopodm", "Wakeup Pro"],
+  "domains": ["iwhop.com", "iwhop.cn", "iwhopro.com", "iwhopodm.com", "iwhopodm.cn"],
+  "colors": []
+}
