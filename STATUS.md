@@ -2,9 +2,9 @@
 
 | Phase | State | Notes |
 |---|---|---|
-| 0 — setup | done | git repo, `.gitignore` (APK, `research/apk-extract/`, build output), folders `research/ replica/ ios/` |
-| 1 — static analysis | done (with tooling limits) | `research/protocol.md`, `devices.md`, `feature-inventory.md`, `watchface-format.md`, `ota.md`; evidence in `research/evidence/`. Craft Anything was in Clean room (Deep mode off) and REA had no JADX/apktool/JDK, so the APK was read with stdlib parsers in `research/tools/` (no decompiled source). Not covered: React Native (Hermes) bundle screens; byte layouts of sleep/sport/history/device-info records; dynamically built packets. |
-| 2 — runtime confirmation | blocked — needs the user | need: watch model + photo of its "About" screen, Android HCI snoop log (bugreport) while using each feature once, screenshots of every WearFit Pro screen → `replica/screens/` |
-| 3 — recon + architecture | not started | waits for Phase 2 |
-| 4 — design + build | not started | |
-| 5 — test, parity, rebrand, ship | not started | |
+| 0 — setup | done | git repo, `.gitignore`, `.gitattributes`, folder layout |
+| 1 — static analysis | done (tooling-limited) | `research/*.md` + `research/evidence/`. Craft Anything in Clean room, REA without JADX/apktool/JDK → stdlib DEX parsers (`research/tools/`). Second pass added device-info, capability bits, sync requests, sleep and HR layouts. Not covered: React Native (Hermes) screens, sport records, dynamic packets. Installing JADX was not done (needs the user's OK to download). |
+| 2 — runtime confirmation | blocked — needs the user | watch model, HCI snoop log, screenshots. Every command is **unconfirmed**. |
+| 3 — recon + architecture | done | `replica/recon.md` (33 screens, 10 flows), `replica/architecture.md` (Swift/SwiftUI/SwiftData/XcodeGen, WatchDriver + family plug-ins) |
+| 4 — design + build | done-unverified | tokens (0 AA failures), brand "Sawar", WatchCore package + 33-screen app, en+ar (232 keys). **Not compiled** — no Mac; CI not run yet. |
+| 5 — test, parity, rebrand, ship | partial | 43 unit tests written (not run); parity 68.5/100 built-in-code, 0 verified (`replica/parity.md`); brand sweep clean; CI workflow written; TestFlight blocked on the user's Apple Developer account and signing. |
