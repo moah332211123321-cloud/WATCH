@@ -17,26 +17,36 @@ Status: static analysis only. Labels: **O** observed, **D** derived, **I** infer
 | Ring (notification ring) images | `CustomRing`, `CropRing` | `RING=167` | yes |
 | Dial memory / thumbnails | — | `DIAL_MEMORY=161`, `DIAL_THUMB=191` | — |
 
-## 2. Custom (photo) face — generic Wakeup path (D)
+## 2. Custom (photo) face — from decompiled source (JADX 1.5.6), not yet tried on a watch
 
-`com.wakeup.module.device.trans.NormalMTransfer`:
-1. `startTransfer`: load each image of the `CustomDialBean`, scale to the device resolution
-   (`CustomDialBean.getResolution`, from device info / screen info).
-2. `getSourceList`: convert pixels with `BitmapUtils.getHexPixels` + `hexString_16_to_8`
-   (I: RGB565, 2 bytes per pixel), split into 1024-byte pieces (`BitmapUtils.split(…, 1024)`).
-3. `sendInfo`: compute CRC-16/MODBUS over the data (`BleUtil.crcTable`) and send
-   `TransferOrder.startSendPic` (dynamic packet: size / CRC / index — layout U).
-4. `sendData`: send each piece with `TransferOrder.sendImageContent` (dynamic, 124-byte groups
-   observed as a constant in `sendData` — meaning U); progress via `handlerSendProgress`; the watch
-   acknowledges each piece (`handlerAnswer`, "收到写入图片的回调 pkgIndex").
-5. Style and options (templates from [E1]):
-   - `AB 00 07 FF 9C ?? ?? ?? ?? ??` — style (position / colour, fields U) (`sendStyle`)
-   - `AB 00 08 FF 9C … 01` — AI style (`sendStyleAi`)
-   - `AB 00 04 FF AD 80 <n>` — number of background images (`sendMultipleWatchBitmapNum`)
-   - EA `0D 01` new style / video style, EA `0D 02` transfer state, EA `0D 03` video pixel info
-   - EA `08 00 <v>` puzzle flag, EA `0A 01` module face, EA `0F 01` menu background state
-   - EA `3D 01..04` DIY numbers / pointer / location / state
-6. Device replies are handled by `DialAnalyzer` (dispatch values `AD`, `B0`, `B2`, `A7` in [E2]).
+Evidence: `com/wakeup/module/device/trans/TransferOrder.java` (startSendPic, assemblyImageContent,
+sendImageContent, sendStyle, sendCustomPuzzle, sendMultipleWatchBitmapNum), `NormalMTransfer.java`
+(startPush, sendInfo, sendData, getSourceList, getShouldSend), `NormalTransferMgr.java` (ack listener),
+`work/analyzer/DialAnalyzer.java` (ack 0xAD), `work/channel/WatchNotify` (routing),
+`common/utils/BitmapUtils.java` (getHexPixels, hexString_16_to_8, split), `common/temp/BleUtil.java` (crcTable).
+
+1. `AB 00 04 FF AD 80 n` — number of background images (n = 1 for one photo).
+2. Pixels: image scaled to the watch resolution, each pixel RGB565 = `(R>>3)<<11 | (G>>2)<<5 | (B>>3)`,
+   written **high byte first** (big-endian). File size = width × height × 2.
+   Exception: platform type 9 or 12 (`DeviceLocal.byte6`, from the `AB … 20` reply) uses
+   `ParTool.bitmapToPar / bitmapToParv3` (Bluetrum `.par`, native library) — **not supported** by Sawar.
+3. Split into 1024-byte packages. For package *i*:
+   - info packet, 12 raw bytes (not an AB frame): `AD len_hi len_lo i_hi i_lo crc_hi crc_lo end size[4]`
+     — CRC-16/MODBUS of the package, `end` = 1 on the last package, size big-endian.
+   - content: the package in 124-byte chunks, each `AE (chunkLen+2) seq_hi seq_lo chunk…`, all chunks
+     concatenated and written in **128-byte pieces** (`setSplitNum(128)`). `seq` starts at
+     `i × (len / 124)` and increments per chunk (the trailing partial chunk overlaps the next package's
+     first number — kept as in the reference app).
+4. The watch answers with a raw notification `AD x b2 b3 …`. The reference app takes the next index as
+   the **decimal concatenation** of b2 and b3 (`Integer.parseInt("" + b2 + b3)`) and sends that package
+   (same index = resend). Non-AB/EA notifications bypass reassembly (`WatchNotify`).
+5. After the index passes the last package: style `AB 00 07 FF 9C R G B font location` (time colour; font
+   and location codes are server-provided style choices — Sawar sends 0, 0) and
+   `EA 00 04 00 08 00 00` (not a puzzle face).
+6. Resolution: `DeviceInfoModel.getResolution()` = screen reply `EA … 14 01` (width b6–b7, height b8–b9,
+   shape b10, rotate b11) if received, else the `byte18` table in `DeviceInfoModel$Byte18Model`
+   (implemented as `ScreenTable`).
+7. The watch draws the time itself on top of the picture, so only the background is sent.
 
 ## 3. Market faces and other files
 
@@ -56,14 +66,13 @@ Status: static analysis only. Labels: **O** observed, **D** derived, **I** infer
 
 ## 4. Status for the iOS app (proposed)
 
-- Photo face for the user's watch: possible once the image packet layout is confirmed (Phase 2 capture
-  of one photo-face upload). Until then `blocked-protocol` (U fields).
+- Photo face: implemented as an explicit **experimental** action (layout from source, untested on a watch).
 - Market: replaced by user-made / imported / licensed faces (CLAUDE.md).
 - Importing third-party face files: only for formats we can verify on the user's watch.
 
 ## 5. Unknowns
 
-1. Exact `startSendPic` / `sendImageContent` packet layouts and the ack format.
-2. Pixel format (RGB565 assumed, endianness U) and compression (SiFli `ezip` suggests compression on SiFli).
+1. Behaviour of the user's watch (urjwanplus, fw 1.02) — needs a real try with the Bluetooth log on.
+2. SiFli picture path (`SichePictureTransfer`) and the `.par` format for platforms 9/12: not implemented.
 3. Inner format of SiFli `wf.zip` and Nordic DFU face packages.
 4. Delete / replace face commands (labels not found in the builders yet — U).

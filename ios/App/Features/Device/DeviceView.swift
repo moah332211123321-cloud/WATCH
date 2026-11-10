@@ -7,8 +7,6 @@ struct DeviceView: View {
     @Environment(DeviceController.self) private var device
     @Query(sort: \DeviceRecord.lastSeen, order: .reverse) private var saved: [DeviceRecord]
     @State private var findState: SendState = .idle
-    @State private var versionTaps = 0
-    @State private var showDebug = false
 
     var body: some View {
         NavigationStack {
@@ -56,13 +54,18 @@ struct DeviceView: View {
                 }
                 Section(L("What this watch supports")) { capabilities }
                 Section {
+                    NavigationLink { PacketLogView() } label: {
+                        Label(L("Bluetooth log"), systemImage: "list.bullet.rectangle")
+                    }
+                } header: { Text(L("Developer")) } footer: {
+                    Text(L("Every packet sent to and received from the watch, with time. Share it to help confirm the protocol."))
+                }
+                Section {
                     Text(L("Version 0.1.0 — protocol not yet confirmed on a real watch"))
                         .font(.footnote).foregroundStyle(Tok.textMuted)
-                        .onTapGesture { versionTaps += 1; if versionTaps >= 5 { showDebug = true; versionTaps = 0 } }
                 }
             }
             .navigationTitle(L("Watch"))
-            .navigationDestination(isPresented: $showDebug) { PacketLogView() }
         }
     }
 

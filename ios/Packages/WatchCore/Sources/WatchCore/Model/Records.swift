@@ -13,6 +13,9 @@ public struct DeviceInfo: Equatable, Sendable {
         self.rawCapabilityBytes = rawCapabilityBytes
         self.capabilities = Capabilities(deviceInfoBytes: rawCapabilityBytes)
     }
+
+    /// Screen from the byte-18 table (fallback when the watch does not answer `EA 14 01`).
+    public var tableScreen: ScreenInfo? { rawCapabilityBytes[18].flatMap(ScreenTable.screen(code:)) }
 }
 
 public struct DaySummary: Equatable, Sendable {
@@ -56,8 +59,45 @@ public struct SleepSegment: Equatable, Sendable {
     public var stageCode: UInt8
 }
 
+/// Screen of the watch. `shape`: 0 = round, 1 = square, 2 = rectangle (reference app's screenType).
+public struct ScreenInfo: Equatable, Sendable {
+    public var width: Int
+    public var height: Int
+    public var shape: Int
+    public init(width: Int, height: Int, shape: Int) { self.width = width; self.height = height; self.shape = shape }
+    public var isRound: Bool { shape == 0 }
+}
+
+/// Reply to the phone-OS command (`AB … 20`, `ConnectAnalyzer.getPairingType` → `DeviceLocal`).
+public struct PlatformInfo: Equatable, Sendable {
+    /// Chip platform code (`DeviceLocal.getPlatform`, byte 6). 9 and 12 use compressed face images.
+    public var platform: Int
+    /// Byte 8 flags: bit0 dual-mode, bit2 new pay code, bit4 pressure, bit5 own file transfer, bit7 switch receive.
+    public var flags: UInt8
+    public var deviceType: Int   // byte 9
+    public var otaType: Int      // byte 10
+}
+
+/// A workout recorded on the watch (`AB … B7`, `DataSyncProxy.saveSport`).
+public struct SportRecord: Equatable, Sendable {
+    public var type: Int
+    public var start: Date
+    public var durationSeconds: Int
+    public var steps: Int
+    public var kilocalories: Int
+    public var distanceMeters: Int
+    public var averageHeartRate: Int
+}
+
 /// Everything the decoder can turn a frame into.
 public enum WatchEvent: Equatable, Sendable {
+    case platform(PlatformInfo)
+    case screen(ScreenInfo)
+    case sport(SportRecord)
+    /// Photo-face answer: index of the package the watch wants next.
+    case faceAck(nextIndex: Int)
+    /// A notification that is not an AB/EA frame (passed through unchanged, like the reference app).
+    case raw([UInt8])
     case deviceInfo(DeviceInfo)
     case daySummary(DaySummary)
     case sample(Sample)

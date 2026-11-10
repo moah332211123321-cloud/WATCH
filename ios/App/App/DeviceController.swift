@@ -30,6 +30,8 @@ final class DeviceController {
     var syncError: String?
     var liveHeartRate: Int?
     var packetLog: [PacketLine] = []
+    var screen: ScreenInfo?
+    var platform: PlatformInfo?
 
     @ObservationIgnored private let ble = BLECentral()
     @ObservationIgnored private(set) var driver: WakeupDriver?
@@ -132,6 +134,8 @@ final class DeviceController {
             let info = try await driver.handshake()
             self.info = info
             self.capabilities = await driver.capabilities
+            self.screen = await driver.screen
+            self.platform = await driver.platform
             link = .connected
             saveDevice(id: id, info: info)
             await sync()
@@ -212,9 +216,11 @@ final class DeviceController {
         return try await driver.measure(kind, timeout: .seconds(60))
     }
 
-    func installFace(imageRGB565: Data, width: Int, height: Int) async throws {
+    /// Experimental: layout from the reference app's source, not yet tried on a watch.
+    func installPhotoFace(pixels: Data, timeColor: [UInt8], consent: UserConsent,
+                          progress: @escaping @Sendable (Double) -> Void) async throws {
         guard let driver else { throw WatchError.notConnected }
-        _ = try await driver.installFace(imageRGB565: imageRGB565, width: width, height: height)
+        try await driver.installPhotoFace(pixels: pixels, timeColor: timeColor, consent: consent, progress: progress)
     }
 
     func updateFirmware(file: URL, consent: UserConsent) async throws {

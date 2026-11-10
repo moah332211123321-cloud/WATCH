@@ -373,21 +373,53 @@ struct FilesView: View {
     }
 }
 
-// MARK: S33 packet log (hidden: tap the version five times)
+// MARK: S33 Bluetooth log (Watch tab > Developer)
 
 struct PacketLogView: View {
     @Environment(DeviceController.self) private var device
+    @State private var exportURL: URL?
+
     var body: some View {
-        List(device.packetLog.reversed()) { line in
-            VStack(alignment: .leading) {
-                Text(line.date, format: .dateTime.hour().minute().second()).font(.caption2).foregroundStyle(Tok.textMuted)
-                Text(verbatim: (line.outgoing ? "→ " : "← ") + line.hex).font(.caption.monospaced())
-                    .foregroundStyle(line.outgoing ? Tok.accent : Tok.text)
+        List {
+            if device.packetLog.isEmpty {
+                Text(L("No packets yet. Connect the watch and use a feature.")).foregroundStyle(Tok.textMuted)
+            }
+            ForEach(device.packetLog.reversed()) { line in
+                VStack(alignment: .leading) {
+                    Text(verbatim: Self.stamp(line.date)).font(.caption2.monospaced()).foregroundStyle(Tok.textMuted)
+                    Text(verbatim: (line.outgoing ? "TX " : "RX ") + line.hex).font(.caption.monospaced())
+                        .foregroundStyle(line.outgoing ? Tok.accent : Tok.text)
+                        .textSelection(.enabled)
+                }
             }
         }
-        .navigationTitle(L("Packet log"))
+        .navigationTitle(L("Bluetooth log"))
         .toolbar {
-            ShareLink(item: device.packetLog.map { "\($0.date.ISO8601Format()) \($0.outgoing ? ">" : "<") \($0.hex)" }.joined(separator: "\n"))
+            ToolbarItem(placement: .topBarTrailing) {
+                if let exportURL {
+                    ShareLink(item: exportURL) { Label(L("Export"), systemImage: "square.and.arrow.up") }
+                }
+            }
+            ToolbarItem(placement: .topBarLeading) {
+                Button(L("Clear"), role: .destructive) { device.packetLog.removeAll() }
+                    .disabled(device.packetLog.isEmpty)
+            }
         }
+        .onAppear(perform: writeFile)
+        .onChange(of: device.packetLog.count) { _, _ in writeFile() }
+    }
+
+    static func stamp(_ d: Date) -> String {
+        d.formatted(.iso8601.year().month().day().time(includingFractionalSeconds: true))
+    }
+
+    /// Plain-text export, one packet per line: `time TX|RX hex`, plus a header naming the watch.
+    private func writeFile() {
+        var text = "Sawar Bluetooth log\nwatch: \(device.connectedName)\nfirmware: \(device.info?.firmwareVersion ?? "-")\n"
+        text += "family: \(device.family.rawValue) platform: \(device.platform.map { String($0.platform) } ?? "-")"
+        text += " screen: \(device.screen.map { "\($0.width)x\($0.height) shape \($0.shape)" } ?? "-")\n\n"
+        text += device.packetLog.map { "\(Self.stamp($0.date)) \($0.outgoing ? "TX" : "RX") \($0.hex)" }.joined(separator: "\n")
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("sawar-bluetooth-log.txt")
+        do { try text.write(to: url, atomically: true, encoding: .utf8); exportURL = url } catch { exportURL = nil }
     }
 }

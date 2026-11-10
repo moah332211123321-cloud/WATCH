@@ -1,6 +1,6 @@
 # Sawar (iOS)
 
-Native SwiftUI app for WearFit-compatible watches. Protocol notes: `../research/protocol.md`.
+Native SwiftUI companion app for compatible smartwatches. Protocol notes: `../research/protocol.md`.
 
 ## Layout
 

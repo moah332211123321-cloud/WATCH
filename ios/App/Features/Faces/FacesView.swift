@@ -22,6 +22,14 @@ struct FacesView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: Tok.Space.l) {
                     UnsupportedNote(reason: L("The original maker's face store is a private service, so Sawar uses your own photos and files."))
+                    NavigationLink { DesignGalleryView() } label: {
+                        Label(L("Design gallery: 100 original faces"), systemImage: "square.grid.3x3.fill")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(Tok.Space.l)
+                            .background(Tok.surface, in: RoundedRectangle(cornerRadius: Tok.Radius.l, style: .continuous))
+                    }
+                    .buttonStyle(.plain)
                     if shown.isEmpty {
                         ContentUnavailableView(L("No faces yet"), systemImage: "photo.on.rectangle",
                                                description: Text(L("Create one from a photo or import an image.")))
@@ -95,27 +103,45 @@ struct FaceTile: View {
     }
 }
 
-/// Round-cornered preview with time overlay (FacePreview).
-struct FacePreview: View {
-    let face: WatchFaceRecord
+/// What is sent to the watch: background colour + photo, no clock (the watch draws the time).
+struct PhotoFaceBackground: View {
+    let imageData: Data
+    let backgroundHex: Int
     var body: some View {
-        ZStack {
-            Color(UIColor(rgb: UInt32(face.backgroundHex)))
-            if let image = UIImage(data: face.imageData) {
-                Image(uiImage: image).resizable().scaledToFill()
-            }
-            VStack(spacing: 0) {
-                Text(Date(), format: .dateTime.hour().minute())
-                    .font(.system(size: 34, weight: .semibold, design: .rounded))
-                if face.showDate {
-                    Text(Date(), format: .dateTime.weekday().day()).font(.caption)
+        Color(UIColor(rgb: UInt32(backgroundHex)))
+            .overlay {
+                if let image = UIImage(data: imageData) {
+                    Image(uiImage: image).resizable().scaledToFill()
                 }
             }
-            .foregroundStyle(Color(UIColor(rgb: UInt32(face.textHex))))
-            .shadow(radius: 2)
+            .clipped()
+    }
+}
+
+/// Sample time shown on previews only.
+struct SampleTime: View {
+    let color: Color
+    var showDate = true
+    var body: some View {
+        VStack(spacing: 0) {
+            Text(Date(), format: .dateTime.hour().minute())
+                .font(.system(size: 34, weight: .semibold, design: .rounded))
+            if showDate { Text(Date(), format: .dateTime.weekday().day()).font(.caption) }
         }
-        .clipShape(RoundedRectangle(cornerRadius: Tok.Radius.l, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: Tok.Radius.l, style: .continuous).stroke(Tok.border))
+        .foregroundStyle(color)
+        .shadow(radius: 2)
+    }
+}
+
+/// Preview in the watch's shape, with a sample time on top (FacePreview).
+struct FacePreview: View {
+    @Environment(DeviceController.self) private var device
+    let face: WatchFaceRecord
+    var body: some View {
+        WatchShapeFrame(screen: device.screen) {
+            PhotoFaceBackground(imageData: face.imageData, backgroundHex: face.backgroundHex)
+                .overlay { SampleTime(color: Color(UIColor(rgb: UInt32(face.textHex))), showDate: face.showDate) }
+        }
         .accessibilityLabel(Text(verbatim: face.name))
     }
 }
@@ -132,13 +158,13 @@ struct FaceEditorView: View {
     @State private var background = Color.black
     @State private var textColor = Color.white
     @State private var showDate = true
-    @State private var install: SendState = .idle
 
     var body: some View {
         Form {
             Section {
-                FacePreview(face: draft).frame(height: 260)
-                    .listRowInsets(EdgeInsets())
+                FacePreview(face: draft)
+                    .frame(maxWidth: 260)
+                    .frame(maxWidth: .infinity)
             }
             Section {
                 TextField(L("Name"), text: $name)
@@ -149,14 +175,10 @@ struct FaceEditorView: View {
             }
             Section {
                 Button(L("Save")) { save() }.disabled(imageData.isEmpty || name.isEmpty)
-                Button { Task { await installOnWatch() } } label: {
-                    Label(L("Install on watch"), systemImage: "applewatch.and.arrow.forward")
-                }
-                .disabled(imageData.isEmpty || !device.isConnected || install == .sending)
-                SendStatusView(state: install)
-                if !device.isConnected {
-                    Text(L("Connect your watch to install.")).font(.footnote).foregroundStyle(Tok.textMuted)
-                }
+            }
+            if !imageData.isEmpty {
+                ExperimentalInstallSection(background: PhotoFaceBackground(imageData: imageData, backgroundHex: background.rgbHex),
+                                           timeColor: textColor)
             }
         }
         .navigationTitle(face == nil ? L("New face") : L("Edit face"))
@@ -191,35 +213,6 @@ struct FaceEditorView: View {
         target.backgroundHex = background.rgbHex; target.textHex = textColor.rgbHex
         try? context.save()
         dismiss()
-    }
-
-    private func installOnWatch() async {
-        install = .sending
-        let side = 240 // shortcut: real screen size comes from the screen-info reply once decoded
-        guard let rgba = renderRGBA(side: side) else { install = .failed(S("Could not prepare the image.")); return }
-        do {
-            try await device.installFace(imageRGB565: RGB565.encode(rgba: rgba, width: side, height: side),
-                                         width: side, height: side)
-            install = .sent
-        } catch {
-            install = .failed(describe(error))
-        }
-    }
-
-    /// Draws the preview into a square RGBA buffer.
-    @MainActor private func renderRGBA(side: Int) -> [UInt8]? {
-        let renderer = ImageRenderer(content: FacePreview(face: draft).frame(width: CGFloat(side), height: CGFloat(side)))
-        renderer.scale = 1
-        guard let cg = renderer.cgImage else { return nil }
-        var buffer = [UInt8](repeating: 0, count: side * side * 4)
-        let ok: Bool = buffer.withUnsafeMutableBytes { raw in
-            guard let ctx = CGContext(data: raw.baseAddress, width: side, height: side, bitsPerComponent: 8,
-                                      bytesPerRow: side * 4, space: CGColorSpaceCreateDeviceRGB(),
-                                      bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return false }
-            ctx.draw(cg, in: CGRect(x: 0, y: 0, width: side, height: side))
-            return true
-        }
-        return ok ? buffer : nil
     }
 }
 

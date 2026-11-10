@@ -64,6 +64,13 @@ Status for all of these: `skip` (reason: not the user's device; can be revisited
 - Model list cannot be taken from the server; start with **the user's own watch** and add models
   only when verified.
 
+## 4b. The user's watch: "urjwanplus", firmware 1.02
+
+The name appears only in `res/raw/def_ble_names.json` (3,612 accepted Bluetooth names: "Urjwan",
+"Urjwan Watch", "UrjwanPlus"). The APK has **no name → family table**; the family is decided at runtime
+from the GATT services (Sawar: `DriverFactory`) and the platform byte of the `AB … 20` reply. Sawar's
+Bluetooth log header records both, so the first connection tells us the family.
+
 ## 5. Unknowns
 
 1. The user's watch model, chip family and firmware version (Phase 2: ask the user, read device info).

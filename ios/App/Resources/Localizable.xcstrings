@@ -122,6 +122,17 @@
         }
       }
     },
+    "All": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الكل"
+          }
+        }
+      }
+    },
     "All settings and data on the watch will be deleted and it will disconnect.": {
       "extractionState": "manual",
       "localizations": {
@@ -140,6 +151,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Apple Health"
+          }
+        }
+      }
+    },
+    "Arabesque": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أرابيسك"
+          }
+        }
+      }
+    },
+    "Aurora": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شفق"
           }
         }
       }
@@ -232,6 +265,17 @@
         }
       }
     },
+    "Bluetooth log": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سجل البلوتوث"
+          }
+        }
+      }
+    },
     "Bluetooth permission needed in Settings": {
       "extractionState": "manual",
       "localizations": {
@@ -305,6 +349,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "اختيار صورة"
+          }
+        }
+      }
+    },
+    "Clear": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح"
           }
         }
       }
@@ -496,6 +551,39 @@
         }
       }
     },
+    "Design gallery": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "معرض التصميمات"
+          }
+        }
+      }
+    },
+    "Design gallery: 100 original faces": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "معرض التصميمات: 100 واجهة أصلية"
+          }
+        }
+      }
+    },
+    "Developer": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "للمطوّرين"
+          }
+        }
+      }
+    },
     "Diastolic": {
       "extractionState": "manual",
       "localizations": {
@@ -562,6 +650,17 @@
         }
       }
     },
+    "Dot grid": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شبكة نقاط"
+          }
+        }
+      }
+    },
     "Drink water": {
       "extractionState": "manual",
       "localizations": {
@@ -569,6 +668,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "شرب الماء"
+          }
+        }
+      }
+    },
+    "Dunes": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كثبان"
           }
         }
       }
@@ -672,6 +782,17 @@
         }
       }
     },
+    "Every packet sent to and received from the watch, with time. Share it to help confirm the protocol.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل حزمة تُرسل إلى الساعة أو تُستقبل منها مع وقتها. شاركه للمساعدة في تأكيد البروتوكول."
+          }
+        }
+      }
+    },
     "Every watch command in this version was learned by studying the original Android app and still needs confirming on a real watch.": {
       "extractionState": "manual",
       "localizations": {
@@ -679,6 +800,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "كل أوامر الساعة في هذه النسخة عُرفت من دراسة تطبيق أندرويد الأصلي، وما زالت تحتاج تأكيدًا على ساعة حقيقية."
+          }
+        }
+      }
+    },
+    "Experimental: the transfer steps come from studying the original app and have not been tried on a watch yet. The watch draws the time itself on top of the picture.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تجريبي: خطوات النقل مأخوذة من دراسة التطبيق الأصلي ولم تُجرَّب على ساعة بعد. الساعة ترسم الوقت بنفسها فوق الصورة."
+          }
+        }
+      }
+    },
+    "Export": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تصدير"
           }
         }
       }
@@ -793,6 +936,17 @@
         }
       }
     },
+    "Forest": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غابة"
+          }
+        }
+      }
+    },
     "Forget": {
       "extractionState": "manual",
       "localizations": {
@@ -815,6 +969,17 @@
         }
       }
     },
+    "Geometric": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هندسي"
+          }
+        }
+      }
+    },
     "Get started": {
       "extractionState": "manual",
       "localizations": {
@@ -826,6 +991,17 @@
         }
       }
     },
+    "Glass orbs": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كرات زجاجية"
+          }
+        }
+      }
+    },
     "Goals": {
       "extractionState": "manual",
       "localizations": {
@@ -833,6 +1009,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "الأهداف"
+          }
+        }
+      }
+    },
+    "Gold": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ذهبي"
           }
         }
       }
@@ -936,6 +1123,17 @@
         }
       }
     },
+    "Ice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جليد"
+          }
+        }
+      }
+    },
     "If your watch or iPhone can't do something, Sawar tells you why instead of pretending.": {
       "extractionState": "manual",
       "localizations": {
@@ -991,13 +1189,13 @@
         }
       }
     },
-    "Install on watch": {
+    "Install on watch (experimental)": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "تثبيت على الساعة"
+            "value": "تثبيت على الساعة (تجريبي)"
           }
         }
       }
@@ -1053,6 +1251,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "اللغة"
+          }
+        }
+      }
+    },
+    "Lava": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حمم"
+          }
+        }
+      }
+    },
+    "Lavender": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لافندر"
           }
         }
       }
@@ -1156,6 +1376,28 @@
         }
       }
     },
+    "Midnight": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "منتصف الليل"
+          }
+        }
+      }
+    },
+    "Minimal ticks": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "علامات بسيطة"
+          }
+        }
+      }
+    },
     "Minutes": {
       "extractionState": "manual",
       "localizations": {
@@ -1163,6 +1405,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "الدقائق"
+          }
+        }
+      }
+    },
+    "Mono": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أحادي"
           }
         }
       }
@@ -1244,6 +1497,17 @@
         }
       }
     },
+    "Neon arcs": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أقواس نيون"
+          }
+        }
+      }
+    },
     "New face": {
       "extractionState": "manual",
       "localizations": {
@@ -1295,6 +1559,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "لم يُسجَّل نبض لهذا التمرين."
+          }
+        }
+      }
+    },
+    "No packets yet. Connect the watch and use a feature.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد حزم بعد. وصّل الساعة واستخدم أي ميزة."
           }
         }
       }
@@ -1420,6 +1695,17 @@
         }
       }
     },
+    "Ocean": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "محيط"
+          }
+        }
+      }
+    },
     "On": {
       "extractionState": "manual",
       "localizations": {
@@ -1482,17 +1768,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "التذكيرات الأخرى (الدواء، القراءة، غسل اليدين) لم يتم تأكيدها بعد."
-          }
-        }
-      }
-    },
-    "Packet log": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "سجل الحزم"
           }
         }
       }
@@ -1651,6 +1926,28 @@
         }
       }
     },
+    "Rings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حلقات"
+          }
+        }
+      }
+    },
+    "Rose": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وردي"
+          }
+        }
+      }
+    },
     "Running": {
       "extractionState": "manual",
       "localizations": {
@@ -1673,6 +1970,17 @@
         }
       }
     },
+    "Save to my faces": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حفظ في واجهاتي"
+          }
+        }
+      }
+    },
     "Save watch measurements to Apple Health": {
       "extractionState": "manual",
       "localizations": {
@@ -1680,6 +1988,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "حفظ قياسات الساعة في Apple Health"
+          }
+        }
+      }
+    },
+    "Saved to my faces": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم الحفظ في واجهاتي"
           }
         }
       }
@@ -1893,6 +2212,17 @@
         }
       }
     },
+    "Sunset": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غروب"
+          }
+        }
+      }
+    },
     "Supported": {
       "extractionState": "manual",
       "localizations": {
@@ -2054,6 +2384,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "هذا الملف ليس صورة."
+          }
+        }
+      }
+    },
+    "This sends a new photo face to your watch. What the watch shows if the transfer stops half-way is not known yet. Firmware and settings are not touched.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سيتم إرسال واجهة صورة جديدة إلى ساعتك. ما ستعرضه الساعة إذا توقف النقل في المنتصف غير معروف بعد. البرنامج الثابت والإعدادات لن تُمس."
           }
         }
       }
@@ -2256,6 +2597,17 @@
         }
       }
     },
+    "Waves": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أمواج"
+          }
+        }
+      }
+    },
     "Weak signal": {
       "extractionState": "manual",
       "localizations": {
@@ -2373,6 +2725,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "بياناتك الصحية ملكك"
+          }
+        }
+      }
+    },
+    "Your watch did not report its screen size, so the picture can't be prepared.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعتك لم ترسل مقاس شاشتها، لذلك لا يمكن تجهيز الصورة."
           }
         }
       }

@@ -1,15 +1,14 @@
 # Parity report — Sawar vs WearFit Pro (2026-11-10)
 
-**Read this first:** the score below counts features that are *built in code*. **Nothing has been
-compiled** (there is no Mac; the GitHub Actions macOS job has not run yet) and **nothing has been
-tested on a watch**. Every built feature is `done-unverified`. Real parity is unknown until Phase 2.
+**Read this first:** the score below counts features that are *built in code*. It compiles in CI and runs on the user's iPhone, but **nothing has been
+tested on a watch yet**. Every built feature is `done-unverified`. Real parity is unknown until Phase 2.
 
 ## Scores
 
-- Feature parity (built in code): **68.5 / 100** — 79 features counted, must-haves **30 of 37** built.
+- Feature parity (built in code): **71.7 / 100** — 80 features counted, must-haves **33 of 38** built.
 - Verified on a real watch: **0**.
 - Layout diff: **not run** — no screenshots of the original yet (`replica/screens/` is empty).
-- Verdict: **not shippable** (7 must-haves missing, nothing compiled, nothing verified).
+- Verdict: **not shippable** (5 must-haves missing, nothing verified on the watch).
 
 Full machine output: `replica/parity-score.md`; per-feature detail: `replica/features.csv`.
 
@@ -20,9 +19,7 @@ Full machine output: `replica/parity-score.md`; per-feature detail: `replica/fea
 | Battery percentage | blocked-protocol | battery command not identified in the APK |
 | App notifications to watch | blocked-ios | iOS apps cannot read other apps' notifications; the watch may use ANCS itself |
 | Incoming call / caller id | blocked-ios | no call access on iOS; ANCS only |
-| Workouts recorded on the watch | blocked-protocol | `B7` record layout unknown |
 | Capability detection | partial | vendor server list not usable; some bits inferred |
-| Install face on watch | blocked-protocol | image packets not confirmed |
 | Sport types | partial | watch sport codes not mapped |
 
 ## Behaviour differences (by design)

@@ -78,10 +78,36 @@ public struct WatchDecoder: Sendable {
         case (.extended, 0x0B, _) where sub != 0x02:
             return .heartbeat
 
+        case (.classic, 0x20, _): // ConnectAnalyzer.getPairingType
+            guard b.count >= 8 else { break }
+            return .platform(PlatformInfo(platform: Int(b[6]), flags: at(8).map { UInt8($0) } ?? 0,
+                                          deviceType: at(9) ?? 0, otaType: at(10) ?? 0))
+
+        case (.extended, 0x14, 0x01): // OtherAnalyzer: width b6-7, height b8-9, screenType b10
+            guard b.count >= 11 else { break }
+            return .screen(ScreenInfo(width: Int(b[6]) << 8 | Int(b[7]), height: Int(b[8]) << 8 | Int(b[9]),
+                                      shape: Int(b[10])))
+
+        case (.classic, 0xB7, _): // DataSyncProxy.saveSport
+            guard b.count >= 19, let start = deviceDate(b, from: 6) else { break }
+            func u16(_ i: Int) -> Int { Int(b[i]) << 8 | Int(b[i + 1]) }
+            let type = Int(b[5])
+            let noDistance = [22, 46, 47].contains(type)
+            return .sport(SportRecord(type: type, start: start, durationSeconds: u16(11), steps: u16(13),
+                                      kilocalories: u16(15),
+                                      distanceMeters: noDistance ? 0 : Int(b[17]) * 1000 + Int(b[18]) * 10,
+                                      averageHeartRate: at(19) ?? 0))
+
         default:
             break
         }
         return .unknown(frame)
+    }
+
+    /// Notifications that are not AB/EA frames reach the analyzers unchanged in the reference app.
+    public func decodeRaw(_ bytes: [UInt8]) -> WatchEvent {
+        if let next = PhotoFace.nextIndex(fromAck: bytes) { return .faceAck(nextIndex: next) }
+        return .raw(bytes)
     }
 
     /// `Y-2000, M, D, h, m` starting at `offset`, in the watch's (= phone's) local time.

@@ -33,7 +33,18 @@ struct HealthRepository {
             if (try? context.fetchCount(FetchDescriptor<SleepSegmentRecord>(predicate: #Predicate { $0.key == key }))) ?? 0 == 0 {
                 context.insert(record)
             }
-        case .deviceInfo, .heartbeat, .unknown:
+        case let .sport(r):
+            // Watch sport codes are not mapped to our types yet, so they are stored as "other".
+            let start = r.start
+            let exists = (try? context.fetchCount(FetchDescriptor<WorkoutRecord>(predicate: #Predicate { $0.start == start }))) ?? 0 > 0
+            if !exists, r.durationSeconds > 0 {
+                context.insert(WorkoutRecord(type: .other, start: r.start,
+                                             end: r.start.addingTimeInterval(TimeInterval(r.durationSeconds)),
+                                             distanceMeters: Double(r.distanceMeters), route: [],
+                                             averageHeartRate: r.averageHeartRate > 0 ? Double(r.averageHeartRate) : nil,
+                                             maxHeartRate: nil))
+            }
+        case .deviceInfo, .heartbeat, .unknown, .platform, .screen, .faceAck, .raw:
             break
         }
         try? context.save()

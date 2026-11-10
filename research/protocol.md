@@ -204,7 +204,17 @@ Record layouts traced in a second pass (D, all unconfirmed until Phase 2):
   `b9` hour, `b10` minute, `b11` sleep type, `b12..b13` duration (minutes, I).
 - **History HR** `AB .. 51 11 ..` (`saveMeasureHR`): `b6` year-2000, `b7` month, `b8` day, `b9` hour,
   `b10` minute, `b11` bpm. SpO2 / temperature / BP history use the same time header (I).
-- Sport record (`B7`) layout: still U.
+- **Sport record** `AB .. B7` (`DataSyncProxy.saveSport`, decompiled): b5 sport type, b6–b10 start
+  (year-2000, M, D, h, m), b11–12 duration (s), b13–14 steps, b15–16 kcal, distance = b17·1000 + b18·10 m
+  (0 for types 22/46/47), b19 average HR; all 16-bit values big-endian (`BleUtil.bytesToInt`).
+- **Phone-OS reply** `AB .. 20` (`ConnectAnalyzer.getPairingType`): b6 platform type, b7, b8 flags (bit0
+  dual-mode, bit2 new pay code, bit4 pressure, bit5 own file transfer, bit7 switch receive), b9 device
+  type, b10 OTA type → stored as `DeviceLocal` (`DeviceLocalSupports.getType/getOtaType`).
+- **Screen reply** `EA .. 14 01` (`OtherAnalyzer`): width b6–b7, height b8–b9, screen type b10
+  (0 round, 1 square, 2 rectangle), rotate b11.
+- **MTU reply** `AB .. A7` (`DialAnalyzer`): b6–b7 MTU; usable = MTU-3 capped at 512; b8 major version.
+- **Routing** (`WatchNotify.onCharacteristicChanged`): only notifications starting `AB`/`EA` are
+  reassembled; anything else (e.g. `AD` face acks, `B0`/`B2` dial/barrage acks) goes to the analyzers as-is.
 
 ## 6. Authentication, encryption, server dependence
 

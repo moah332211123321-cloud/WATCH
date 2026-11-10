@@ -75,16 +75,10 @@ final class DriverTests: XCTestCase {
         XCTAssertEqual(t.writes.map(\.count), [20, 20, 4])
     }
 
-    func testFaceAndFirmwareRefuseUntilConfirmed() async {
+    func testFirmwareNeverFlashed() async {
         let t = FakeTransport()
         for family in DeviceFamily.allCases {
             let d = WakeupDriver(transport: t, family: family)
-            do {
-                _ = try await d.installFace(imageRGB565: Data(), width: 240, height: 240)
-                XCTFail("face install must not pretend to work")
-            } catch {
-                guard case .protocolUnconfirmed = error as? WatchError else { return XCTFail("\(error)") }
-            }
             do {
                 try await d.updateFirmware(file: URL(fileURLWithPath: "/tmp/fw.bin"),
                                            consent: UserConsent(confirmedPhrase: "UPDATE"))

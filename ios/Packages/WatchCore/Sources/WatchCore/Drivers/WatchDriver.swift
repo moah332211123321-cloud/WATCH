@@ -53,17 +53,9 @@ public struct UserConsent: Sendable, Equatable {
     }
 }
 
-public struct TransferProgress: Sendable, Equatable {
-    public var sentBytes: Int
-    public var totalBytes: Int
-    /// True only when the watch acknowledged the whole transfer.
-    public var confirmedByWatch: Bool
-}
-
-/// Family-specific parts: watch faces, files, firmware (research/devices.md §1).
+/// Family-specific parts: firmware (research/devices.md §1). Photo faces live in WakeupDriver.
 public protocol FamilyPlugin: Sendable {
     var family: DeviceFamily { get }
-    func installFace(imageRGB565: Data, width: Int, height: Int) async throws -> TransferProgress
     func updateFirmware(file: URL, consent: UserConsent) async throws
 }
 
@@ -96,21 +88,9 @@ public enum DriverFactory {
     static func fullUUID(_ short: String) -> String { "0000\(short)-0000-1000-8000-00805F9B34FB" }
 }
 
-/// Every family today: face and firmware transfer are documented but not confirmed, so they refuse
-/// with a reason instead of sending guessed bytes. Replace per family after Phase-2 captures.
+/// Firmware update is never performed: the flow is unconfirmed and a bad flash can brick the watch.
 public struct UnconfirmedFamilyPlugin: FamilyPlugin {
     public let family: DeviceFamily
-
-    public func installFace(imageRGB565: Data, width: Int, height: Int) async throws -> TransferProgress {
-        switch family {
-        case .sifli:
-            throw WatchError.protocolUnconfirmed("SiFli watch-face push (wf.zip over SiFli serial transport) is not confirmed")
-        case .nordic:
-            throw WatchError.protocolUnconfirmed("Nordic watch faces are installed through DFU; package format unknown")
-        case .bluetrum, .generic, .hisilicon:
-            throw WatchError.protocolUnconfirmed("Photo-face image packets (startSendPic / sendImageContent) are not confirmed")
-        }
-    }
 
     public func updateFirmware(file: URL, consent: UserConsent) async throws {
         // Never flash without a confirmed flow (CLAUDE.md). Consent alone is not enough.
