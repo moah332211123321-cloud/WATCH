@@ -179,7 +179,9 @@ public actor WakeupDriver: WatchDriver {
             try? await perform(.highSpeed(false))
             throw error
         }
-        try await write(PhotoFace.frame(for: style))
+        // Classic style only: on the user's watch the face showed after `AB…9C`, not after `EA…0D` (logs 11-10, 11-12).
+        try await write(PhotoFace.style(red: style.red, green: style.green, blue: style.blue,
+                                        font: style.font, location: style.location))
         try await write(PhotoFace.puzzleFlag(false))
         try? await perform(.highSpeed(false))
     }

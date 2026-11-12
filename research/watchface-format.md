@@ -100,8 +100,12 @@ Evidence: `com/compress/utils/DialConvertTool.java`, `ImageConvertTool.java`, `W
 transfer). **Every other watch → `NordicDialUtil.start` = Nordic Secure DFU** (`DfuServiceInitiator`
 `.setZip(file)`, keepBond, PRN 12, MTU 512, buttonless-without-bond enabled). So on a Nordic watch a
 market face goes through the **bootloader, the same path as a firmware update**.
-User's watch (UrjwanPlus fw 1.02): GATT has FE59 (Nordic DFU); platform byte not received yet
-(log header `platform: -`) → it most likely takes the DFU path (I).
+User's watch (UrjwanPlus fw 1.02), log 2026-11-12: GATT services are **only `6E400001` and `FE59`**
+— no `6E400011` file-transfer service, platform byte still not received → the generic file path is
+not available; a `.bin` face could only go through Nordic DFU (O services, I path).
+Same log: photo transfer completed (135 packages, final ack `AD 02 00 87 01`) but the face did not
+change when the style was sent as `EA … 0D`; it showed on 11-10 after `AB … 9C`. Install now always
+sends the classic style.
 
 **File layout (D, from 4 MIT-labelled samples in github.com/fbiego/watch-face-wearfit; files are
 named like vendor market ids, so the artwork is the vendor's — used only to learn the layout):**

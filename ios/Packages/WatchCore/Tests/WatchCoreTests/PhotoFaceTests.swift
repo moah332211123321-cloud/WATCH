@@ -103,7 +103,7 @@ final class PhotoFaceDriverTests: XCTestCase {
             return [0xAD, 0x00, 0x00, UInt8(acks)]
         }
         let pixels = Data(repeating: 0x11, count: 32 * 32 * 2)
-        try await d.installPhotoFace(pixels: pixels, style: PhotoFaceStyle(red: 255, green: 255, blue: 255),
+        try await d.installPhotoFace(pixels: pixels, style: PhotoFaceStyle(red: 255, green: 255, blue: 255, function: 5),
                                      consent: UserConsent(confirmedPhrase: "TRY")) { _ in }
         XCTAssertEqual(acks, 2)
         XCTAssertEqual(t.writes.first, [0xAB, 0x00, 0x04, 0xFF, 0x87, 0x80, 0x01])   // high speed on
