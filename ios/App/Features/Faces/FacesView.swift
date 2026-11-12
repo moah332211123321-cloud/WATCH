@@ -66,7 +66,7 @@ struct FacesView: View {
                     .accessibilityLabel(Text(L("Add face")))
                 }
             }
-            .fileImporter(isPresented: $importing, allowedContentTypes: [.image]) { result in
+            .fileImporter(isPresented: $importing, allowedContentTypes: [.image], allowsMultipleSelection: true) { result in
                 importFile(result)
             }
             .alert(L("Import failed"), isPresented: Binding(get: { importError != nil }, set: { if !$0 { importError = nil } })) {
@@ -75,14 +75,15 @@ struct FacesView: View {
         }
     }
 
-    private func importFile(_ result: Result<URL, Error>) {
+    private func importFile(_ result: Result<[URL], Error>) {
         do {
-            let url = try result.get()
-            let scoped = url.startAccessingSecurityScopedResource()
-            defer { if scoped { url.stopAccessingSecurityScopedResource() } }
-            let data = try Data(contentsOf: url)
-            guard UIImage(data: data) != nil else { importError = S("This file is not an image."); return }
-            context.insert(WatchFaceRecord(name: url.deletingPathExtension().lastPathComponent, imageData: data))
+            for url in try result.get() {
+                let scoped = url.startAccessingSecurityScopedResource()
+                defer { if scoped { url.stopAccessingSecurityScopedResource() } }
+                let data = try Data(contentsOf: url)
+                guard UIImage(data: data) != nil else { importError = S("This file is not an image."); continue }
+                context.insert(WatchFaceRecord(name: url.deletingPathExtension().lastPathComponent, imageData: data))
+            }
             try context.save()
         } catch {
             importError = error.localizedDescription

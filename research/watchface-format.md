@@ -110,8 +110,10 @@ named like vendor market ids, so the artwork is the vendor's — used only to le
 - Seen types: `09` static image (record 0 = background 240×280), `0d` pre-rotated hand frames
   (centre 120,140, one record per angle step), `00/01/02/03` digit strips (h = 10 × digit height →
   10 glyphs stacked), `06` other bound images. Several records share one offset (shared glyph strip).
-- Image data is **compressed** (a 240×280 background takes ~508 bytes, raw RGB565 would be 134 400):
-  encoding U (looks row-based).
+- Image data (O, decoded and checked visually on the user's 1 139 files, `research/tools/dial_bg.py`):
+  `[start, end)` is a **RGB565 LE palette** (≤ 256 entries), followed by **w·h one-byte palette
+  indices**, uncompressed (next image starts at `end + w·h`). Animated backgrounds are frames stacked
+  vertically (h = frames × screen height). 19 files use another background encoding (U).
 - Trailer: Chronos appends ASCII `screenConfig` + one byte (`tag.py`), not part of the vendor file.
 - Samples are 240×280; the user's watch reports 240×288 (byte-18 table) — size match U.
 

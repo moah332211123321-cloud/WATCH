@@ -26,6 +26,7 @@ final class DeviceController {
     var info: DeviceInfo?
     var capabilities = Capabilities()
     var family: DeviceFamily = .generic
+    var services: [String] = []  // GATT services, written into the Bluetooth log (face install path)
     var lastSync: Date?
     var isSyncing = false
     var syncError: String?
@@ -112,6 +113,7 @@ final class DeviceController {
             guard connectedID != id || driver == nil else { return }
             connectedID = id
             family = DriverFactory.family(forServiceUUIDs: services)
+            self.services = services
             let driver = WakeupDriver(transport: ble, family: family) { [weak self] outgoing, bytes in
                 let line = PacketLine(date: Date(), outgoing: outgoing, hex: bytes.hex)
                 Task { @MainActor in self?.appendLog(line) }

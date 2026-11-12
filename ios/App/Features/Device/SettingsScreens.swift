@@ -417,7 +417,8 @@ struct PacketLogView: View {
     private func writeFile() {
         var text = "Sawar Bluetooth log\nwatch: \(device.connectedName)\nfirmware: \(device.info?.firmwareVersion ?? "-")\n"
         text += "family: \(device.family.rawValue) platform: \(device.platform.map { String($0.platform) } ?? "-")"
-        text += " screen: \(device.screen.map { "\($0.width)x\($0.height) shape \($0.shape)" } ?? "-")\n\n"
+        text += " screen: \(device.screen.map { "\($0.width)x\($0.height) shape \($0.shape)" } ?? "-")\n"
+        text += "services: \(device.services.joined(separator: " "))\n\n"
         text += device.packetLog.map { "\(Self.stamp($0.date)) \($0.outgoing ? "TX" : "RX") \($0.hex)" }.joined(separator: "\n")
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("sawar-bluetooth-log.txt")
         do { try text.write(to: url, atomically: true, encoding: .utf8); exportURL = url } catch { exportURL = nil }

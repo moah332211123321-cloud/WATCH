@@ -24,3 +24,6 @@ btsnoop_hci.log*
 bugreport*.zip
 ios/Payload/
 *.ipa
+
+# user-supplied watch face files (vendor artwork, never commit)
+myfaces/
