@@ -30,11 +30,11 @@ final class PhotoFaceTests: XCTestCase {
 
     func testCommandFrames() {
         XCTAssertEqual(PhotoFace.backgroundCount(1).bytes.hex, "AB 00 04 FF AD 80 01")
-        XCTAssertEqual(PhotoFace.style(red: 255, green: 128, blue: 0).bytes.hex, "AB 00 07 FF 9C FF 80 00 00 01")
+        XCTAssertEqual(PhotoFace.style(red: 255, green: 128, blue: 0).bytes.hex, "AB 00 07 FF 9C FF 80 00 01 01")
         XCTAssertEqual(PhotoFace.newStyle(red: 1, green: 2, blue: 3, font: 4, location: 2, function: 6).bytes.hex,
                        "EA 00 09 00 0D 01 01 02 03 04 02 06")
         XCTAssertEqual(PhotoFace.frame(for: PhotoFaceStyle(red: 9, green: 9, blue: 9, function: 3)).bytes.hex,
-                       "EA 00 09 00 0D 01 09 09 09 00 01 03")
+                       "EA 00 09 00 0D 01 09 09 09 01 01 03")
         XCTAssertEqual(PhotoFace.puzzleFlag(false).bytes.hex, "EA 00 04 00 08 00 00")
     }
 
@@ -110,7 +110,7 @@ final class PhotoFaceDriverTests: XCTestCase {
         XCTAssertEqual(t.writes[1], [0xAB, 0x00, 0x04, 0xFF, 0xAD, 0x80, 0x01])
         XCTAssertEqual(t.writes[2].first, 0xAD)            // info packet of package 0
         XCTAssertEqual(t.writes[2].count, 12)
-        XCTAssertEqual(t.writes[t.writes.count - 3], [0xAB, 0x00, 0x07, 0xFF, 0x9C, 0xFF, 0xFF, 0xFF, 0x00, 0x01])
+        XCTAssertEqual(t.writes[t.writes.count - 3], [0xAB, 0x00, 0x07, 0xFF, 0x9C, 0xFF, 0xFF, 0xFF, 0x01, 0x01])
         XCTAssertEqual(t.writes[t.writes.count - 2], [0xEA, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00])
         XCTAssertEqual(t.writes.last, [0xAB, 0x00, 0x04, 0xFF, 0x87, 0x80, 0x00])     // high speed off
     }

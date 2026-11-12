@@ -47,7 +47,7 @@ struct ExperimentalInstallSection<Background: View>: View {
     let background: Background
     let timeColor: Color
     @AppStorage("faceLocation") private var location = 1
-    @AppStorage("faceFont") private var font = 0
+    @AppStorage("faceFontV2") private var font = 1 // new key: font 0 drew no time on the user's watch
     @AppStorage("faceFunction") private var function = -1 // -1 = no data widget (classic style command)
     @State private var confirm = false
     @State private var state: SendState = .idle

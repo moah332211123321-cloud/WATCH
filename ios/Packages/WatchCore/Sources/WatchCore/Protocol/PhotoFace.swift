@@ -51,8 +51,9 @@ public enum PhotoFace {
     }
 
     /// `AB 00 07 FF 9C R G B font location` (`TransferOrder.sendStyle`). Location codes 1, 2, 3 are
-    /// built into the reference app (`AlbumDialActivity` position list, 1 selected by default).
-    public static func style(red: UInt8, green: UInt8, blue: UInt8, font: UInt8 = 0, location: UInt8 = 1) -> Frame {
+    /// built into the reference app (`AlbumDialActivity` position list, 1 selected by default). Font
+    /// codes come from the maker's server; font 0 drew no time on the user's watch (log 2026-11-10), so 1 is the default.
+    public static func style(red: UInt8, green: UInt8, blue: UInt8, font: UInt8 = 1, location: UInt8 = 1) -> Frame {
         .classic([0x9C, red, green, blue, font, location])
     }
 
@@ -89,7 +90,7 @@ public struct PhotoFaceStyle: Equatable, Sendable {
     public var font: UInt8
     public var location: UInt8
     public var function: UInt8?
-    public init(red: UInt8, green: UInt8, blue: UInt8, font: UInt8 = 0, location: UInt8 = 1, function: UInt8? = nil) {
+    public init(red: UInt8, green: UInt8, blue: UInt8, font: UInt8 = 1, location: UInt8 = 1, function: UInt8? = nil) {
         self.red = red; self.green = green; self.blue = blue
         self.font = font; self.location = location; self.function = function
     }

@@ -92,6 +92,34 @@ Evidence: `com/compress/utils/DialConvertTool.java`, `ImageConvertTool.java`, `W
   SiFli faces are a zip; inner format U. Bundled `assets/watchFace/*.png` (bg, date_NNN, time_NNN,
   frame_N, preview) are template element images used by the app — **not to be copied**.
 
+## 3b. Market face install dispatch, and the `<id>_2_dial.bin` format (2026-11-12)
+
+**Dispatch (O, `asm2/com.wakeup.module.device.DeviceTransServiceImpl.txt` `startPushDial`):**
+`type = DeviceLocalSupports.getType(mac)`; if type ∈ {9, 11, 12} **and** `isSupportFileTrans(mac)` →
+`FtpTransferMgr.startPushDial` → `FileTransferMgr.startPushFile(path, "watchface")` (generic file
+transfer). **Every other watch → `NordicDialUtil.start` = Nordic Secure DFU** (`DfuServiceInitiator`
+`.setZip(file)`, keepBond, PRN 12, MTU 512, buttonless-without-bond enabled). So on a Nordic watch a
+market face goes through the **bootloader, the same path as a firmware update**.
+User's watch (UrjwanPlus fw 1.02): GATT has FE59 (Nordic DFU); platform byte not received yet
+(log header `platform: -`) → it most likely takes the DFU path (I).
+
+**File layout (D, from 4 MIT-labelled samples in github.com/fbiego/watch-face-wearfit; files are
+named like vendor market ids, so the artwork is the vendor's — used only to learn the layout):**
+- `u32 LE` element count N, then N records of 20 bytes, then image data (first record's offset = 4 + 20·N).
+- Record: `type u8, flags u8, u16 ?, x u16, y u16, w u16, h u16, start u32, end u32` (all LE).
+- Seen types: `09` static image (record 0 = background 240×280), `0d` pre-rotated hand frames
+  (centre 120,140, one record per angle step), `00/01/02/03` digit strips (h = 10 × digit height →
+  10 glyphs stacked), `06` other bound images. Several records share one offset (shared glyph strip).
+- Image data is **compressed** (a 240×280 background takes ~508 bytes, raw RGB565 would be 134 400):
+  encoding U (looks row-based).
+- Trailer: Chronos appends ASCII `screenConfig` + one byte (`tag.py`), not part of the vendor file.
+- Samples are 240×280; the user's watch reports 240×288 (byte-18 table) — size match U.
+
+**DFU package around the .bin: U.** The server sends a zip for `setZip`; the init packet (`.dat`)
+may be signed (Secure DFU). Not obtainable without the private market API. **Not implemented**:
+writing through the bootloader can brick the watch; needs the CLAUDE.md firmware gate (confirmed
+flow + explicit user consent for each attempt). If the init packet must be signed → `blocked-protocol`.
+
 ## 4. Status for the iOS app (proposed)
 
 - Photo face: implemented as an explicit **experimental** action (layout from source, untested on a watch).
@@ -104,3 +132,8 @@ Evidence: `com/compress/utils/DialConvertTool.java`, `ImageConvertTool.java`, `W
 2. SiFli picture path (`SichePictureTransfer`) and the `.par` format for platforms 9/12: not implemented.
 3. Inner format of SiFli `wf.zip` and Nordic DFU face packages.
 4. Delete / replace face commands (labels not found in the builders yet — U).
+5. Photo-face time not drawn (user photo, log 2026-11-10): the picture showed, no time. Command order
+   matches the reference (`NormalMTransfer.sendInfo` → `setStyle` → `sendIsPuzzle`, speed on/off
+   around it). Every classic `AB … 9C` style was sent with **font 0**; font values only come from the
+   server (`DialStyleModel.font`, no local defaults). Hypothesis (I): 0 = no time. Sawar now defaults to
+   font 1; the next log must show `9C … 01 01` and whether the time appears.
